@@ -168,7 +168,24 @@ table tr:nth-child(even) td{background:#f0f5fa;}
 <div class="guide-form-box">
 <h2>無料ガイドを受け取る</h2>
 <p style="font-size:14px;color:#6b7280;margin:0 0 20px;line-height:1.7;">下記フォームにご記入いただくと、ご入力のメールアドレスにガイドのURLをお送りします。記入は1分ほどで完了します。</p>
-<iframe src="https://traingo.fp-1.info/f/traingo-eaci" style="width:100%;min-height:900px;border:none;" loading="lazy" title="Traingoに関するお問い合わせ"></iframe></div>
+<iframe
+  id="traingo-embed"
+  src="https://traingo.fp-1.info/f/traingo-eaci?embed=1"
+  width="100%"
+  frameborder="0"
+  scrolling="no"
+  style="border:0;background:transparent;max-width:560px;display:block;margin:0 auto;height:600px;min-height:600px"
+></iframe>
+<script>
+  window.addEventListener("message", function (e) {
+    if (e.origin !== "https://traingo.fp-1.info") return;
+    if (e.data && e.data.type === "traingo:resize" && e.data.height) {
+      var el = document.getElementById("traingo-embed");
+      el.style.height = e.data.height + "px";
+      el.style.minHeight = "0";
+    }
+  });
+</script></div>
 </div>
 <div class="supervisor-box" id="supervisor">
 <div class="supervisor-avatar"><img src="https://fp-1.info/hojokin/wp-content/uploads/2026/05/akutsu-portrait.jpg" alt="阿久津 和宏" style="width:100%;height:100%;border-radius:50%;object-fit:cover;"></div>

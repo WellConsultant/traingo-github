@@ -35,7 +35,24 @@ body{font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic Medium',
 <div class="contact-page">
   <h1>お問い合わせ</h1>
   <p class="lead">研修プランのご相談・IT導入補助金・人材開発支援助成金の活用など、お気軽にお問い合わせください。<br>2営業日以内にご返信いたします。</p>
-  <iframe src="https://traingo.fp-1.info/f/traingo-eaci" style="width:100%;min-height:900px;border:none;" loading="lazy" title="Traingoに関するお問い合わせ"></iframe>
+  <iframe
+  id="traingo-embed"
+  src="https://traingo.fp-1.info/f/traingo-eaci?embed=1"
+  width="100%"
+  frameborder="0"
+  scrolling="no"
+  style="border:0;background:transparent;max-width:560px;display:block;margin:0 auto;height:600px;min-height:600px"
+></iframe>
+<script>
+  window.addEventListener("message", function (e) {
+    if (e.origin !== "https://traingo.fp-1.info") return;
+    if (e.data && e.data.type === "traingo:resize" && e.data.height) {
+      var el = document.getElementById("traingo-embed");
+      el.style.height = e.data.height + "px";
+      el.style.minHeight = "0";
+    }
+  });
+</script>
 <script>(function(){function k(){
 document.documentElement.style.setProperty('margin-top','0','important');
 document.body.style.setProperty('margin-top','0','important');document.body.style.setProperty('padding-top','0','important');
