@@ -1,3 +1,5 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- wp:html -->
 <style>
 
@@ -195,7 +197,7 @@ table tr:nth-child(even) td{background:#f0f5fa;}
 <p class="gnote">ご記入いただいた情報は、ガイドの送付およびご連絡の目的でのみ使用いたします。</p>
 </form>
 <script>
-document.getElementById('tgGuideForm').addEventListener('submit',function(e){e.preventDefault();var f=this;var req=[f.name,f.company,f.email];var err=document.getElementById('tg-guide-error');var ok=true;req.forEach(function(el){if(!el||!el.value.trim())ok=false;});if(!ok){err.style.display='block';return;}err.style.display='none';var b=f.querySelector('.gsubmit');if(b){b.disabled=true;b.textContent='送信中...';}var fd=new FormData(f);fetch('https://fp-1.info/traingo/wp-json/traingo/v1/contact',{method:'POST',body:fd}).then(function(r){return r.json();}).catch(function(){}).finally(function(){window.location.href='https://fp-1.info/traingo/contact-thanks/';});});
+document.getElementById('tgGuideForm').addEventListener('submit',function(e){e.preventDefault();var f=this;var req=[f.name,f.company,f.email];var err=document.getElementById('tg-guide-error');var ok=true;req.forEach(function(el){if(!el||!el.value.trim())ok=false;});if(!ok){err.style.display='block';return;}err.style.display='none';var b=f.querySelector('.gsubmit');if(b){b.disabled=true;b.textContent='送信中...';}fetch('https://traingo.fp-1.info/api/public/free-forms/traingo-eaci/signup',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:f.email.value,full_name:f.name.value,phone:f.phone.value,company:f.company.value,comment:f.message.value,source:'traingo-static-guide'})}).then(function(r){return r.json();}).catch(function(){}).finally(function(){window.location.href='https://fp-1.info/traingo/contact-thanks/';});});
 </script></div>
 </div>
 <div class="supervisor-box" id="supervisor">
