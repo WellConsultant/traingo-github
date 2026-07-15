@@ -179,26 +179,7 @@ table tr:nth-child(even) td{background:#f0f5fa;}
 <div class="guide-form-box">
 <h2>無料ガイドを受け取る</h2>
 <p style="font-size:14px;color:#6b7280;margin:0 0 20px;line-height:1.7;">下記フォームにご記入いただくと、担当者より「Traingo活用ガイド」をお送りします。記入は1分ほどで完了します。</p>
-<form class="guide-form" id="tgGuideForm" novalidate>
-<input type="hidden" name="source_page" value="/traingo/guide/">
-<input type="hidden" name="topic" value="Traingo活用ガイド請求">
-<div class="grow"><label>お名前<span class="req">必須</span></label>
-<input type="text" name="name" required placeholder="例：山田 太郎"></div>
-<div class="grow"><label>会社名・屋号<span class="req">必須</span></label>
-<input type="text" name="company" required placeholder="例：株式会社サンプル"></div>
-<div class="grow"><label>メールアドレス<span class="req">必須</span></label>
-<input type="email" name="email" required placeholder="例：yamada@example.co.jp"></div>
-<div class="grow"><label>電話番号</label>
-<input type="tel" name="phone" placeholder="例：090-1234-5678（任意）"></div>
-<div class="grow"><label>ご相談・ご質問</label>
-<textarea name="message" rows="3" placeholder="検討中の社員数・対象テーマ・想定スケジュールなど、あればお書きください（任意）"></textarea></div>
-<div id="tg-guide-error" style="display:none;color:#dc2626;font-size:13px;margin-bottom:12px;font-weight:700;">お名前・会社名・メールアドレスをご入力ください。</div>
-<button type="submit" class="gsubmit">この内容でガイドを受け取る</button>
-<p class="gnote">ご記入いただいた情報は、ガイドの送付およびご連絡の目的でのみ使用いたします。</p>
-</form>
-<script>
-document.getElementById('tgGuideForm').addEventListener('submit',function(e){e.preventDefault();var f=this;var req=[f.name,f.company,f.email];var err=document.getElementById('tg-guide-error');var ok=true;req.forEach(function(el){if(!el||!el.value.trim())ok=false;});if(!ok){err.style.display='block';return;}err.style.display='none';var b=f.querySelector('.gsubmit');if(b){b.disabled=true;b.textContent='送信中...';}fetch('https://traingo.fp-1.info/api/public/free-forms/traingo-eaci/signup',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:f.email.value,full_name:f.name.value,phone:f.phone.value,company:f.company.value,comment:f.message.value,source:'traingo-static-guide'})}).then(function(r){return r.json();}).catch(function(){}).finally(function(){window.location.href='https://fp-1.info/traingo/contact-thanks/';});});
-</script></div>
+<iframe src="https://traingo.fp-1.info/f/traingo-eaci" style="width:100%;min-height:900px;border:none;" loading="lazy" title="Traingoに関するお問い合わせ"></iframe></div>
 </div>
 <div class="supervisor-box" id="supervisor">
 <div class="supervisor-avatar"><img src="https://fp-1.info/hojokin/wp-content/uploads/2026/05/akutsu-portrait.jpg" alt="阿久津 和宏" style="width:100%;height:100%;border-radius:50%;object-fit:cover;"></div>
