@@ -941,7 +941,7 @@ function sendFb(){
   var name=document.getElementById('fb-name').value;
   var body=document.getElementById('fb-body').value;
   if(!body.trim()){alert('内容を入力してください');return;}
-  fetch('/api/feedback',{
+  fetch('https://traingo.fp-1.info/api/feedback',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
     body:JSON.stringify({name:name,message:body,sourcePage:'管理者マニュアル'})

@@ -824,7 +824,7 @@ html{margin-top:0!important;}
     var name=document.getElementById('fb-name').value,
         email=document.getElementById('fb-email').value,
         msg=document.getElementById('fb-message').value;
-    fetch('/api/feedback', {
+    fetch('https://traingo.fp-1.info/api/feedback', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name: name, email: email, message: msg, sourcePage: '会社管理者マニュアル' })

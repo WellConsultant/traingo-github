@@ -615,7 +615,7 @@ html{margin-top:0!important;}
     if(!body){alert('内容を入力してください。'); return;}
     var btn = document.querySelector('.fb-actions .send');
     btn.disabled = true; btn.textContent = '送信中...';
-    fetch('/api/feedback',{
+    fetch('https://traingo.fp-1.info/api/feedback',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({name:name, message:body, sourcePage:'受講者マニュアル'})
