@@ -179,25 +179,23 @@ table tr:nth-child(even) td{background:#f0f5fa;}
 <div class="guide-form-box">
 <h2>無料ガイドを受け取る</h2>
 <p style="font-size:14px;color:#6b7280;margin:0 0 20px;line-height:1.7;">下記フォームにご記入いただくと、担当者より「Traingo活用ガイド」をお送りします。記入は1分ほどで完了します。</p>
-<form class="guide-form" id="tgGuideForm" novalidate>
-<input type="hidden" name="source_page" value="/traingo/guide/">
-<input type="hidden" name="topic" value="Traingo活用ガイド請求">
-<div class="grow"><label>お名前<span class="req">必須</span></label>
-<input type="text" name="name" required placeholder="例：山田 太郎"></div>
-<div class="grow"><label>会社名・屋号<span class="req">必須</span></label>
-<input type="text" name="company" required placeholder="例：株式会社サンプル"></div>
-<div class="grow"><label>メールアドレス<span class="req">必須</span></label>
-<input type="email" name="email" required placeholder="例：yamada@example.co.jp"></div>
-<div class="grow"><label>電話番号</label>
-<input type="tel" name="phone" placeholder="例：090-1234-5678（任意）"></div>
-<div class="grow"><label>ご相談・ご質問</label>
-<textarea name="message" rows="3" placeholder="検討中の社員数・対象テーマ・想定スケジュールなど、あればお書きください（任意）"></textarea></div>
-<div id="tg-guide-error" style="display:none;color:#dc2626;font-size:13px;margin-bottom:12px;font-weight:700;">お名前・会社名・メールアドレスをご入力ください。</div>
-<button type="submit" class="gsubmit">この内容でガイドを受け取る</button>
-<p class="gnote">ご記入いただいた情報は、ガイドの送付およびご連絡の目的でのみ使用いたします。</p>
-</form>
+<iframe
+  id="traingo-embed"
+  src="https://traingo.fp-1.info/f/traingo-eaci?embed=1"
+  width="100%"
+  frameborder="0"
+  scrolling="no"
+  style="border:0;background:transparent;width:100%;display:block;margin:0 auto;height:600px;min-height:600px"
+></iframe>
 <script>
-document.getElementById('tgGuideForm').addEventListener('submit',function(e){e.preventDefault();var f=this;var req=[f.name,f.company,f.email];var err=document.getElementById('tg-guide-error');var ok=true;req.forEach(function(el){if(!el||!el.value.trim())ok=false;});if(!ok){err.style.display='block';return;}err.style.display='none';var b=f.querySelector('.gsubmit');if(b){b.disabled=true;b.textContent='送信中...';}var fd=new FormData(f);fetch('https://fp-1.info/traingo/wp-json/traingo/v1/contact',{method:'POST',body:fd}).then(function(r){return r.json();}).catch(function(){}).finally(function(){window.location.href='https://fp-1.info/traingo/contact-thanks/';});});
+  window.addEventListener("message", function (e) {
+    if (e.origin !== "https://traingo.fp-1.info") return;
+    if (e.data && e.data.type === "traingo:resize" && e.data.height) {
+      var el = document.getElementById("traingo-embed");
+      el.style.height = e.data.height + "px";
+      el.style.minHeight = "0";
+    }
+  });
 </script></div>
 </div>
 <div class="supervisor-box" id="supervisor">
