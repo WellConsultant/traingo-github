@@ -1,0 +1,330 @@
+<!-- wp:html -->
+<style>
+
+:root,html,body{--wp--style--global--content-size:100%!important;--wp--style--global--wide-size:100%!important;--wp--style--root--padding-top:0!important;--wp--style--root--padding-right:0!important;--wp--style--root--padding-bottom:0!important;--wp--style--root--padding-left:0!important;}
+body,body.page,body.home,body.single,body.single-post{margin:0!important;padding:0!important;padding-top:0!important;}
+.wp-site-blocks,.wp-site-blocks>main,main.wp-block-group,.wp-block-group.has-global-padding,.wp-block-post-content,.entry-content,.wp-block-group.alignfull,.wp-block-group-is-layout-constrained,.wp-block-post-content-is-layout-constrained,.wp-block-html,article.post,article.page,.post,.hentry,.page{max-width:100%!important;width:100%!important;margin:0!important;padding:0!important;}
+.has-global-padding,.has-global-padding>.alignfull{padding-left:0!important;padding-right:0!important;}
+.wp-block-post-title,.entry-header,.entry-title,header.entry-header,.wp-block-template-part header,header.wp-block-template-part,.wp-site-blocks>header,.wp-block-site-title,.wp-block-navigation,.wp-block-template-part[data-area="header"],aside.sidebar,.widget-area,.sidebar,#secondary{display:none!important;}
+.entry-meta,.post-meta,.byline,.posted-on,.cat-links,.author,.tags-links,.comments-link,.wp-block-post-author,.wp-block-post-author__bio,.wp-block-post-author-name,.wp-block-post-date,.wp-block-post-terms,.wp-block-post-excerpt,p.has-text-align-right,.screen-reader-text{display:none!important;}
+#wpadminbar,#wpadminbar *{display:none!important;}
+html{margin-top:0!important;}
+.wp-site-blocks>footer,.wp-block-template-part[data-area="footer"],footer.wp-block-template-part{display:none!important;}
+footer:not(.custom-footer){display:none!important;}
+.post-navigation,.posts-navigation,.nav-previous,.nav-next,.wp-block-query-pagination,.more-link,a.more-link,.wp-block-post-navigation-link,nav[aria-label="投稿ナビゲーション"]{display:none!important;}
+.wp-block-query{display:none!important;}
+#comments,.comments-area,.comment-respond,.wp-block-comments{display:none!important;}
+.is-layout-constrained>.wp-block-html,.is-layout-constrained>.wp-block-group:not(.alignwide):not(.alignfull){max-width:100%!important;margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important;}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP','Meiryo',sans-serif;font-size:16px;line-height:1.85;color:#222;background:#f7f7f5;}
+a{color:#2563eb;}
+.blog-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#0f1f33;}
+.blog-nav .nav-inner{max-width:1160px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:62px;}
+.blog-nav .nav-logo{color:#fff;font-weight:800;font-size:16px;text-decoration:none;letter-spacing:.02em;}
+.blog-nav .nav-logo span{color:#f59e0b;}
+.blog-nav .nav-links{display:flex;align-items:center;gap:24px;}
+.blog-nav .nav-links a{color:#fff;font-size:13px;text-decoration:none;transition:color .2s;}
+.blog-nav .nav-links a:hover{color:#f59e0b;}
+.blog-nav .nav-cta{background:#f59e0b;color:#fff !important;padding:8px 20px;border-radius:4px;font-weight:bold;font-size:13px;}
+.blog-nav .nav-cta:hover{background:#d98a06 !important;}
+.blog-nav-spacer{height:62px;}
+.breadcrumb{background:#e8edf3;padding:10px 0;font-size:13px;}
+.breadcrumb ol{list-style:none;display:flex;flex-wrap:wrap;gap:4px;max-width:1160px;margin:0 auto;padding:0 20px;}
+.breadcrumb li+li::before{content:'>';margin-right:4px;color:#888;}
+.breadcrumb a{color:#1a3a5c;text-decoration:none;}
+.page-layout{display:flex;flex-direction:row;gap:32px;max-width:1160px;margin:0 auto;padding:32px 20px 60px;align-items:flex-start;}
+.main-wrap{flex:1;min-width:0;max-width:820px;}
+.blog-sidebar{width:300px;flex-shrink:0;position:sticky;top:78px;align-self:flex-start;}
+.article-thumb{width:100%;height:auto;border-radius:8px;display:block;margin-bottom:28px;}
+.article-header{margin-bottom:28px;}
+.article-cat{display:inline-block;color:#fff;font-size:12px;font-weight:700;padding:3px 12px;border-radius:3px;margin-bottom:12px;}
+.article-title{font-size:28px;font-weight:900;color:#0f1f33;line-height:1.4;margin-bottom:12px;}
+.article-meta{font-size:13px;color:#6b7280;display:flex;gap:16px;flex-wrap:wrap;}
+.article-meta time{color:#1a3a5c;}
+.article-body{color:#333;}
+.article-body p{margin-bottom:1.4em;}
+.article-body h2{font-size:22px;font-weight:900;color:#0f1f33;border-left:5px solid #f59e0b;padding:6px 0 6px 14px;margin:48px 0 20px;line-height:1.4;}
+.article-body h3{font-size:18px;font-weight:700;color:#1a3a5c;border-bottom:2px solid #c8d8e8;padding-bottom:6px;margin:32px 0 16px;}
+.article-body ul,.article-body ol{margin:0 0 1.4em 1.4em;}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:#0f1f33;}
+.lead-box{background:#eef3fb;border-left:4px solid #2563eb;padding:20px 24px;border-radius:4px;margin-bottom:32px;}
+.lead-box p{margin-bottom:0;color:#0f1f33;font-weight:500;}
+.point-box{background:#fff8ed;border:2px solid #f59e0b;border-radius:6px;padding:20px 24px;margin:24px 0;}
+.point-box .point-box-title{font-size:14px;font-weight:700;color:#c47f06;margin-bottom:10px;}
+.point-box ul{padding-left:1.4em;margin:0;}
+.point-box li{margin-bottom:6px;}
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:15px;}
+table thead tr{background:#1a3a5c;color:#fff;}
+table th{padding:12px 14px;text-align:left;font-weight:700;}
+table td{padding:12px 14px;border-bottom:1px solid #d0dcea;vertical-align:top;}
+table tr:nth-child(even) td{background:#f0f5fa;}
+.inline-fig{display:block;margin:28px auto;width:100%;}
+.inline-fig img{width:100%;max-width:760px;height:auto;border-radius:8px;display:block;margin:0 auto;}
+.inline-fig figcaption{font-size:13px;color:#6b7280;text-align:center;margin-top:8px;}
+.source-box{background:#f9fafc;border:1px dashed #aabbcc;padding:16px 20px;margin:32px 0;font-size:13px;color:#555;border-radius:4px;}
+.source-box strong{color:#1a3a5c;display:block;margin-bottom:6px;}
+.source-box ul{padding-left:1.4em;margin:0;}
+.source-box a{color:#2563eb;word-break:break-all;}
+.faq-section{margin:40px 0;}
+.faq-item{border:1px solid #c8d8e8;border-radius:6px;margin-bottom:12px;overflow:hidden;}
+.faq-q{background:#1a3a5c;color:#fff;padding:14px 18px;font-weight:700;font-size:15px;display:flex;gap:10px;align-items:flex-start;}
+.faq-q .faq-icon{flex-shrink:0;color:#f59e0b;font-size:18px;font-weight:900;}
+.faq-a{padding:16px 18px;background:#fff;font-size:15px;display:flex;gap:10px;align-items:flex-start;}
+.faq-a .faq-icon{flex-shrink:0;color:#1a3a5c;font-size:18px;font-weight:900;}
+.faq-a p{margin-bottom:0;}
+.supervisor-box{display:flex;gap:20px;align-items:flex-start;border:1px solid #c8d8e8;border-radius:8px;padding:24px;margin:40px 0;background:#f5f8fc;}
+.supervisor-avatar{flex-shrink:0;width:72px;height:72px;border-radius:50%;background:#1a3a5c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;}
+.supervisor-info{flex:1;}
+.supervisor-label{font-size:11px;color:#888;font-weight:700;letter-spacing:.08em;margin-bottom:4px;}
+.supervisor-name{font-size:18px;font-weight:900;color:#0f1f33;margin-bottom:4px;}
+.supervisor-title{font-size:13px;color:#555;margin-bottom:10px;}
+.supervisor-bio{font-size:14px;color:#444;line-height:1.7;}
+.cta-box{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:8px;padding:36px 32px;text-align:center;margin:40px 0;}
+.cta-box h2{font-size:22px;font-weight:900;margin-bottom:12px;border:none;padding:0;color:#fff;}
+.cta-box p{font-size:15px;margin-bottom:24px;color:#cddbe8;}
+.cta-btn{display:inline-block;background:#f59e0b;color:#fff;font-size:17px;font-weight:700;padding:16px 40px;border-radius:4px;text-decoration:none;}
+.cta-btn:hover{background:#d98a06;}
+.related-section{margin:48px 0 32px;}
+.related-section h2{font-size:20px;font-weight:900;color:#0f1f33;border-left:5px solid #f59e0b;padding:4px 0 4px 14px;margin-bottom:20px;}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.related-card{border:1px solid #c8d8e8;border-radius:6px;overflow:hidden;text-decoration:none;color:inherit;background:#fff;display:block;}
+.related-card:hover{box-shadow:0 4px 16px rgba(15,31,51,.12);}
+.related-card-img{width:100%;height:120px;background:#1a3a5c;display:flex;align-items:center;justify-content:center;}
+.related-card-img span{color:#fff;font-size:13px;font-weight:700;text-align:center;padding:8px;line-height:1.5;}
+.related-card-body{padding:14px 16px;}
+.related-card-cat{font-size:11px;color:#f59e0b;font-weight:700;margin-bottom:6px;}
+.related-card-title{font-size:15px;font-weight:700;color:#1a3a5c;line-height:1.4;}
+.genre-nav{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:22px 24px;margin-bottom:36px;}
+.genre-nav-title{font-size:15px;font-weight:800;color:#0f1f33;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #f59e0b;}
+.genre-chips{display:flex;flex-wrap:wrap;gap:10px;}
+.genre-chip{display:inline-flex;align-items:center;gap:8px;background:#eef3fb;color:#1a3a5c;text-decoration:none;font-size:13px;font-weight:700;padding:9px 16px;border-radius:22px;transition:all .2s;}
+.genre-chip span{background:#f59e0b;color:#fff;border-radius:10px;padding:1px 9px;font-size:12px;}
+.genre-chip:hover{background:#1a3a5c;color:#fff;}
+.genre-count{font-size:13px;font-weight:700;color:#f59e0b;margin-left:12px;}
+.sidebar-box{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:20px;margin-bottom:20px;}
+.sidebar-title{font-size:14px;font-weight:800;color:#0f1f33;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #f59e0b;}
+.sidebar-cluster a{display:block;font-size:14px;color:#1a3a5c;text-decoration:none;padding:8px 0;border-bottom:1px solid #eef1f5;}
+.sidebar-cluster a:hover{color:#f59e0b;}
+.sidebar-consult{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:8px;padding:22px;text-align:center;}
+.sidebar-consult p{font-size:13px;color:#cddbe8;margin-bottom:14px;}
+.sidebar-consult .sb-btn{display:block;background:#f59e0b;color:#fff;text-decoration:none;font-weight:700;padding:12px;border-radius:4px;font-size:14px;}
+.sidebar-guide{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;border-radius:8px;padding:22px;margin-bottom:20px;text-align:center;box-shadow:0 4px 14px rgba(217,119,6,.25);}
+.sidebar-guide-badge{display:inline-block;background:rgba(255,255,255,.22);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:4px 12px;border-radius:99px;margin-bottom:12px;}
+.sidebar-guide-title{font-size:18px;font-weight:900;margin-bottom:10px;line-height:1.4;}
+.sidebar-guide-desc{font-size:13px;line-height:1.7;color:#fff8ee;margin-bottom:16px;text-align:left;}
+.sidebar-guide-btn{display:block;background:#fff;color:#0f1f33;text-decoration:none;font-weight:800;padding:13px;border-radius:5px;font-size:14px;transition:transform .15s;}
+.sidebar-guide-btn:hover{transform:translateY(-2px);}
+.sidebar-guide-img{width:100%;border-radius:8px;margin-bottom:14px;display:block;}
+.guide-hero{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:12px;padding:36px 30px;margin-bottom:28px;display:flex;gap:28px;align-items:center;}
+.guide-hero-text{flex:1;}
+.guide-hero-img{width:38%;max-width:280px;border-radius:10px;display:block;box-shadow:0 8px 24px rgba(0,0,0,.25);}
+@media (max-width:680px){.guide-hero{flex-direction:column;}.guide-hero-img{width:70%;max-width:240px;}}
+.guide-hero .gbadge{display:inline-block;background:#f59e0b;color:#fff;font-size:12px;font-weight:800;letter-spacing:.06em;padding:5px 14px;border-radius:99px;margin-bottom:14px;}
+.guide-hero h1{font-size:26px;font-weight:900;line-height:1.5;margin:0 0 14px;color:#fff;}
+.guide-hero p{font-size:15px;line-height:1.85;color:#dbe6f1;margin:0;}
+.guide-check{list-style:none;padding:0;margin:0 0 10px;}
+.guide-check li{position:relative;padding:12px 0 12px 34px;border-bottom:1px solid #eef1f5;font-size:15px;line-height:1.7;color:#1a3a5c;}
+.guide-check li::before{content:"✓";position:absolute;left:2px;top:11px;width:22px;height:22px;background:#f59e0b;color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;}
+.guide-form-box{background:#fff;border:2px solid #f59e0b;border-radius:12px;padding:30px;margin:28px 0;box-shadow:0 6px 22px rgba(15,31,51,.08);}
+.guide-form-box h2{margin-top:0;border:none;padding:0;font-size:21px;}
+.guide-form .grow{margin-bottom:16px;}
+.guide-form label{display:block;font-size:14px;font-weight:700;color:#0f1f33;margin-bottom:6px;}
+.guide-form .req{color:#dc2626;font-size:11px;margin-left:6px;}
+.guide-form input,.guide-form select,.guide-form textarea{width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:6px;font-size:15px;box-sizing:border-box;font-family:inherit;}
+.guide-form .gsubmit{width:100%;background:#f59e0b;color:#fff;border:none;padding:15px;border-radius:6px;font-size:16px;font-weight:800;cursor:pointer;margin-top:6px;}
+.guide-form .gnote{font-size:12px;color:#6b7280;margin-top:12px;text-align:center;}
+.custom-footer{background:#1f2937;color:#fff;padding:44px 24px 24px;margin-top:40px;}
+.footer-inner{max-width:880px;margin:0 auto;text-align:center;}
+.footer-nav{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:24px;justify-content:center;}
+.footer-nav a{font-size:13px;color:#fff;text-decoration:none;}
+.footer-nav a:hover{color:#f59e0b;}
+.footer-copy{font-size:12px;border-top:1px solid rgba(255,255,255,.12);padding-top:16px;color:#aaa;}
+#wpadminbar{display:none!important;}html{margin-top:0!important;}
+@media (max-width:980px){.page-layout{flex-direction:column;}.blog-sidebar{width:100%;}.main-wrap{max-width:100%;}}
+@media (max-width:880px){.blog-nav .nav-links a:not(.nav-cta){display:none!important;}.article-title{font-size:22px;}.related-grid{grid-template-columns:1fr;}.supervisor-box{flex-direction:column;}table{font-size:13px;}table th,table td{padding:10px;}}
+</style>
+<nav class="blog-nav"><div class="nav-inner">
+<a class="nav-logo" href="https://fp-1.info/traingo/">Train<span>go</span></a>
+<div class="nav-links">
+<a href="https://fp-1.info/traingo/">Traingoとは</a>
+<a href="https://fp-1.info/traingo/blog/">Traingoブログ</a>
+<a href="https://fp-1.info/traingo/guide/">Traingo活用ガイド</a>
+<a href="https://fp-1.info/hojokin/#about" target="_blank" rel="noopener">会社紹介</a>
+<a href="https://fp-1.info/traingo/contact/">お問い合わせ</a>
+<a href="https://fp-1.info/hojokin/" target="_blank" rel="noopener">補助金活用型経営</a>
+<a href="https://fp-1.info/traingo/contact/" class="nav-cta">無料相談・資料請求</a>
+</div></div></nav><div class="blog-nav-spacer"></div>
+<nav class="breadcrumb" aria-label="パンくずリスト"><ol>
+<li><a href="https://fp-1.info/traingo/">Traingo</a></li>
+<li><a href="https://fp-1.info/traingo/blog/">ブログ</a></li>
+<li>研修の標準化とは？講師の属人化を防ぐ進め方とポイント</li>
+</ol></nav>
+<div class="page-layout">
+<main class="main-wrap">
+<header class="article-header">
+<span class="article-cat" style="background:#2563eb;">人材育成の基礎知識</span>
+<h1 class="article-title">研修の標準化とは？講師の属人化を防ぐ進め方とポイント</h1>
+<div class="article-meta">
+<span>公開日 <time datetime="2026-06-01">2026-06-01</time></span>
+<span>最終更新 <time datetime="2026-06-01">2026-06-01</time></span>
+</div>
+</header>
+<img class="article-thumb" src="../../assets/uploads/2026/06/kenshu-hyojunka_thumb.png" alt="研修の標準化とは？講師の属人化を防ぐ進め方とポイント">
+<article class="article-body">
+<div class="lead-box">
+<p>「Aさんが教えると丁寧だけど時間がかかる」「Bさんに任せると、教える内容が毎回少しずつ違う」——研修を複数の人が担当していると、こうした品質のばらつきが生まれます。誰が教えても同じ水準にする「研修の標準化」は、教育を仕組みとして安定させる土台です。この記事では、講師の属人化を防ぐ研修の標準化の進め方と、教える内容・順番・修了基準の決め方を、現場目線で解説します。</p>
+</div>
+<figure class="inline-fig"><img alt="図：研修の標準化の概念図。講師ごとにばらついていた研修が、共通の基準で同じ水準に揃う様子を示す" src="../../assets/uploads/2026/06/kenshu-hyojunka-1.png" /><figcaption>図：研修の標準化の概念図。講師ごとにばらついていた研修が、共通の基準で同じ水準に揃う様子を示す</figcaption></figure>
+<h2>研修の標準化とは？まず言葉を整理する</h2>
+<p>研修の標準化とは、誰が講師を担当しても、同じ内容・同じ順番・同じ水準で研修を行えるように、教える中身や進め方をあらかじめ決めて共有することを指します。「標準」という言葉は、揃えるべき基準、という意味で使われています。</p>
+<p>なぜこれが必要かというと、研修は放っておくと、講師ごとにバラついてしまうからです。同じ「新人向け接客研修」でも、ベテランのAさんが教えると経験談が豊富で深い一方、別のBさんが教えると要点は押さえているけれど抜けがある、ということが起こります。受講者からすると、誰に当たるかで学べる内容が変わってしまう。これは公平とは言えませんし、教育の品質が安定しません。</p>
+<p>ここで大切なのは、標準化は「全部を縛ること」ではない、という点です。標準化するのは、教える内容・順番・最低限の到達点といった土台の部分。講師の話し方や、付け加える具体例まで一律に決める必要はありません。土台を揃えたうえで、講師それぞれの持ち味を活かす余地を残す——このバランスが、標準化を進めるうえでの肝になります。</p>
+<p>厚生労働省の能力開発基本調査でも、計画的に行う教育訓練は、企業の人材育成の柱として位置づけられています。計画的であるということは、その場の講師任せではなく、あらかじめ内容や到達点を定めて行うということ。標準化は、この「計画的な研修」を支える考え方だと言えます。</p>
+<h2>なぜ研修は講師に依存してしまうのか</h2>
+<p>そもそも、どうして研修は放っておくと講師に依存（属人化）してしまうのでしょうか。現場を見ていると、原因はだいたい次の3つに整理できることが多いです。</p>
+<h3>1. 教える内容が講師の頭の中にしかない</h3>
+<p>一番大きいのがこれです。何を、どの順番で、どこまで教えるかが、講師個人の経験や記憶に委ねられている。ベテラン講師ほど自分のやり方が固まっているので、それを外に出して共有する機会がありません。結果として、その講師がいないと同じ研修ができない、という状態になります。</p>
+<h3>2. 修了の基準が曖昧</h3>
+<p>「この研修を受けたら、何ができるようになっていればよいか」が定まっていないと、講師ごとに合格ラインが変わります。Aさんは厳しく、Bさんは甘い、というように。基準が共有されていないと、同じ研修を受けたはずなのに、受講者の到達レベルがバラついてしまうわけです。</p>
+<h3>3. 教え方を振り返る仕組みがない</h3>
+<p>研修がうまくいったか、受講者がどこでつまずいたかを記録し、振り返る仕組みがないと、教え方は改善されません。講師個人の感覚に頼ったまま、毎回同じところで受講者がつまずく。改善のループが回らないので、品質が講師の力量に固定されてしまいます。</p>
+<figure class="inline-fig"><img alt="図：研修が属人化する3つの原因。内容が講師の頭の中・修了基準の曖昧さ・振り返りの仕組みの欠如を並べた図解" src="../../assets/uploads/2026/06/kenshu-hyojunka-2.png" /><figcaption>図：研修が属人化する3つの原因。内容が講師の頭の中・修了基準の曖昧さ・振り返りの仕組みの欠如を並べた図解</figcaption></figure>
+<p>ある小売チェーンでは、新人接客研修を各店舗の店長が担当していましたが、店長の経験によって教える内容も合格基準もまちまちでした。ある店舗の新人は丁寧に育てられる一方、別の店舗では基礎が抜けたまま現場に出てしまう。お客様から見れば同じ会社なのに、店舗によって接客の質が変わってしまっていた——これは研修の標準化が追いついていなかった例です。</p>
+<h2>研修を標準化する進め方</h2>
+<p>では、どう標準化を進めればいいのか。一気にすべてを揃えようとすると重たいので、次の手順で段階的に進めるのがおすすめです。</p>
+<h3>ステップ1：教える内容を洗い出して固める</h3>
+<p>まず、その研修で教えるべき内容を、すべて書き出します。講師の頭の中にある「いつも話していること」を、文書として外に出す作業ですね。書き出したら、本当に必要な項目を選び、教える順番を決めます。これが研修の「設計図」になります。</p>
+<h3>ステップ2：修了基準を決める</h3>
+<p>次に、「この研修を終えたら、何ができるようになっていればよいか」を具体的に決めます。たとえば「お客様への基本のあいさつと商品案内の流れを、一人でできる」のように、到達点を言葉にします。基準が定まれば、講師が誰であっても、同じラインで合否を判断できるようになります。</p>
+<h3>ステップ3：基礎部分を動画にする</h3>
+<p>固めた内容のうち、基礎知識や手順の説明など、毎回同じことを教える部分を動画にします。全員が同じ動画を視聴すれば、講師による説明のばらつきがそもそも生まれません。講師は、動画で学んだ前提のうえで、応用や質疑応答、個別のフィードバックに専念できます。これが、標準化を最も確実にする方法の一つです。</p>
+<h3>ステップ4：確認テストで到達度を測り、改善する</h3>
+<p>研修の最後に、修了基準に沿った確認テストを置きます。受講者がどこまで理解できたかを測り、つまずく箇所が多ければ、教材や説明を見直す。<strong>決めて、使って、直す</strong>を繰り返すと、標準そのものが磨かれていきます。標準化は一度決めて終わりではなく、現場に合わせて更新し続けるものだと考えておくとよいでしょう。</p>
+<div class="point-box"><div class="point-box-title">研修標準化の4ステップ</div><ul>
+<li>教える内容を洗い出し、項目と順番を固める</li>
+<li>修了基準（何ができればよいか）を具体的に決める</li>
+<li>基礎部分を動画にして、全員が同じものを視聴する</li>
+<li>確認テストで到達度を測り、教材を改善し続ける</li>
+</ul></div>
+
+<h2>標準化と「講師の持ち味」を両立させる</h2>
+<p>研修の標準化と聞くと、「すべてがマニュアル通りになって、研修がつまらなくなるのでは」と心配される方がいます。けれど、標準化と講師の魅力は、両立できます。</p>
+<p>ポイントは、何を揃えて、何を自由にするかを分けることです。揃えるのは、教える内容・順番・修了基準といった「土台」。これは誰が担当しても変わってはいけない部分です。一方、その土台のうえで、講師がどんな具体例を出すか、どんな経験談を語るか、どう受講者を巻き込むかは、講師それぞれの持ち味に任せてよい部分です。</p>
+<p>たとえば、商品知識という土台は全講師が同じ動画で揃えておき、その商品をどう売るかの実演やコツは、各講師が自分の経験から語る。こうすれば、基礎の品質は揃えながら、講師の経験という価値も活かせるわけです。標準化は、講師の個性を消すためではなく、「最低限ここは外さない」という土台を全員で共有するための取り組みなんですよね。</p>
+<p>ところで、基礎部分を動画にしておくと、講師の負担そのものも軽くなります。毎回同じ基礎説明を口頭で繰り返さなくてよくなるので、講師は自分の強みである応用や対話に集中できる。標準化は、品質を揃えるだけでなく、講師を「繰り返しの説明」から解放する効果もあるんです。</p>
+<p>もう一つ、標準化には新しい講師を育てやすくなる、という効果があります。教える内容と順番、修了基準が文書や動画として整っていれば、経験の浅い人でも、それを土台に研修を担当できます。これまで特定のベテランしか教えられなかった研修を、複数の人が担当できるようになるわけです。講師の人数に余裕が生まれれば、研修の開催も柔軟になり、特定の人に負担が集中する状態も避けられます。標準化は、研修の品質を揃えるだけでなく、教える人を増やし、組織の教育力そのものを底上げする取り組みでもあるんですよね。</p>
+<p>逆に、標準が整っていないと、新しく講師を任せようにも「何をどう教えればいいか」を一から本人が組み立てなければなりません。これでは、教えられる人がいつまでも増えず、研修が一部の人に依存し続けてしまいます。標準化は、講師という役割を属人化から解き放つための土台でもあるのです。</p>
+<h2>多拠点・多店舗での標準化と一元管理</h2>
+<p>研修の標準化が特に効いてくるのが、拠点や店舗が複数ある場合です。拠点ごとに別の担当者が研修を行っていると、教育内容のばらつきが拠点間の品質差につながりやすくなります。</p>
+<p>J-Net21などの中小企業向け情報でも、複数拠点での人材育成や品質の均一化は、成長企業が直面する課題として取り上げられています。店舗が増えるほど、「どの店舗で受けても同じ品質の研修」を保つことが難しくなるわけです。</p>
+<p>ここで役立つのが、学習管理システム（LMS）です。標準化した研修の教材と確認テストをLMSに集約すると、すべての拠点へ同じ研修を同じ基準で配信できます。さらに、誰がどこまで受け、修了基準を満たしているかが記録されるので、拠点ごとの育成状況も一元的に把握できます。</p>
+<figure class="inline-fig"><img alt="図：多拠点での研修標準化を支えるLMSのイメージ図。中央の教材を全拠点へ同じ基準で配信する様子を示す" src="../../assets/uploads/2026/06/kenshu-hyojunka-3.png" /><figcaption>図：多拠点での研修標準化を支えるLMSのイメージ図。中央の教材を全拠点へ同じ基準で配信する様子を示す</figcaption></figure>
+<p>これにより、研修は「拠点ごとの担当者任せ」から「全社共通の仕組み」へと変わります。新しく開いた拠点でも、初日から本部と同じ品質の研修を提供できるようになり、拠点拡大の際の教育の立ち上げも楽になります。教えた内容が記録として残るので、人材開発支援助成金のように、研修の実施を証明する書類が求められる制度を活用する際にも整理がしやすくなります。なお、こうした研修の動画化やeラーニングの整備には、人材開発支援助成金のように、訓練にかかった経費や賃金の一部を国が助成する制度を活用できる場合があります。ただし、制度の対象や条件は変わることがあるため、活用を検討する際は、厚生労働省の公式情報や労働局の窓口で最新の要件を確認することをおすすめします。</p>
+<h2>標準化を進めるときの注意点</h2>
+<p>最後に、研修の標準化を進めるときに気をつけたい点を挙げておきます。やり方を間違えると、現場の反発を招いたり、形だけの標準で終わったりするためです。</p>
+<p>まず、<strong>現場のベテラン講師を巻き込む</strong>こと。標準を作る作業を、現場を知らない人だけで進めると、実態に合わない基準ができてしまいます。実際に教えてきた講師の知見を聞き取り、その内容を土台にすると、使える標準になります。「あなたのやり方を取り上げる」のではなく「あなたのやり方を全社の標準にする」という伝え方が、協力を得やすいです。</p>
+<p>次に、<strong>完璧を最初から求めない</strong>こと。最初の標準は粗くて当然です。使いながら、つまずく箇所や合わない部分を直していく前提で、まず作って運用してみる。動き出してから磨くほうが、実態に合った標準になります。</p>
+<p>そして、<strong>定期的に見直す</strong>こと。商品やサービス、ルールが変われば、研修の標準も古くなります。一度決めたら終わりにせず、内容の変化に合わせて更新する仕組みを持つことが、標準を生きたものに保つ条件になります。古い標準のまま運用を続けると、現場の実態とずれていき、かえって守られなくなってしまうためです。更新の担当と頻度をあらかじめ決めておくと、見直しが後回しになりにくくなります。</p>
+<h2>まとめ：誰が教えても、同じ水準で</h2>
+<p>研修の標準化は、講師ごとにバラついていた研修を、誰が担当しても同じ内容・同じ水準にするための取り組みです。教える内容・順番・修了基準を固め、基礎部分を動画にして全員が同じものを視聴する。こうすることで、講師に依存しない、安定した教育の品質を実現できます。</p>
+<p>標準化は、講師の個性を消すものではありません。揃えるべき土台と、講師の持ち味に任せる部分を分けることで、品質と魅力を両立できます。むしろ、基礎を動画に任せることで、講師は自分の強みである応用や対話に集中できるようになります。</p>
+<p>進めるときは、教える内容を洗い出して固め、修了基準を決め、基礎部分を動画にし、確認テストで到達度を測って改善していく。そして、できた教材を学習管理システムに集約すれば、多拠点でも同じ品質の研修を届けられるようになります。まずは、複数の人が担当していて品質がばらつきがちな研修を1つ選び、その「教える内容」を書き出すところから、標準化の検討を始めてみてください。</p>
+<div class="source-box"><strong>参考にした公式情報</strong><ul><li><a href="https://www.mhlw.go.jp/toukei/list/104-1.html" target="_blank" rel="noopener">厚生労働省「能力開発基本調査」（計画的な教育訓練の実施状況に関する公式統計）</a></li><li><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/kyufukin/d01-1.html" target="_blank" rel="noopener">厚生労働省「人材開発支援助成金」（職業訓練の経費・賃金を助成する制度）</a></li><li><a href="https://j-net21.smrj.go.jp/" target="_blank" rel="noopener">独立行政法人 中小企業基盤整備機構 J-Net21（中小企業の人材育成支援情報）</a></li></ul></div>
+<h2>よくある質問</h2>
+<div class="faq-section"><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>研修の標準化とは何ですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>誰が講師を担当しても、同じ内容・同じ順番・同じ水準で研修を行えるように、教える中身や進め方をあらかじめ決めて共有することを指します。講師の経験や得意分野に左右されず、受講者が一定の品質の研修を受けられる状態を目指す取り組みです。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>標準化すると、研修がマニュアル的でつまらなくなりませんか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>標準化するのは「教える内容・順番・最低限の到達点」であって、講師の話し方や具体例まで縛る必要はありません。土台を揃えたうえで、講師それぞれの経験や事例を加える余地を残すと、品質を保ちながら研修の魅力も維持できます。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>講師が複数いる場合、どう標準化すればよいですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>まず、教える内容・順番・修了基準を文書や動画にまとめた共通の土台を作ります。さらに、基礎部分を動画にして全員が同じものを視聴する形にすると、講師による説明のばらつきを抑えられます。講師は応用や質疑応答に専念でき、品質を揃えやすくなります。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>研修の標準化と内製化はどう違いますか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>内製化は研修を自社で作ること、標準化は研修の品質を誰が担当しても揃えることを指します。別の概念ですが、相性は良いです。自社で研修を作る（内製化）際に、教える内容や基準を固めておく（標準化）と、属人化を防ぎながら社内に展開できます。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>標準化した研修の品質はどう維持すればよいですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>確認テストで受講者の理解度を測り、つまずく箇所が多ければ教材や説明を見直す、という改善の仕組みを持つことが有効です。標準は一度決めて終わりではなく、現場の状況や内容の変化に合わせて更新していくことで、品質を保ちやすくなります。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>標準化した研修の受講状況はどう管理しますか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>学習管理システム（LMS）に教材と確認テストを置くと、誰がどこまで研修を受け、どの程度理解したかが記録されます。拠点や部門が複数あっても、同じ研修を同じ基準で配信・管理でき、修了基準を満たしているかも確認できます。研修の実施を証明する記録としても役立ちます。</p></div>
+</div></div>
+<div class="supervisor-box" id="supervisor">
+<div class="supervisor-avatar"><img src="https://fp-1.info/hojokin/wp-content/uploads/2026/05/akutsu-portrait.jpg" alt="阿久津 和宏" style="width:100%;height:100%;border-radius:50%;object-fit:cover;"></div>
+<div class="supervisor-info">
+<div class="supervisor-label">監修・執筆</div>
+<div class="supervisor-name">阿久津 和宏</div>
+<div class="supervisor-title">人材育成・補助金活用コンサルタント</div>
+<div class="supervisor-bio">Well Consultant合同会社代表。中小企業の研修内製化・eラーニング導入・人材開発支援助成金の活用を支援。研修プラットフォーム「Traingo」を企画・運営。</div>
+</div></div>
+</article>
+<div class="cta-box">
+<h2>研修を「作って終わり」にしない仕組みを</h2>
+<p>動画研修・eラーニングの内製化、受講管理、人材開発支援助成金の活用まで。<br>Traingoがまとめてご支援します。まずはお気軽にご相談ください。</p>
+<a class="cta-btn" href="https://fp-1.info/traingo/contact/">無料相談・資料請求はこちら</a>
+</div>
+<section class="related-section"><h2>関連記事</h2><div class="related-grid"><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/ojt-zokujinka/">
+<div class="related-card-img" style="background:#2563eb;"><span>OJTの属人化とは？暗黙知を形式知に変える仕組みづくり</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">人材育成の基礎知識</div>
+<div class="related-card-title">OJTの属人化とは？暗黙知を形式知に変える仕組みづくり</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/shugo-vs-douga/">
+<div class="related-card-img" style="background:#2563eb;"><span>集合研修と動画研修の違いとは？研修コンテンツを資産化するメリット</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">人材育成の基礎知識</div>
+<div class="related-card-title">集合研修と動画研修の違いとは？研修コンテンツを資産化するメリット</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/kenshu-naiseika/">
+<div class="related-card-img" style="background:#2563eb;"><span>社内研修の内製化とは？メリット・デメリットと外部委託との比較</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">人材育成の基礎知識</div>
+<div class="related-card-title">社内研修の内製化とは？メリット・デメリットと外部委託との比較</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/gijutsu-densho/">
+<div class="related-card-img" style="background:#2563eb;"><span>技術伝承の進め方｜ベテランのノウハウを動画で形式知化する方法</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">人材育成の基礎知識</div>
+<div class="related-card-title">技術伝承の進め方｜ベテランのノウハウを動画で形式知化する方法</div>
+</div></a></div></section>
+</main>
+<aside class="blog-sidebar">
+<div class="sidebar-guide">
+<img src="../../assets/uploads/2026/06/guide-cover.png" alt="Traingo活用ガイド" class="sidebar-guide-img">
+<div class="sidebar-guide-badge">無料ダウンロード</div>
+<div class="sidebar-guide-title">Traingo活用ガイド</div>
+<div class="sidebar-guide-desc">研修の内製化・eラーニング化の進め方を1冊に。導入前に押さえたい実務のポイントを無料でお渡しします（補助金・助成金の活用にも対応）。</div>
+<a class="sidebar-guide-btn" href="https://fp-1.info/traingo/guide/">ガイドを受け取る →</a>
+</div>
+<div class="sidebar-box"><div class="sidebar-title">記事カテゴリ</div>
+<div class="sidebar-cluster"><a href="https://fp-1.info/traingo/blog/#tsukuru">研修を作る・仕組み化する</a><a href="https://fp-1.info/traingo/blog/#lms-value">ツール（LMS）としての価値</a><a href="https://fp-1.info/traingo/blog/#hikaku">比較・選び方</a><a href="https://fp-1.info/traingo/blog/#keiei">人材育成の経営的効果</a><a href="https://fp-1.info/traingo/blog/#shueki">研修の収益化・事業化</a><a href="https://fp-1.info/traingo/blog/#jirei">事例・信頼</a><a href="https://fp-1.info/traingo/blog/#josei">助成金（活用例）</a></div></div>
+<div class="sidebar-box"><div class="sidebar-title">ヘルプ・使い方</div>
+<div class="sidebar-cluster">
+<a href="https://fp-1.info/traingo/help/">ツール活用ヘルプ（目次）</a>
+<a href="https://fp-1.info/traingo/manual-company/">会社管理者の使い方</a>
+<a href="https://fp-1.info/traingo/manual-learner/">受講者の使い方</a>
+</div></div>
+<div class="sidebar-consult">
+<p>研修の内製化・eラーニング化・人材開発支援助成金の活用をご相談ください。</p>
+<a class="sb-btn" href="https://fp-1.info/traingo/contact/">無料相談・資料請求 →</a>
+</div></aside>
+</div>
+<footer class="custom-footer"><div class="footer-inner">
+<nav class="footer-nav">
+<a href="https://fp-1.info/traingo/">Traingoとは</a>
+<a href="https://fp-1.info/traingo/blog/">Traingoブログ</a>
+<a href="https://fp-1.info/traingo/guide/">Traingo活用ガイド</a>
+<a href="https://fp-1.info/traingo/help/">ヘルプ・使い方</a>
+<a href="https://fp-1.info/hojokin/#about" target="_blank" rel="noopener">会社紹介</a>
+<a href="https://fp-1.info/traingo/contact/">お問い合わせ</a>
+<a href="https://fp-1.info/hojokin/" target="_blank" rel="noopener">補助金活用型経営</a>
+</nav>
+<div class="footer-copy">© Well Consultant合同会社　Traingo（トレインゴ）｜法人向け研修プラットフォーム</div>
+</div></footer>
+<script>(function(){function k(){
+document.documentElement.style.setProperty('margin-top','0','important');
+document.body.style.setProperty('margin-top','0','important');document.body.style.setProperty('padding-top','0','important');
+var wsb=document.querySelector('.wp-site-blocks');if(wsb){wsb.style.setProperty('margin-top','0','important');wsb.style.setProperty('padding-top','0','important');Array.prototype.forEach.call(wsb.children,function(c){c.style.setProperty('margin-top','0','important');});}
+['header.wp-block-template-part','.wp-site-blocks > header','.wp-block-post-title','.wp-block-template-part[data-area=\"footer\"]','.wp-site-blocks > footer'].forEach(function(s){document.querySelectorAll(s).forEach(function(e){e.style.setProperty('display','none','important');});});
+}if(document.readyState!=='loading')k();else document.addEventListener('DOMContentLoaded',k);window.addEventListener('load',k);})();</script>
+<!-- /wp:html -->

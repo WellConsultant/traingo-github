@@ -1,0 +1,362 @@
+<!-- wp:html -->
+<style>
+
+:root,html,body{--wp--style--global--content-size:100%!important;--wp--style--global--wide-size:100%!important;--wp--style--root--padding-top:0!important;--wp--style--root--padding-right:0!important;--wp--style--root--padding-bottom:0!important;--wp--style--root--padding-left:0!important;}
+body,body.page,body.home,body.single,body.single-post{margin:0!important;padding:0!important;padding-top:0!important;}
+.wp-site-blocks,.wp-site-blocks>main,main.wp-block-group,.wp-block-group.has-global-padding,.wp-block-post-content,.entry-content,.wp-block-group.alignfull,.wp-block-group-is-layout-constrained,.wp-block-post-content-is-layout-constrained,.wp-block-html,article.post,article.page,.post,.hentry,.page{max-width:100%!important;width:100%!important;margin:0!important;padding:0!important;}
+.has-global-padding,.has-global-padding>.alignfull{padding-left:0!important;padding-right:0!important;}
+.wp-block-post-title,.entry-header,.entry-title,header.entry-header,.wp-block-template-part header,header.wp-block-template-part,.wp-site-blocks>header,.wp-block-site-title,.wp-block-navigation,.wp-block-template-part[data-area="header"],aside.sidebar,.widget-area,.sidebar,#secondary{display:none!important;}
+.entry-meta,.post-meta,.byline,.posted-on,.cat-links,.author,.tags-links,.comments-link,.wp-block-post-author,.wp-block-post-author__bio,.wp-block-post-author-name,.wp-block-post-date,.wp-block-post-terms,.wp-block-post-excerpt,p.has-text-align-right,.screen-reader-text{display:none!important;}
+#wpadminbar,#wpadminbar *{display:none!important;}
+html{margin-top:0!important;}
+.wp-site-blocks>footer,.wp-block-template-part[data-area="footer"],footer.wp-block-template-part{display:none!important;}
+footer:not(.custom-footer){display:none!important;}
+.post-navigation,.posts-navigation,.nav-previous,.nav-next,.wp-block-query-pagination,.more-link,a.more-link,.wp-block-post-navigation-link,nav[aria-label="投稿ナビゲーション"]{display:none!important;}
+.wp-block-query{display:none!important;}
+#comments,.comments-area,.comment-respond,.wp-block-comments{display:none!important;}
+.is-layout-constrained>.wp-block-html,.is-layout-constrained>.wp-block-group:not(.alignwide):not(.alignfull){max-width:100%!important;margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important;}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP','Meiryo',sans-serif;font-size:16px;line-height:1.85;color:#222;background:#f7f7f5;}
+a{color:#2563eb;}
+.blog-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#0f1f33;}
+.blog-nav .nav-inner{max-width:1160px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:62px;}
+.blog-nav .nav-logo{color:#fff;font-weight:800;font-size:16px;text-decoration:none;letter-spacing:.02em;}
+.blog-nav .nav-logo span{color:#f59e0b;}
+.blog-nav .nav-links{display:flex;align-items:center;gap:24px;}
+.blog-nav .nav-links a{color:#fff;font-size:13px;text-decoration:none;transition:color .2s;}
+.blog-nav .nav-links a:hover{color:#f59e0b;}
+.blog-nav .nav-cta{background:#f59e0b;color:#fff !important;padding:8px 20px;border-radius:4px;font-weight:bold;font-size:13px;}
+.blog-nav .nav-cta:hover{background:#d98a06 !important;}
+.blog-nav-spacer{height:62px;}
+.breadcrumb{background:#e8edf3;padding:10px 0;font-size:13px;}
+.breadcrumb ol{list-style:none;display:flex;flex-wrap:wrap;gap:4px;max-width:1160px;margin:0 auto;padding:0 20px;}
+.breadcrumb li+li::before{content:'>';margin-right:4px;color:#888;}
+.breadcrumb a{color:#1a3a5c;text-decoration:none;}
+.page-layout{display:flex;flex-direction:row;gap:32px;max-width:1160px;margin:0 auto;padding:32px 20px 60px;align-items:flex-start;}
+.main-wrap{flex:1;min-width:0;max-width:820px;}
+.blog-sidebar{width:300px;flex-shrink:0;position:sticky;top:78px;align-self:flex-start;}
+.article-thumb{width:100%;height:auto;border-radius:8px;display:block;margin-bottom:28px;}
+.article-header{margin-bottom:28px;}
+.article-cat{display:inline-block;color:#fff;font-size:12px;font-weight:700;padding:3px 12px;border-radius:3px;margin-bottom:12px;}
+.article-title{font-size:28px;font-weight:900;color:#0f1f33;line-height:1.4;margin-bottom:12px;}
+.article-meta{font-size:13px;color:#6b7280;display:flex;gap:16px;flex-wrap:wrap;}
+.article-meta time{color:#1a3a5c;}
+.article-body{color:#333;}
+.article-body p{margin-bottom:1.4em;}
+.article-body h2{font-size:22px;font-weight:900;color:#0f1f33;border-left:5px solid #f59e0b;padding:6px 0 6px 14px;margin:48px 0 20px;line-height:1.4;}
+.article-body h3{font-size:18px;font-weight:700;color:#1a3a5c;border-bottom:2px solid #c8d8e8;padding-bottom:6px;margin:32px 0 16px;}
+.article-body ul,.article-body ol{margin:0 0 1.4em 1.4em;}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:#0f1f33;}
+.lead-box{background:#eef3fb;border-left:4px solid #2563eb;padding:20px 24px;border-radius:4px;margin-bottom:32px;}
+.lead-box p{margin-bottom:0;color:#0f1f33;font-weight:500;}
+.point-box{background:#fff8ed;border:2px solid #f59e0b;border-radius:6px;padding:20px 24px;margin:24px 0;}
+.point-box .point-box-title{font-size:14px;font-weight:700;color:#c47f06;margin-bottom:10px;}
+.point-box ul{padding-left:1.4em;margin:0;}
+.point-box li{margin-bottom:6px;}
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:15px;}
+table thead tr{background:#1a3a5c;color:#fff;}
+table th{padding:12px 14px;text-align:left;font-weight:700;}
+table td{padding:12px 14px;border-bottom:1px solid #d0dcea;vertical-align:top;}
+table tr:nth-child(even) td{background:#f0f5fa;}
+.inline-fig{display:block;margin:28px auto;width:100%;}
+.inline-fig img{width:100%;max-width:760px;height:auto;border-radius:8px;display:block;margin:0 auto;}
+.inline-fig figcaption{font-size:13px;color:#6b7280;text-align:center;margin-top:8px;}
+.source-box{background:#f9fafc;border:1px dashed #aabbcc;padding:16px 20px;margin:32px 0;font-size:13px;color:#555;border-radius:4px;}
+.source-box strong{color:#1a3a5c;display:block;margin-bottom:6px;}
+.source-box ul{padding-left:1.4em;margin:0;}
+.source-box a{color:#2563eb;word-break:break-all;}
+.faq-section{margin:40px 0;}
+.faq-item{border:1px solid #c8d8e8;border-radius:6px;margin-bottom:12px;overflow:hidden;}
+.faq-q{background:#1a3a5c;color:#fff;padding:14px 18px;font-weight:700;font-size:15px;display:flex;gap:10px;align-items:flex-start;}
+.faq-q .faq-icon{flex-shrink:0;color:#f59e0b;font-size:18px;font-weight:900;}
+.faq-a{padding:16px 18px;background:#fff;font-size:15px;display:flex;gap:10px;align-items:flex-start;}
+.faq-a .faq-icon{flex-shrink:0;color:#1a3a5c;font-size:18px;font-weight:900;}
+.faq-a p{margin-bottom:0;}
+.supervisor-box{display:flex;gap:20px;align-items:flex-start;border:1px solid #c8d8e8;border-radius:8px;padding:24px;margin:40px 0;background:#f5f8fc;}
+.supervisor-avatar{flex-shrink:0;width:72px;height:72px;border-radius:50%;background:#1a3a5c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;}
+.supervisor-info{flex:1;}
+.supervisor-label{font-size:11px;color:#888;font-weight:700;letter-spacing:.08em;margin-bottom:4px;}
+.supervisor-name{font-size:18px;font-weight:900;color:#0f1f33;margin-bottom:4px;}
+.supervisor-title{font-size:13px;color:#555;margin-bottom:10px;}
+.supervisor-bio{font-size:14px;color:#444;line-height:1.7;}
+.cta-box{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:8px;padding:36px 32px;text-align:center;margin:40px 0;}
+.cta-box h2{font-size:22px;font-weight:900;margin-bottom:12px;border:none;padding:0;color:#fff;}
+.cta-box p{font-size:15px;margin-bottom:24px;color:#cddbe8;}
+.cta-btn{display:inline-block;background:#f59e0b;color:#fff;font-size:17px;font-weight:700;padding:16px 40px;border-radius:4px;text-decoration:none;}
+.cta-btn:hover{background:#d98a06;}
+.related-section{margin:48px 0 32px;}
+.related-section h2{font-size:20px;font-weight:900;color:#0f1f33;border-left:5px solid #f59e0b;padding:4px 0 4px 14px;margin-bottom:20px;}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.related-card{border:1px solid #c8d8e8;border-radius:6px;overflow:hidden;text-decoration:none;color:inherit;background:#fff;display:block;}
+.related-card:hover{box-shadow:0 4px 16px rgba(15,31,51,.12);}
+.related-card-img{width:100%;height:120px;background:#1a3a5c;display:flex;align-items:center;justify-content:center;}
+.related-card-img span{color:#fff;font-size:13px;font-weight:700;text-align:center;padding:8px;line-height:1.5;}
+.related-card-body{padding:14px 16px;}
+.related-card-cat{font-size:11px;color:#f59e0b;font-weight:700;margin-bottom:6px;}
+.related-card-title{font-size:15px;font-weight:700;color:#1a3a5c;line-height:1.4;}
+.genre-nav{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:22px 24px;margin-bottom:36px;}
+.genre-nav-title{font-size:15px;font-weight:800;color:#0f1f33;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #f59e0b;}
+.genre-chips{display:flex;flex-wrap:wrap;gap:10px;}
+.genre-chip{display:inline-flex;align-items:center;gap:8px;background:#eef3fb;color:#1a3a5c;text-decoration:none;font-size:13px;font-weight:700;padding:9px 16px;border-radius:22px;transition:all .2s;}
+.genre-chip span{background:#f59e0b;color:#fff;border-radius:10px;padding:1px 9px;font-size:12px;}
+.genre-chip:hover{background:#1a3a5c;color:#fff;}
+.genre-count{font-size:13px;font-weight:700;color:#f59e0b;margin-left:12px;}
+.sidebar-box{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:20px;margin-bottom:20px;}
+.sidebar-title{font-size:14px;font-weight:800;color:#0f1f33;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #f59e0b;}
+.sidebar-cluster a{display:block;font-size:14px;color:#1a3a5c;text-decoration:none;padding:8px 0;border-bottom:1px solid #eef1f5;}
+.sidebar-cluster a:hover{color:#f59e0b;}
+.sidebar-consult{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:8px;padding:22px;text-align:center;}
+.sidebar-consult p{font-size:13px;color:#cddbe8;margin-bottom:14px;}
+.sidebar-consult .sb-btn{display:block;background:#f59e0b;color:#fff;text-decoration:none;font-weight:700;padding:12px;border-radius:4px;font-size:14px;}
+.sidebar-guide{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;border-radius:8px;padding:22px;margin-bottom:20px;text-align:center;box-shadow:0 4px 14px rgba(217,119,6,.25);}
+.sidebar-guide-badge{display:inline-block;background:rgba(255,255,255,.22);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:4px 12px;border-radius:99px;margin-bottom:12px;}
+.sidebar-guide-title{font-size:18px;font-weight:900;margin-bottom:10px;line-height:1.4;}
+.sidebar-guide-desc{font-size:13px;line-height:1.7;color:#fff8ee;margin-bottom:16px;text-align:left;}
+.sidebar-guide-btn{display:block;background:#fff;color:#0f1f33;text-decoration:none;font-weight:800;padding:13px;border-radius:5px;font-size:14px;transition:transform .15s;}
+.sidebar-guide-btn:hover{transform:translateY(-2px);}
+.sidebar-guide-img{width:100%;border-radius:8px;margin-bottom:14px;display:block;}
+.guide-hero{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:12px;padding:36px 30px;margin-bottom:28px;display:flex;gap:28px;align-items:center;}
+.guide-hero-text{flex:1;}
+.guide-hero-img{width:38%;max-width:280px;border-radius:10px;display:block;box-shadow:0 8px 24px rgba(0,0,0,.25);}
+@media (max-width:680px){.guide-hero{flex-direction:column;}.guide-hero-img{width:70%;max-width:240px;}}
+.guide-hero .gbadge{display:inline-block;background:#f59e0b;color:#fff;font-size:12px;font-weight:800;letter-spacing:.06em;padding:5px 14px;border-radius:99px;margin-bottom:14px;}
+.guide-hero h1{font-size:26px;font-weight:900;line-height:1.5;margin:0 0 14px;color:#fff;}
+.guide-hero p{font-size:15px;line-height:1.85;color:#dbe6f1;margin:0;}
+.guide-check{list-style:none;padding:0;margin:0 0 10px;}
+.guide-check li{position:relative;padding:12px 0 12px 34px;border-bottom:1px solid #eef1f5;font-size:15px;line-height:1.7;color:#1a3a5c;}
+.guide-check li::before{content:"✓";position:absolute;left:2px;top:11px;width:22px;height:22px;background:#f59e0b;color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;}
+.guide-form-box{background:#fff;border:2px solid #f59e0b;border-radius:12px;padding:30px;margin:28px 0;box-shadow:0 6px 22px rgba(15,31,51,.08);}
+.guide-form-box h2{margin-top:0;border:none;padding:0;font-size:21px;}
+.guide-form .grow{margin-bottom:16px;}
+.guide-form label{display:block;font-size:14px;font-weight:700;color:#0f1f33;margin-bottom:6px;}
+.guide-form .req{color:#dc2626;font-size:11px;margin-left:6px;}
+.guide-form input,.guide-form select,.guide-form textarea{width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:6px;font-size:15px;box-sizing:border-box;font-family:inherit;}
+.guide-form .gsubmit{width:100%;background:#f59e0b;color:#fff;border:none;padding:15px;border-radius:6px;font-size:16px;font-weight:800;cursor:pointer;margin-top:6px;}
+.guide-form .gnote{font-size:12px;color:#6b7280;margin-top:12px;text-align:center;}
+.custom-footer{background:#1f2937;color:#fff;padding:44px 24px 24px;margin-top:40px;}
+.footer-inner{max-width:880px;margin:0 auto;text-align:center;}
+.footer-nav{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:24px;justify-content:center;}
+.footer-nav a{font-size:13px;color:#fff;text-decoration:none;}
+.footer-nav a:hover{color:#f59e0b;}
+.footer-copy{font-size:12px;border-top:1px solid rgba(255,255,255,.12);padding-top:16px;color:#aaa;}
+#wpadminbar{display:none!important;}html{margin-top:0!important;}
+@media (max-width:980px){.page-layout{flex-direction:column;}.blog-sidebar{width:100%;}.main-wrap{max-width:100%;}}
+@media (max-width:880px){.blog-nav .nav-links a:not(.nav-cta){display:none!important;}.article-title{font-size:22px;}.related-grid{grid-template-columns:1fr;}.supervisor-box{flex-direction:column;}table{font-size:13px;}table th,table td{padding:10px;}}
+</style>
+<nav class="blog-nav"><div class="nav-inner">
+<a class="nav-logo" href="https://fp-1.info/traingo/">Train<span>go</span></a>
+<div class="nav-links">
+<a href="https://fp-1.info/traingo/">Traingoとは</a>
+<a href="https://fp-1.info/traingo/blog/">Traingoブログ</a>
+<a href="https://fp-1.info/traingo/guide/">Traingo活用ガイド</a>
+<a href="https://fp-1.info/hojokin/#about" target="_blank" rel="noopener">会社紹介</a>
+<a href="https://fp-1.info/traingo/contact/">お問い合わせ</a>
+<a href="https://fp-1.info/hojokin/" target="_blank" rel="noopener">補助金活用型経営</a>
+<a href="https://fp-1.info/traingo/contact/" class="nav-cta">無料相談・資料請求</a>
+</div></div></nav><div class="blog-nav-spacer"></div>
+<nav class="breadcrumb" aria-label="パンくずリスト"><ol>
+<li><a href="https://fp-1.info/traingo/">Traingo</a></li>
+<li><a href="https://fp-1.info/traingo/blog/">ブログ</a></li>
+<li>【2026年版】動画研修ツール・LMS比較15選と選び方</li>
+</ol></nav>
+<div class="page-layout">
+<main class="main-wrap">
+<header class="article-header">
+<span class="article-cat" style="background:#f59e0b;">研修管理・LMS活用</span>
+<h1 class="article-title">【2026年版】動画研修ツール・LMS比較15選と選び方</h1>
+<div class="article-meta">
+<span>公開日 <time datetime="2026-06-01">2026-06-01</time></span>
+<span>最終更新 <time datetime="2026-06-01">2026-06-01</time></span>
+</div>
+</header>
+<img class="article-thumb" src="../../assets/uploads/2026/06/lms-hikaku-15_thumb.png" alt="【2026年版】動画研修ツール・LMS比較15選と選び方">
+<article class="article-body">
+<div class="lead-box">
+<p>「動画研修ツールを探しているけれど、種類が多すぎて選べない」——導入を検討し始めると、まずこの壁にぶつかりますよね。製品名を並べた比較記事は世の中にあふれていますが、大切なのは名前を覚えることではなく、自社の課題にどのタイプが合うかを見極めることです。この記事では、動画研修ツール・LMSをタイプ別に整理し、規模・目的に応じた選び方を2026年版として実務目線でお伝えします。</p>
+</div>
+<figure class="inline-fig"><img alt="図：動画研修ツール・LMSのタイプ分類。動画配信特化型・統合型LMS・クラウド型・オープンソース型・講座販売型を目的別に整理した概念図" src="../../assets/uploads/2026/06/lms-hikaku-15-1.png" /><figcaption>図：動画研修ツール・LMSのタイプ分類。動画配信特化型・統合型LMS・クラウド型・オープンソース型・講座販売型を目的別に整理した概念図</figcaption></figure>
+<h2>まず押さえたい：ツールは「タイプ」で考える</h2>
+<p>世の中の動画研修ツールやLMSは、製品名を数えれば15どころではありません。けれど、一つひとつの名前を比較しても、選択の助けにはなりにくいんです。製品は日々変わりますし、料金や機能も改定されます。むしろ大事なのは、「どんなタイプの製品があり、それぞれどんな企業に向いているか」という分類を理解することなんですね。</p>
+<p>ここでは、動画研修ツール・LMSを大きく次の5タイプに分けて整理します。実在する製品名を一つずつ評価するのではなく、タイプごとの特徴を押さえることで、無数にある選択肢を絞り込めるようにする狙いです。</p>
+<table>
+<thead>
+<tr>
+<th>タイプ</th>
+<th>主な特徴</th>
+<th>向いている企業像</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>動画配信特化型</td>
+<td>研修動画の作成・配信に重点。手軽に始めやすい</td>
+<td>まず動画研修を試したい企業</td>
+</tr>
+<tr>
+<td>統合型LMS</td>
+<td>配信から受講管理・テスト・修了証まで一体</td>
+<td>研修を仕組みとして運用したい企業</td>
+</tr>
+<tr>
+<td>クラウド型LMS</td>
+<td>サーバー不要で導入が早い。月額制が多い</td>
+<td>初期投資を抑えたい中小企業</td>
+</tr>
+<tr>
+<td>オープンソース型LMS</td>
+<td>無償で利用可。自社で構築・運用が必要</td>
+<td>IT人材がいて自由度を求める企業</td>
+</tr>
+<tr>
+<td>講座販売型プラットフォーム</td>
+<td>受講者への販売・決済機能を備える</td>
+<td>研修を外部へ販売したい企業</td>
+</tr>
+</tbody>
+</table>
+<p>この5タイプを軸にすると、「自社は社内研修を仕組み化したいのか」「研修を外に売りたいのか」「とにかく安く始めたいのか」といった目的から、検討すべきタイプが自然に絞れてきます。それぞれを順に見ていきましょう。</p>
+<p>なお、表のとおりに分類がきれいに分かれるわけではない、という点も補足しておきます。近年は、動画配信に強みを持ちながら受講管理もそれなりにこなす製品や、クラウド型でありつつ販売機能も備える製品など、複数のタイプにまたがるものが増えてきました。だからこそ、「この製品はどのタイプか」を当てることにこだわるより、「自社が必要とする機能を、どのタイプの軸足で満たしているか」という見方をするほうが、選定の役に立つんです。</p>
+<h2>タイプ別の特徴と向き不向き</h2>
+<h3>動画配信特化型</h3>
+<p>研修動画を作って配信することに重点を置いたタイプです。撮影した動画をアップロードし、受講者に見てもらう、という流れがシンプルに完結します。導入の手軽さが魅力で、「まずは動画研修というものを試してみたい」という段階の企業に向いている傾向があります。動画の編集や見やすい配信に強みを持つ製品が多く、教材を作る入口としては取り組みやすいタイプだと言えます。</p>
+<p>一方で、受講状況の細かな管理やテスト機能は、製品によっては限定的なことがあります。ある飲食チェーンでは、最初に配信特化型で接客動画を配り始めたものの、受講管理の必要性が高まって統合型へ移った、という流れをたどったそうです。まず試す入口としては有効ですが、運用が本格化すると物足りなくなることがある、と覚えておくとよいですね。</p>
+<h3>統合型LMS</h3>
+<p>動画の配信から、受講者の管理、進捗の可視化、確認テスト、修了証の発行までを一つで担うタイプです。研修を「配って終わり」ではなく、成果まで追える状態にしたい企業に向いています。受講記録がしっかり残るので、研修を制度として運用したい場合の中心的な選択肢になります。</p>
+<p>機能が充実している分、はじめは設定すべき項目が多く感じられることもあります。ただ、いったん運用に乗れば、受講案内から記録の集計までを仕組みに任せられるため、研修担当者の負担は大きく減る傾向があります。</p>
+<h3>クラウド型LMS</h3>
+<p>統合型LMSの多くは、このクラウド型に含まれます。自社でサーバーを用意する必要がなく、申し込めばすぐ使い始められるのが特徴です。料金は月額制や利用人数に応じた体系が多く、初期投資を抑えたい中小企業と相性がよい傾向があります。</p>
+<p>「サーバー管理なんて自社ではできない」という会社でも、クラウド型なら専門のIT人材を置かずに運用できます。中小企業がLMSを検討するなら、まずこのタイプから見ていくのが現実的なことが多いんです。</p>
+<h3>オープンソース型LMS</h3>
+<p>ソフトウェア自体は無償で利用でき、自社のサーバーに構築して使うタイプです。自由にカスタマイズできる点が最大の強みですが、構築・保守・セキュリティ対策をすべて自社で担う必要があります。社内にIT人材がいて、独自の要件を実現したい企業に向いています。教育機関や大規模組織で採用例が多いタイプでもあります。教育機関や大規模組織で採用例が多いタイプでもあります。</p>
+<p>無償と聞くと魅力的ですが、運用にかかる人件費や保守の手間を含めると、かえって割高になることもあります。「無料だから」だけで選ぶと、運用負担で苦労することがあるので注意が必要です。</p>
+<h3>講座販売型プラットフォーム</h3>
+<p>受講者に講座を販売し、決済まで行える機能を備えたタイプです。社内研修というより、研修コンテンツを外部へ販売して収益化したい場合に向いています。プラットフォーム側の集客力を借りられる反面、自社ブランドを前面に出しにくかったり、受講者情報の扱いに制約があったりすることがあります。</p>
+<figure class="inline-fig"><img alt="図：動画研修ツール・LMSの5タイプ比較。導入の手軽さ・受講管理の充実度・初期費用・運用負担を軸に並べた図解" src="../../assets/uploads/2026/06/lms-hikaku-15-2.png" /><figcaption>図：動画研修ツール・LMSの5タイプ比較。導入の手軽さ・受講管理の充実度・初期費用・運用負担を軸に並べた図解</figcaption></figure>
+<h2>比較するときに見るべき5つの軸</h2>
+<p>タイプの当たりがついたら、次は個々の製品を比較していきます。このとき、闇雲に機能の多さを見るのではなく、次の5つの軸で見ると判断がぶれにくくなります。</p>
+<div class="point-box"><div class="point-box-title">動画研修ツール・LMS比較の5つの軸</div><ul>
+<li>料金体系：初期費用・月額・人数課金が自社の規模に合うか</li>
+<li>機能範囲：自社の課題に直結する機能が備わっているか</li>
+<li>使いやすさ：受講者と管理者の双方が迷わず使えるか</li>
+<li>教材の活用：既存の動画・資料をそのまま使えるか</li>
+<li>サポートと記録：困ったときの支援と、記録の出力に対応しているか</li>
+</ul></div>
+
+<p>特に注意したいのが、<strong>料金を安さだけで判断しない</strong>ことです。月額が安くても、必要な機能が上位プランにしかなく、結局アップグレードが必要になることがあります。逆に、多機能で高価なものを選んでも、使わない機能ばかりなら投資が無駄になります。料金は、人数・利用頻度・必要な機能とセットで見るのが鉄則なんですね。</p>
+<p>もう一つ見落とされやすいのが、<strong>既存教材を活かせるか</strong>という点です。すでに研修動画やマニュアルがある会社なら、それをそのまま取り込めるかどうかで、導入時の手間が大きく変わります。ゼロから作り直しになると、それだけで導入が止まってしまうこともあるためです。</p>
+<p>そして、忘れてはいけないのが<strong>使いやすさ</strong>です。これは二つの面で見る必要があります。一つは受講者にとっての使いやすさ。ログインが面倒だったり、目的の動画にたどり着けなかったりすると、受講そのものが進みません。もう一つは管理者にとっての使いやすさです。受講者の登録や進捗の確認が複雑だと、運用する担当者が疲弊してしまいます。カタログの機能一覧では分からない部分なので、後述するトライアルで実際に触って確かめるのが確実です。多機能でも使いにくいツールは、結局使われなくなる——これは導入後によく起こることなんですね。</p>
+<h2>規模・目的別の選び方の目安</h2>
+<figure class="inline-fig"><img alt="図：規模・目的別のLMS選びの目安。まず試す段階・仕組み化したい段階・外部販売したい段階で適したタイプを整理した図解" src="../../assets/uploads/2026/06/lms-hikaku-15-3.png" /><figcaption>図：規模・目的別のLMS選びの目安。まず試す段階・仕組み化したい段階・外部販売したい段階で適したタイプを整理した図解</figcaption></figure>
+<p>ここまでの内容をふまえて、自社の状況別に検討の目安を整理してみます。あくまで目安であり、最終的には自社の課題に照らして判断することが前提です。</p>
+<p>まず、<strong>まず動画研修を試したい段階</strong>なら、導入が手軽な動画配信特化型か、低価格で始められるクラウド型LMSが入口として向いています。小さく始めて、必要性を見極めてから本格導入に進むのが安全です。</p>
+<p>次に、<strong>研修を仕組みとして運用したい</strong>なら、統合型のクラウド型LMSが中心的な選択肢になります。受講管理やテスト、記録の出力まで一体で扱えるため、研修を制度として定着させたい企業に合います。中小企業の場合、サーバー管理が不要なクラウド型を軸に検討すると、運用の負担を抑えやすいわけですね。</p>
+<p>そして、<strong>研修を外部へ販売したい</strong>なら、講座販売型プラットフォームか、自社ブランドで展開できる統合型LMSのどちらにするかを、ブランドの見せ方と受講者情報の扱いを基準に検討します。他社の土俵で売るか、自社の環境を持つかで、向いているタイプが変わってくるためです。</p>
+<p>ところで、こうしたツール導入の費用には、IT導入補助金のように国の支援制度を活用できる場合があります。研修の質を上げる投資が、費用面でも支援を受けられることがある、という点は選定の前に確認しておきたいところです。</p>
+<h2>助成金を使うなら「記録の出力」を最優先で確認する</h2>
+<p>最後に、研修費用の支援制度を使う予定がある企業に向けて、選定上の注意点を一つ挙げておきます。それは、<strong>受講記録を証憑として出力できるか</strong>を最優先で確認する、という点です。</p>
+<p>人材開発支援助成金のように、研修を実施した事実を証明する書類が求められる制度では、誰がいつ、どの研修を、どれだけの時間受けたかという記録が根拠資料になります。ツールがこうした記録をデータとして出力できなければ、せっかく研修を行っても、手続きの段階で証明に苦労することになりかねません。</p>
+<p>無料ツールや配信特化型のなかには、視聴記録が簡易なものや、出力に対応していないものもあります。助成金の活用を視野に入れているなら、機能の華やかさよりも、記録の残し方と出力のしやすさを軸に選ぶことをおすすめします。研修の中身と、それを証明する記録の両方が揃って初めて、制度を安心して使えるわけです。</p>
+<h2>まとめ：名前ではなく「タイプと課題」で選ぶ</h2>
+<p>動画研修ツール・LMSは数多くありますが、製品名を一つずつ比べても選択は進みません。動画配信特化型・統合型LMS・クラウド型・オープンソース型・講座販売型という5つのタイプで整理し、自社が解決したい課題に合うタイプを絞り込むことが、選定の出発点になります。</p>
+<p>そのうえで、料金体系・機能範囲・使いやすさ・教材の活用・サポートと記録という5つの軸で個別の製品を比較すれば、判断がぶれにくくなります。中小企業なら、サーバー管理が不要で初期投資を抑えられるクラウド型を軸に、必要な機能に絞って検討するのが現実的です。比較記事の数字や評価を鵜呑みにするのではなく、あくまで自社の課題に照らして読み替えていく——この姿勢があれば、情報に振り回されずに済みますよね。</p>
+<p>導入前には、無料トライアルやデモで実際に研修動画を載せ、受講者役・管理者役の双方で操作してみてください。カタログには出てこない使い勝手が、そこで初めて見えてきます。自社の課題を起点に、タイプと軸で絞り込んでいけば、無数にある選択肢のなかから、自社に合う一つにたどり着けるはずです。</p>
+<p>最後に一つだけ補足すると、ツール選びは「一度決めたら終わり」ではありません。事業が成長すれば受講者は増えますし、研修の使い方も変わっていきます。最初は小さく始めて、運用が本格化したら見直す——そんなふうに、自社の段階に合わせて選び直していく前提を持っておくと、気が楽になりますよね。完璧な一つを最初から当てようとせず、今の段階に合うものを選んで動き出す。そのほうが、結果として自社に根づくツールにたどり着きやすいんです。</p>
+<div class="source-box"><strong>参考にした公式情報</strong><ul><li><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/kyufukin/d01-1.html" target="_blank" rel="noopener">厚生労働省「人材開発支援助成金」（職業訓練の経費・賃金を助成する制度）</a></li><li><a href="https://www.it-hojo.jp/" target="_blank" rel="noopener">経済産業省「IT導入補助金（ITツール活用による業務効率化支援）」</a></li><li><a href="https://j-net21.smrj.go.jp/" target="_blank" rel="noopener">独立行政法人 中小企業基盤整備機構 J-Net21（中小企業のIT活用・ツール選定支援情報）</a></li></ul></div>
+<h2>よくある質問</h2>
+<div class="faq-section"><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>動画研修ツールとLMSは何が違うのですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>動画研修ツールは研修動画の作成・配信に重点を置いたものを指すことが多く、LMS（学習管理システム）は受講状況の管理やテスト・修了証まで含めた運用全体を扱うものを指す傾向があります。両者の境界はあいまいで、近年は動画配信から受講管理までを一つで担う製品も増えています。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>比較するときにまず見るべき項目は何ですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>料金体系、対応する機能の範囲、受講者と管理者の使いやすさ、既存教材を活かせるか、サポート体制の5つを軸にすると整理しやすくなります。自社が解決したい課題に直結する項目を優先し、使わない機能の多さで判断しないことが大切です。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>料金が安いツールを選べばよいのではないですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>初期費用や月額だけで判断すると、後から機能不足や管理の手間で割高になることがあります。料金は人数・利用頻度・必要な機能と合わせて見ることが大切です。無料や低価格のツールは小さく始めるのに向く一方、記録やサポートの面で制約が出ることがあります。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>中小企業はどのタイプのツールを選ぶとよいですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>多機能で大規模向けのものより、必要な機能に絞ったシンプルなタイプのほうが、運用が続きやすい傾向があります。受講者がスマホで迷わず使えること、管理者が片手間でも回せることを重視すると、自社に合うものを選びやすくなります。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>助成金を使う予定がある場合、選び方は変わりますか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>人材開発支援助成金のように研修の実施を証明する書類が求められる制度を使う予定があるなら、受講履歴・受講時間・修了状況を証憑として出力できるかを優先して確認するとよいでしょう。記録の出力に対応していないと、後の手続きで困ることがあります。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>導入前に試す方法はありますか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>多くのツールが無料トライアルやデモを用意しています。実際に研修動画を1本載せて、受講者役・管理者役の双方で操作してみると、カタログだけでは分からない使い勝手が見えてきます。本格導入の前に、現場の数人で試すことをおすすめします。</p></div>
+</div></div>
+<div class="supervisor-box" id="supervisor">
+<div class="supervisor-avatar"><img src="https://fp-1.info/hojokin/wp-content/uploads/2026/05/akutsu-portrait.jpg" alt="阿久津 和宏" style="width:100%;height:100%;border-radius:50%;object-fit:cover;"></div>
+<div class="supervisor-info">
+<div class="supervisor-label">監修・執筆</div>
+<div class="supervisor-name">阿久津 和宏</div>
+<div class="supervisor-title">人材育成・補助金活用コンサルタント</div>
+<div class="supervisor-bio">Well Consultant合同会社代表。中小企業の研修内製化・eラーニング導入・人材開発支援助成金の活用を支援。研修プラットフォーム「Traingo」を企画・運営。</div>
+</div></div>
+</article>
+<div class="cta-box">
+<h2>研修を「作って終わり」にしない仕組みを</h2>
+<p>動画研修・eラーニングの内製化、受講管理、人材開発支援助成金の活用まで。<br>Traingoがまとめてご支援します。まずはお気軽にご相談ください。</p>
+<a class="cta-btn" href="https://fp-1.info/traingo/contact/">無料相談・資料請求はこちら</a>
+</div>
+<section class="related-section"><h2>関連記事</h2><div class="related-grid"><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/youtube-drive-kenshu/">
+<div class="related-card-img" style="background:#f59e0b;"><span>YouTube・Googleドライブでの研修配信とは？LMSとの違いと限界</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">研修管理・LMS活用</div>
+<div class="related-card-title">YouTube・Googleドライブでの研修配信とは？LMSとの違いと限界</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/muryo-elearning/">
+<div class="related-card-img" style="background:#f59e0b;"><span>無料eラーニングツールのメリット・デメリットとは？選ぶ際の注意点</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">研修管理・LMS活用</div>
+<div class="related-card-title">無料eラーニングツールのメリット・デメリットとは？選ぶ際の注意点</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/lms-erabikata/">
+<div class="related-card-img" style="background:#f59e0b;"><span>LMSの選び方とは？受講者・管理者・運営の視点別チェックポイント</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">研修管理・LMS活用</div>
+<div class="related-card-title">LMSの選び方とは？受講者・管理者・運営の視点別チェックポイント</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/oote-vs-chusho-lms/">
+<div class="related-card-img" style="background:#f59e0b;"><span>大手LMSと中小企業向けLMSの違いとは？規模別の選び方</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">研修管理・LMS活用</div>
+<div class="related-card-title">大手LMSと中小企業向けLMSの違いとは？規模別の選び方</div>
+</div></a></div></section>
+</main>
+<aside class="blog-sidebar">
+<div class="sidebar-guide">
+<img src="../../assets/uploads/2026/06/guide-cover.png" alt="Traingo活用ガイド" class="sidebar-guide-img">
+<div class="sidebar-guide-badge">無料ダウンロード</div>
+<div class="sidebar-guide-title">Traingo活用ガイド</div>
+<div class="sidebar-guide-desc">研修の内製化・eラーニング化の進め方を1冊に。導入前に押さえたい実務のポイントを無料でお渡しします（補助金・助成金の活用にも対応）。</div>
+<a class="sidebar-guide-btn" href="https://fp-1.info/traingo/guide/">ガイドを受け取る →</a>
+</div>
+<div class="sidebar-box"><div class="sidebar-title">記事カテゴリ</div>
+<div class="sidebar-cluster"><a href="https://fp-1.info/traingo/blog/#tsukuru">研修を作る・仕組み化する</a><a href="https://fp-1.info/traingo/blog/#lms-value">ツール（LMS）としての価値</a><a href="https://fp-1.info/traingo/blog/#hikaku">比較・選び方</a><a href="https://fp-1.info/traingo/blog/#keiei">人材育成の経営的効果</a><a href="https://fp-1.info/traingo/blog/#shueki">研修の収益化・事業化</a><a href="https://fp-1.info/traingo/blog/#jirei">事例・信頼</a><a href="https://fp-1.info/traingo/blog/#josei">助成金（活用例）</a></div></div>
+<div class="sidebar-box"><div class="sidebar-title">ヘルプ・使い方</div>
+<div class="sidebar-cluster">
+<a href="https://fp-1.info/traingo/help/">ツール活用ヘルプ（目次）</a>
+<a href="https://fp-1.info/traingo/manual-company/">会社管理者の使い方</a>
+<a href="https://fp-1.info/traingo/manual-learner/">受講者の使い方</a>
+</div></div>
+<div class="sidebar-consult">
+<p>研修の内製化・eラーニング化・人材開発支援助成金の活用をご相談ください。</p>
+<a class="sb-btn" href="https://fp-1.info/traingo/contact/">無料相談・資料請求 →</a>
+</div></aside>
+</div>
+<footer class="custom-footer"><div class="footer-inner">
+<nav class="footer-nav">
+<a href="https://fp-1.info/traingo/">Traingoとは</a>
+<a href="https://fp-1.info/traingo/blog/">Traingoブログ</a>
+<a href="https://fp-1.info/traingo/guide/">Traingo活用ガイド</a>
+<a href="https://fp-1.info/traingo/help/">ヘルプ・使い方</a>
+<a href="https://fp-1.info/hojokin/#about" target="_blank" rel="noopener">会社紹介</a>
+<a href="https://fp-1.info/traingo/contact/">お問い合わせ</a>
+<a href="https://fp-1.info/hojokin/" target="_blank" rel="noopener">補助金活用型経営</a>
+</nav>
+<div class="footer-copy">© Well Consultant合同会社　Traingo（トレインゴ）｜法人向け研修プラットフォーム</div>
+</div></footer>
+<script>(function(){function k(){
+document.documentElement.style.setProperty('margin-top','0','important');
+document.body.style.setProperty('margin-top','0','important');document.body.style.setProperty('padding-top','0','important');
+var wsb=document.querySelector('.wp-site-blocks');if(wsb){wsb.style.setProperty('margin-top','0','important');wsb.style.setProperty('padding-top','0','important');Array.prototype.forEach.call(wsb.children,function(c){c.style.setProperty('margin-top','0','important');});}
+['header.wp-block-template-part','.wp-site-blocks > header','.wp-block-post-title','.wp-block-template-part[data-area=\"footer\"]','.wp-site-blocks > footer'].forEach(function(s){document.querySelectorAll(s).forEach(function(e){e.style.setProperty('display','none','important');});});
+}if(document.readyState!=='loading')k();else document.addEventListener('DOMContentLoaded',k);window.addEventListener('load',k);})();</script>
+<!-- /wp:html -->

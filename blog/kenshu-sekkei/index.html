@@ -1,0 +1,359 @@
+<!-- wp:html -->
+<style>
+
+:root,html,body{--wp--style--global--content-size:100%!important;--wp--style--global--wide-size:100%!important;--wp--style--root--padding-top:0!important;--wp--style--root--padding-right:0!important;--wp--style--root--padding-bottom:0!important;--wp--style--root--padding-left:0!important;}
+body,body.page,body.home,body.single,body.single-post{margin:0!important;padding:0!important;padding-top:0!important;}
+.wp-site-blocks,.wp-site-blocks>main,main.wp-block-group,.wp-block-group.has-global-padding,.wp-block-post-content,.entry-content,.wp-block-group.alignfull,.wp-block-group-is-layout-constrained,.wp-block-post-content-is-layout-constrained,.wp-block-html,article.post,article.page,.post,.hentry,.page{max-width:100%!important;width:100%!important;margin:0!important;padding:0!important;}
+.has-global-padding,.has-global-padding>.alignfull{padding-left:0!important;padding-right:0!important;}
+.wp-block-post-title,.entry-header,.entry-title,header.entry-header,.wp-block-template-part header,header.wp-block-template-part,.wp-site-blocks>header,.wp-block-site-title,.wp-block-navigation,.wp-block-template-part[data-area="header"],aside.sidebar,.widget-area,.sidebar,#secondary{display:none!important;}
+.entry-meta,.post-meta,.byline,.posted-on,.cat-links,.author,.tags-links,.comments-link,.wp-block-post-author,.wp-block-post-author__bio,.wp-block-post-author-name,.wp-block-post-date,.wp-block-post-terms,.wp-block-post-excerpt,p.has-text-align-right,.screen-reader-text{display:none!important;}
+#wpadminbar,#wpadminbar *{display:none!important;}
+html{margin-top:0!important;}
+.wp-site-blocks>footer,.wp-block-template-part[data-area="footer"],footer.wp-block-template-part{display:none!important;}
+footer:not(.custom-footer){display:none!important;}
+.post-navigation,.posts-navigation,.nav-previous,.nav-next,.wp-block-query-pagination,.more-link,a.more-link,.wp-block-post-navigation-link,nav[aria-label="投稿ナビゲーション"]{display:none!important;}
+.wp-block-query{display:none!important;}
+#comments,.comments-area,.comment-respond,.wp-block-comments{display:none!important;}
+.is-layout-constrained>.wp-block-html,.is-layout-constrained>.wp-block-group:not(.alignwide):not(.alignfull){max-width:100%!important;margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important;}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP','Meiryo',sans-serif;font-size:16px;line-height:1.85;color:#222;background:#f7f7f5;}
+a{color:#2563eb;}
+.blog-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#0f1f33;}
+.blog-nav .nav-inner{max-width:1160px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:62px;}
+.blog-nav .nav-logo{color:#fff;font-weight:800;font-size:16px;text-decoration:none;letter-spacing:.02em;}
+.blog-nav .nav-logo span{color:#f59e0b;}
+.blog-nav .nav-links{display:flex;align-items:center;gap:24px;}
+.blog-nav .nav-links a{color:#fff;font-size:13px;text-decoration:none;transition:color .2s;}
+.blog-nav .nav-links a:hover{color:#f59e0b;}
+.blog-nav .nav-cta{background:#f59e0b;color:#fff !important;padding:8px 20px;border-radius:4px;font-weight:bold;font-size:13px;}
+.blog-nav .nav-cta:hover{background:#d98a06 !important;}
+.blog-nav-spacer{height:62px;}
+.breadcrumb{background:#e8edf3;padding:10px 0;font-size:13px;}
+.breadcrumb ol{list-style:none;display:flex;flex-wrap:wrap;gap:4px;max-width:1160px;margin:0 auto;padding:0 20px;}
+.breadcrumb li+li::before{content:'>';margin-right:4px;color:#888;}
+.breadcrumb a{color:#1a3a5c;text-decoration:none;}
+.page-layout{display:flex;flex-direction:row;gap:32px;max-width:1160px;margin:0 auto;padding:32px 20px 60px;align-items:flex-start;}
+.main-wrap{flex:1;min-width:0;max-width:820px;}
+.blog-sidebar{width:300px;flex-shrink:0;position:sticky;top:78px;align-self:flex-start;}
+.article-thumb{width:100%;height:auto;border-radius:8px;display:block;margin-bottom:28px;}
+.article-header{margin-bottom:28px;}
+.article-cat{display:inline-block;color:#fff;font-size:12px;font-weight:700;padding:3px 12px;border-radius:3px;margin-bottom:12px;}
+.article-title{font-size:28px;font-weight:900;color:#0f1f33;line-height:1.4;margin-bottom:12px;}
+.article-meta{font-size:13px;color:#6b7280;display:flex;gap:16px;flex-wrap:wrap;}
+.article-meta time{color:#1a3a5c;}
+.article-body{color:#333;}
+.article-body p{margin-bottom:1.4em;}
+.article-body h2{font-size:22px;font-weight:900;color:#0f1f33;border-left:5px solid #f59e0b;padding:6px 0 6px 14px;margin:48px 0 20px;line-height:1.4;}
+.article-body h3{font-size:18px;font-weight:700;color:#1a3a5c;border-bottom:2px solid #c8d8e8;padding-bottom:6px;margin:32px 0 16px;}
+.article-body ul,.article-body ol{margin:0 0 1.4em 1.4em;}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:#0f1f33;}
+.lead-box{background:#eef3fb;border-left:4px solid #2563eb;padding:20px 24px;border-radius:4px;margin-bottom:32px;}
+.lead-box p{margin-bottom:0;color:#0f1f33;font-weight:500;}
+.point-box{background:#fff8ed;border:2px solid #f59e0b;border-radius:6px;padding:20px 24px;margin:24px 0;}
+.point-box .point-box-title{font-size:14px;font-weight:700;color:#c47f06;margin-bottom:10px;}
+.point-box ul{padding-left:1.4em;margin:0;}
+.point-box li{margin-bottom:6px;}
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:15px;}
+table thead tr{background:#1a3a5c;color:#fff;}
+table th{padding:12px 14px;text-align:left;font-weight:700;}
+table td{padding:12px 14px;border-bottom:1px solid #d0dcea;vertical-align:top;}
+table tr:nth-child(even) td{background:#f0f5fa;}
+.inline-fig{display:block;margin:28px auto;width:100%;}
+.inline-fig img{width:100%;max-width:760px;height:auto;border-radius:8px;display:block;margin:0 auto;}
+.inline-fig figcaption{font-size:13px;color:#6b7280;text-align:center;margin-top:8px;}
+.source-box{background:#f9fafc;border:1px dashed #aabbcc;padding:16px 20px;margin:32px 0;font-size:13px;color:#555;border-radius:4px;}
+.source-box strong{color:#1a3a5c;display:block;margin-bottom:6px;}
+.source-box ul{padding-left:1.4em;margin:0;}
+.source-box a{color:#2563eb;word-break:break-all;}
+.faq-section{margin:40px 0;}
+.faq-item{border:1px solid #c8d8e8;border-radius:6px;margin-bottom:12px;overflow:hidden;}
+.faq-q{background:#1a3a5c;color:#fff;padding:14px 18px;font-weight:700;font-size:15px;display:flex;gap:10px;align-items:flex-start;}
+.faq-q .faq-icon{flex-shrink:0;color:#f59e0b;font-size:18px;font-weight:900;}
+.faq-a{padding:16px 18px;background:#fff;font-size:15px;display:flex;gap:10px;align-items:flex-start;}
+.faq-a .faq-icon{flex-shrink:0;color:#1a3a5c;font-size:18px;font-weight:900;}
+.faq-a p{margin-bottom:0;}
+.supervisor-box{display:flex;gap:20px;align-items:flex-start;border:1px solid #c8d8e8;border-radius:8px;padding:24px;margin:40px 0;background:#f5f8fc;}
+.supervisor-avatar{flex-shrink:0;width:72px;height:72px;border-radius:50%;background:#1a3a5c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;}
+.supervisor-info{flex:1;}
+.supervisor-label{font-size:11px;color:#888;font-weight:700;letter-spacing:.08em;margin-bottom:4px;}
+.supervisor-name{font-size:18px;font-weight:900;color:#0f1f33;margin-bottom:4px;}
+.supervisor-title{font-size:13px;color:#555;margin-bottom:10px;}
+.supervisor-bio{font-size:14px;color:#444;line-height:1.7;}
+.cta-box{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:8px;padding:36px 32px;text-align:center;margin:40px 0;}
+.cta-box h2{font-size:22px;font-weight:900;margin-bottom:12px;border:none;padding:0;color:#fff;}
+.cta-box p{font-size:15px;margin-bottom:24px;color:#cddbe8;}
+.cta-btn{display:inline-block;background:#f59e0b;color:#fff;font-size:17px;font-weight:700;padding:16px 40px;border-radius:4px;text-decoration:none;}
+.cta-btn:hover{background:#d98a06;}
+.related-section{margin:48px 0 32px;}
+.related-section h2{font-size:20px;font-weight:900;color:#0f1f33;border-left:5px solid #f59e0b;padding:4px 0 4px 14px;margin-bottom:20px;}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.related-card{border:1px solid #c8d8e8;border-radius:6px;overflow:hidden;text-decoration:none;color:inherit;background:#fff;display:block;}
+.related-card:hover{box-shadow:0 4px 16px rgba(15,31,51,.12);}
+.related-card-img{width:100%;height:120px;background:#1a3a5c;display:flex;align-items:center;justify-content:center;}
+.related-card-img span{color:#fff;font-size:13px;font-weight:700;text-align:center;padding:8px;line-height:1.5;}
+.related-card-body{padding:14px 16px;}
+.related-card-cat{font-size:11px;color:#f59e0b;font-weight:700;margin-bottom:6px;}
+.related-card-title{font-size:15px;font-weight:700;color:#1a3a5c;line-height:1.4;}
+.genre-nav{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:22px 24px;margin-bottom:36px;}
+.genre-nav-title{font-size:15px;font-weight:800;color:#0f1f33;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #f59e0b;}
+.genre-chips{display:flex;flex-wrap:wrap;gap:10px;}
+.genre-chip{display:inline-flex;align-items:center;gap:8px;background:#eef3fb;color:#1a3a5c;text-decoration:none;font-size:13px;font-weight:700;padding:9px 16px;border-radius:22px;transition:all .2s;}
+.genre-chip span{background:#f59e0b;color:#fff;border-radius:10px;padding:1px 9px;font-size:12px;}
+.genre-chip:hover{background:#1a3a5c;color:#fff;}
+.genre-count{font-size:13px;font-weight:700;color:#f59e0b;margin-left:12px;}
+.sidebar-box{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:20px;margin-bottom:20px;}
+.sidebar-title{font-size:14px;font-weight:800;color:#0f1f33;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #f59e0b;}
+.sidebar-cluster a{display:block;font-size:14px;color:#1a3a5c;text-decoration:none;padding:8px 0;border-bottom:1px solid #eef1f5;}
+.sidebar-cluster a:hover{color:#f59e0b;}
+.sidebar-consult{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:8px;padding:22px;text-align:center;}
+.sidebar-consult p{font-size:13px;color:#cddbe8;margin-bottom:14px;}
+.sidebar-consult .sb-btn{display:block;background:#f59e0b;color:#fff;text-decoration:none;font-weight:700;padding:12px;border-radius:4px;font-size:14px;}
+.sidebar-guide{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;border-radius:8px;padding:22px;margin-bottom:20px;text-align:center;box-shadow:0 4px 14px rgba(217,119,6,.25);}
+.sidebar-guide-badge{display:inline-block;background:rgba(255,255,255,.22);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:4px 12px;border-radius:99px;margin-bottom:12px;}
+.sidebar-guide-title{font-size:18px;font-weight:900;margin-bottom:10px;line-height:1.4;}
+.sidebar-guide-desc{font-size:13px;line-height:1.7;color:#fff8ee;margin-bottom:16px;text-align:left;}
+.sidebar-guide-btn{display:block;background:#fff;color:#0f1f33;text-decoration:none;font-weight:800;padding:13px;border-radius:5px;font-size:14px;transition:transform .15s;}
+.sidebar-guide-btn:hover{transform:translateY(-2px);}
+.sidebar-guide-img{width:100%;border-radius:8px;margin-bottom:14px;display:block;}
+.guide-hero{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:12px;padding:36px 30px;margin-bottom:28px;display:flex;gap:28px;align-items:center;}
+.guide-hero-text{flex:1;}
+.guide-hero-img{width:38%;max-width:280px;border-radius:10px;display:block;box-shadow:0 8px 24px rgba(0,0,0,.25);}
+@media (max-width:680px){.guide-hero{flex-direction:column;}.guide-hero-img{width:70%;max-width:240px;}}
+.guide-hero .gbadge{display:inline-block;background:#f59e0b;color:#fff;font-size:12px;font-weight:800;letter-spacing:.06em;padding:5px 14px;border-radius:99px;margin-bottom:14px;}
+.guide-hero h1{font-size:26px;font-weight:900;line-height:1.5;margin:0 0 14px;color:#fff;}
+.guide-hero p{font-size:15px;line-height:1.85;color:#dbe6f1;margin:0;}
+.guide-check{list-style:none;padding:0;margin:0 0 10px;}
+.guide-check li{position:relative;padding:12px 0 12px 34px;border-bottom:1px solid #eef1f5;font-size:15px;line-height:1.7;color:#1a3a5c;}
+.guide-check li::before{content:"✓";position:absolute;left:2px;top:11px;width:22px;height:22px;background:#f59e0b;color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;}
+.guide-form-box{background:#fff;border:2px solid #f59e0b;border-radius:12px;padding:30px;margin:28px 0;box-shadow:0 6px 22px rgba(15,31,51,.08);}
+.guide-form-box h2{margin-top:0;border:none;padding:0;font-size:21px;}
+.guide-form .grow{margin-bottom:16px;}
+.guide-form label{display:block;font-size:14px;font-weight:700;color:#0f1f33;margin-bottom:6px;}
+.guide-form .req{color:#dc2626;font-size:11px;margin-left:6px;}
+.guide-form input,.guide-form select,.guide-form textarea{width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:6px;font-size:15px;box-sizing:border-box;font-family:inherit;}
+.guide-form .gsubmit{width:100%;background:#f59e0b;color:#fff;border:none;padding:15px;border-radius:6px;font-size:16px;font-weight:800;cursor:pointer;margin-top:6px;}
+.guide-form .gnote{font-size:12px;color:#6b7280;margin-top:12px;text-align:center;}
+.custom-footer{background:#1f2937;color:#fff;padding:44px 24px 24px;margin-top:40px;}
+.footer-inner{max-width:880px;margin:0 auto;text-align:center;}
+.footer-nav{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:24px;justify-content:center;}
+.footer-nav a{font-size:13px;color:#fff;text-decoration:none;}
+.footer-nav a:hover{color:#f59e0b;}
+.footer-copy{font-size:12px;border-top:1px solid rgba(255,255,255,.12);padding-top:16px;color:#aaa;}
+#wpadminbar{display:none!important;}html{margin-top:0!important;}
+@media (max-width:980px){.page-layout{flex-direction:column;}.blog-sidebar{width:100%;}.main-wrap{max-width:100%;}}
+@media (max-width:880px){.blog-nav .nav-links a:not(.nav-cta){display:none!important;}.article-title{font-size:22px;}.related-grid{grid-template-columns:1fr;}.supervisor-box{flex-direction:column;}table{font-size:13px;}table th,table td{padding:10px;}}
+</style>
+<nav class="blog-nav"><div class="nav-inner">
+<a class="nav-logo" href="https://fp-1.info/traingo/">Train<span>go</span></a>
+<div class="nav-links">
+<a href="https://fp-1.info/traingo/">Traingoとは</a>
+<a href="https://fp-1.info/traingo/blog/">Traingoブログ</a>
+<a href="https://fp-1.info/traingo/guide/">Traingo活用ガイド</a>
+<a href="https://fp-1.info/hojokin/#about" target="_blank" rel="noopener">会社紹介</a>
+<a href="https://fp-1.info/traingo/contact/">お問い合わせ</a>
+<a href="https://fp-1.info/hojokin/" target="_blank" rel="noopener">補助金活用型経営</a>
+<a href="https://fp-1.info/traingo/contact/" class="nav-cta">無料相談・資料請求</a>
+</div></div></nav><div class="blog-nav-spacer"></div>
+<nav class="breadcrumb" aria-label="パンくずリスト"><ol>
+<li><a href="https://fp-1.info/traingo/">Traingo</a></li>
+<li><a href="https://fp-1.info/traingo/blog/">ブログ</a></li>
+<li>研修設計の進め方｜目的・対象・修了条件の決め方</li>
+</ol></nav>
+<div class="page-layout">
+<main class="main-wrap">
+<header class="article-header">
+<span class="article-cat" style="background:#2563eb;">人材育成の基礎知識</span>
+<h1 class="article-title">研修設計の進め方｜目的・対象・修了条件の決め方</h1>
+<div class="article-meta">
+<span>公開日 <time datetime="2026-06-01">2026-06-01</time></span>
+<span>最終更新 <time datetime="2026-06-01">2026-06-01</time></span>
+</div>
+</header>
+<img class="article-thumb" src="../../assets/uploads/2026/06/kenshu-sekkei_thumb.png" alt="研修設計の進め方｜目的・対象・修了条件の決め方">
+<article class="article-body">
+<div class="lead-box">
+<p>「とりあえず研修をやったけれど、何が変わったのか分からない」——こんな経験はありませんか。講師を呼んで、テキストを配って、半日かけて話を聞いてもらった。それなのに、現場の動きは前と変わらない。多くの場合、原因は研修の中身そのものより、「設計」の段階にあります。何を達成したいかを決めないまま内容を並べると、研修は受けて終わりになりがちです。この記事では、目的・対象・修了条件から逆算して研修を組み立てる、設計の進め方をテンプレートとともに整理します。</p>
+</div>
+<figure class="inline-fig"><img alt="図：研修設計の逆算の流れ。目的（何ができるようになってほしいか）を起点に、対象・内容・修了条件へと組み立てていく方向を示した概念図" src="../../assets/uploads/2026/06/kenshu-sekkei-1.png" /><figcaption>図：研修設計の逆算の流れ。目的（何ができるようになってほしいか）を起点に、対象・内容・修了条件へと組み立てていく方向を示した概念図</figcaption></figure>
+<h2>研修設計とは？「内容から」ではなく「目的から」</h2>
+<p>研修設計とは、「誰に、何ができるようになってほしいか」という目的から逆算して、研修の対象・内容・進め方・修了条件を組み立てていくことです。言葉にすると当たり前に聞こえますが、実際の現場では、ここが抜けていることが本当に多いんです。</p>
+<p>よくあるのが、「内容から」考えてしまうパターンです。「ビジネスマナーの研修をやろう」「コンプライアンスの話をしてもらおう」と、扱うテーマから決めてしまう。一見、研修らしく見えます。けれど、ここで一度立ち止まって問いかけてみてほしいんです。その研修を受けた人は、終わったあとに何ができるようになっているのでしょうか?</p>
+<p>この問いに具体的に答えられないなら、その研修は「目的」ではなく「テーマ」から組まれている可能性が高いんです。テーマは「何を扱うか」、目的は「何ができるようになるか」。似ているようで、出発点がまるで違います。研修設計の核心は、テーマを並べることではなく、達成したいゴールを先に決めて、そこから必要な要素を逆算することにあります。</p>
+<p>たとえば、ある会社で「電話応対の研修」を企画したとします。テーマから入ると「電話のマナーについて1時間話す」で終わりがちです。けれど目的から入ると、「新人が、よくある問い合わせ5パターンに、先輩の助けなしで応対できる」というゴールが見えてくる。すると、扱うべき内容も、達成を測る方法も、自然と決まってきます。同じ電話応対の研修でも、設計の出発点が違うだけで、中身も結果も大きく変わってくるわけです。</p>
+<h2>ステップ1：目的を「行動」で言語化する</h2>
+<p>設計の最初の一歩は、目的をはっきりさせることです。ここがぶれると、後の全部がぶれます。そして目的を決めるときのコツは、「行動」で書くことなんです。</p>
+<p>ありがちなのが、「○○について理解する」「○○の知識を身につける」という書き方です。けれど、「理解した」かどうかは、外から見えません。本人が分かったつもりでも、実際にできるとは限りませんよね。そこで、目的は「観察できる行動」で書くようにします。</p>
+<div class="point-box"><div class="point-box-title">目的を行動で書くと、こう変わる</div><ul>
+<li>「接客について理解する」→「来店客に、決められた手順で声かけ・案内ができる」</li>
+<li>「安全意識を高める」→「作業前の安全確認を、チェック項目に沿って実施できる」</li>
+<li>「商品知識を深める」→「主要3商品の特徴を、お客様の質問に答えられる」</li>
+<li>「PCスキルを学ぶ」→「日報を、所定の様式で一人で作成・提出できる」</li>
+</ul></div>
+
+<p>左側の「理解する」「高める」という書き方は、達成できたかどうかを測れません。一方、右側のように「○○ができる」と行動で書くと、その行動ができているかを見れば、達成を判断できます。この違いが、後の修了条件を決めるときに効いてくるんです。</p>
+<p>行動で書くときに役立つのが、「研修の翌日、その人は何をしているか」を想像してみることです。電話応対の研修なら、「翌日、問い合わせの電話を一人で受けて、よくある質問に答えている」。この具体的な場面が浮かべば、目的は十分に行動化できています。逆に、場面が思い浮かばないなら、目的がまだ曖昧だというサインです。</p>
+<h2>ステップ2：対象を分けて、過不足をなくす</h2>
+<p>目的が決まったら、次は「誰に」の部分、つまり対象を考えます。ここで大事なのは、対象を一括りにしないことです。</p>
+<p>同じ研修でも、新人とベテラン、職種が違う人では、必要な前提知識も、到達してほしいレベルも違います。対象を分けずに一律の研修を作ると、ある人には簡単すぎて退屈になり、別の人には難しすぎてついていけない。結果として、誰にとっても中途半端な研修になってしまうことがあるんです。</p>
+<p>実際にあった話として、ある会社が全社員一律で情報セキュリティの研修を行ったところ、ベテランからは「毎年同じ初歩的な話で退屈」、新人からは「専門用語が多くて難しい」と、正反対の不満が出たそうです。同じ内容が、片方には易しすぎ、片方には難しすぎた。対象を分けていれば、避けられた事態かもしれません。</p>
+<p>対象を分けるときは、次のような切り口で考えると整理しやすくなります。</p>
+<table>
+<thead>
+<tr>
+<th>切り口</th>
+<th>分け方の例</th>
+<th>設計で変わる点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>経験</td>
+<td>新人 / 中堅 / ベテラン</td>
+<td>前提知識の量・到達レベル</td>
+</tr>
+<tr>
+<td>職種・役割</td>
+<td>現場スタッフ / 管理者</td>
+<td>必要なスキルの種類</td>
+</tr>
+<tr>
+<td>拠点・業態</td>
+<td>本部 / 店舗、大型店 / 小型店</td>
+<td>扱う事例・運用ルール</td>
+</tr>
+<tr>
+<td>受講の動機</td>
+<td>必須 / 任意</td>
+<td>案内の仕方・修了の扱い</td>
+</tr>
+</tbody>
+</table>
+<p>すべての切り口で細かく分ける必要はありません。その研修の目的にとって、最も差が出る切り口を1つか2つ選んで分ければ十分です。たとえば新人研修なら経験で分ける意味は薄く、職種で分けるほうが効くことが多い。目的に立ち返って、どの違いが結果を左右するかを見極めるのがコツです。</p>
+<h2>ステップ3：目的から内容を逆算する</h2>
+<p>目的と対象が決まると、扱うべき内容は、かなりの部分が自動的に決まってきます。ここでも「逆算」がポイントです。「教えたいこと」を並べるのではなく、「目的を達成するために必要なこと」だけを選ぶんです。</p>
+<p>先ほどの電話応対の例で考えてみましょう。目的は「新人が、よくある問い合わせ5パターンに、一人で応対できる」でした。この目的から逆算すると、必要な内容が見えてきます。まず5パターンが何かを知ること。次に、それぞれの応対の流れを覚えること。そして、実際に声に出して練習すること。逆に、「電話の歴史」や「マナーの一般論」は、この目的には必要ありません。</p>
+<figure class="inline-fig"><img alt="図：研修内容を目的から逆算する流れ。目的を頂点に、必要な知識・スキル・練習を選び出し、目的に直結しない内容を外していく様子を示したフロー図" src="../../assets/uploads/2026/06/kenshu-sekkei-2.png" /><figcaption>図：研修内容を目的から逆算する流れ。目的を頂点に、必要な知識・スキル・練習を選び出し、目的に直結しない内容を外していく様子を示したフロー図</figcaption></figure>
+<p>この「逆算して削る」作業が、実は研修設計でいちばん効きます。多くの研修は、内容が盛りだくさんすぎて、肝心の目的がぼやけてしまっているんです。「せっかくだからあれも教えよう、これも入れよう」と足していくうちに、時間ばかりかかって、結局何ができるようになったのか分からなくなる。目的に直結しないものを思い切って外すと、研修は短く、鋭くなります。</p>
+<p>そして内容を組むときには、「知る」と「できる」を分けて考えると整理しやすくなります。知識をインプットする部分と、実際にやってみる部分です。電話応対なら、「応対の流れを知る」のがインプット、「実際に声に出して練習する」のが実践です。知るだけでは、できるようにはなりません。目的が「できる」である以上、練習や実践の時間を設計に組み込んでおくことが欠かせないんですよね。</p>
+<h2>ステップ4：修了条件で「できた」を確認する</h2>
+<figure class="inline-fig"><img alt="図：修了条件の組み立て方。行動で書いた目的を起点に、確認テストの合格基準・実技チェック・提出物の確認へと対応させる流れを示した図解" src="../../assets/uploads/2026/06/kenshu-sekkei-3.png" /><figcaption>図：修了条件の組み立て方。行動で書いた目的を起点に、確認テストの合格基準・実技チェック・提出物の確認へと対応させる流れを示した図解</figcaption></figure>
+<p>設計の仕上げが、修了条件です。これは「どうなったら、この研修を修了したと言えるか」を決めることです。ここが抜けると、研修は「受けたかどうか」しか分からなくなり、目的だったはずの「できるようになったか」を確認できません。</p>
+<p>修了条件は、ステップ1で行動化した目的と、そのままつながります。目的を「○○ができる」と行動で書いてあれば、「その行動ができているか」をチェックすればいい。だから、目的をしっかり行動化しておくことが、ここで活きてくるわけです。</p>
+<div class="point-box"><div class="point-box-title">修了条件の決め方の例</div><ul>
+<li>知識を問う部分 → 確認テストで、一定の正答率を合格基準にする</li>
+<li>実技ができる部分 → チェック項目に沿って、実際の動作を確認する</li>
+<li>応対や対応 → ロールプレイで、決められた流れを再現できるか見る</li>
+<li>提出物がある部分 → 所定の様式で、一人で作成・提出できるか確認する</li>
+</ul></div>
+
+<p>ここで気をつけたいのは、修了条件を「出席」だけにしないことです。「研修に参加したら修了」では、できるようになったかを問うていません。確認テストや実技チェックを修了条件に置くと、受講者も「見て終わり」ではなく「できるようになる」ことを意識して臨むようになります。修了条件は、研修の質を最後に担保する関所のような役割を持っているんです。</p>
+<p>ある製造業では、安全教育の修了条件を「動画視聴のみ」から「視聴後の確認テストで8割以上」に変えたところ、受講者が動画を真剣に見るようになったといいます。修了条件を一段上げただけで、同じ研修の効果が変わった。修了条件は、単なる事務手続きではなく、学びの真剣さを左右する設計要素なのだと分かる例です。</p>
+<h2>設計した研修を、運用と記録で支える</h2>
+<p>ここまでの4ステップ——目的・対象・内容・修了条件——を踏むと、場当たりだった研修が、ゴールから逆算された設計に変わります。ただ、設計図ができても、それが現場で回り、記録として残らなければ、効果は確かめられません。</p>
+<p>そこで効いてくるのが、設計した研修を学習管理システム(LMS)で運用することです。対象ごとに見せる教材を分け、確認テストを修了条件として設定し、誰がどこまで進んで、テストに合格したかを記録できる。設計のステップ2(対象を分ける)、ステップ4(修了条件で確認する)が、そのまま仕組みに落とし込めるわけです。</p>
+<p>そして記録が残ると、研修そのものを良くしていけます。多くの人が同じ問題でつまずいているなら、その部分の教え方に課題があるのかもしれません。「設計して、運用して、記録を見て、設計を直す」。この循環が回り出すと、研修は一度作って終わりではなく、使うほどに目的に近づいていきます。</p>
+<p>なお、こうした研修の運用や教材づくりには、人材開発支援助成金のように、訓練にかかった経費や賃金の一部を国が助成する制度を活用できる場合があります。こうした制度では、訓練計画や実施記録の整理が求められることが多く、目的・対象・修了条件まで設計された研修と、その受講記録が残っていると、手続きを進めやすくなる傾向があります。設計をきちんと行うことは、教育の効果だけでなく、制度活用の面でも下地になるわけです。</p>
+<h2>まとめ：ゴールから逆算すれば、研修は変わる</h2>
+<p>研修が「やって終わり」になってしまうのは、内容が悪いからとは限りません。多くの場合、「何ができるようになってほしいか」という目的を決めないまま、テーマや内容から組み立てていることが原因です。出発点が違うだけで、研修の結果は大きく変わってきます。</p>
+<p>設計の流れは、目的・対象・内容・修了条件の4ステップです。まず目的を「○○ができる」と行動で言語化する。次に対象を分けて、内容の過不足をなくす。そして目的から内容を逆算し、直結しないものを削る。最後に修了条件で、「できた」を確認できるようにする。この順番で組み立てると、研修はゴールから逆算された、ぶれない設計になります。</p>
+<p>ここで一つ、設計を進めるうえで覚えておきたいことがあります。それは、最初から完璧な設計を目指さなくてよい、ということです。目的を行動で書き、対象をざっくり分け、内容を逆算し、修了条件を仮に置く。まずはこの粗い設計で一度回してみて、受講者の反応や記録を見ながら直していく。設計図は、運用しながら精度を上げていくものだと考えると、着手のハードルが下がります。きれいな設計書を作ることが目的ではなく、現場で人が育つことが目的なのですから、動かしながら整えていく姿勢のほうが、結果として良い研修に近づいていく傾向があります。</p>
+<p>設計した研修は、学習管理システムで運用し、受講と修了を記録に残すことで、効果を確かめ、改善し続けられます。まずは、いま手元にある研修を1つ取り上げ、「この研修を受けた人は、翌日に何ができているか」を行動で書き出してみてください。そこから逆算していくと、足すべきものと削るべきものが見えてきます。それが、場当たりの研修を抜け出す、最初の一歩になります。</p>
+<div class="source-box"><strong>参考にした公式情報</strong><ul><li><a href="https://www.mhlw.go.jp/toukei/list/104-1.html" target="_blank" rel="noopener">厚生労働省「能力開発基本調査」（企業の教育訓練の計画・実施状況に関する公式統計）</a></li><li><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/kyufukin/d01-1.html" target="_blank" rel="noopener">厚生労働省「人材開発支援助成金」（職業訓練の経費・賃金を助成する制度）</a></li><li><a href="https://j-net21.smrj.go.jp/" target="_blank" rel="noopener">独立行政法人 中小企業基盤整備機構 J-Net21（中小企業の人材育成・教育計画の支援情報）</a></li></ul></div>
+<h2>よくある質問</h2>
+<div class="faq-section"><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>研修設計とは何ですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>「誰に、何ができるようになってほしいか」という目的から逆算して、研修の対象・内容・進め方・修了条件を組み立てていくことです。とりあえず内容を並べるのではなく、達成したいゴールを先に決め、そこから必要な要素を設計する考え方を指します。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>研修設計は、まず何から決めればよいですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>最初に決めるのは目的、つまり「受講した人が、研修後に何をできるようになっているか」です。ここを行動レベルで具体的に言語化できると、教える内容も、達成を測る修了条件も、目的から自然に導きやすくなります。内容から先に決めると、目的とずれやすい傾向があります。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>研修の目的は、どのくらい具体的に書けばよいですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>「○○について理解する」ではなく、「○○の手順を、一人で最後まで実行できる」のように、観察できる行動で書くのが目安です。行動で書けると、達成できたかどうかを修了条件として測りやすくなり、研修の効果も確認しやすくなります。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>修了条件は、なぜ決めておく必要があるのですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>修了条件がないと、研修を「受けたかどうか」しか分からず、「できるようになったかどうか」が把握できないためです。確認テストの合格基準や、実技のチェック項目を修了条件として決めておくと、受けただけで終わる状態を防ぎやすくなります。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>対象者を分けて設計する意味はありますか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>あります。新人とベテラン、職種が違う人では、必要な前提知識も到達してほしいレベルも異なるためです。対象を分けずに一律の研修にすると、ある人には簡単すぎ、別の人には難しすぎる、という状態が起きやすくなります。対象ごとに設計すると、内容を過不足なく合わせやすくなります。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>設計した研修を運用していくうえで、助成金は活用できますか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>訓練の内容や進め方によっては、人材開発支援助成金のように、訓練にかかった経費や賃金の一部を国が助成する制度を活用できる場合があります。対象になるかは訓練計画の内容や手続きの要件によって変わるため、詳細は厚生労働省の公式情報や窓口でご確認ください。</p></div>
+</div></div>
+<div class="supervisor-box" id="supervisor">
+<div class="supervisor-avatar"><img src="https://fp-1.info/hojokin/wp-content/uploads/2026/05/akutsu-portrait.jpg" alt="阿久津 和宏" style="width:100%;height:100%;border-radius:50%;object-fit:cover;"></div>
+<div class="supervisor-info">
+<div class="supervisor-label">監修・執筆</div>
+<div class="supervisor-name">阿久津 和宏</div>
+<div class="supervisor-title">人材育成・補助金活用コンサルタント</div>
+<div class="supervisor-bio">Well Consultant合同会社代表。中小企業の研修内製化・eラーニング導入・人材開発支援助成金の活用を支援。研修プラットフォーム「Traingo」を企画・運営。</div>
+</div></div>
+</article>
+<div class="cta-box">
+<h2>研修を「作って終わり」にしない仕組みを</h2>
+<p>動画研修・eラーニングの内製化、受講管理、人材開発支援助成金の活用まで。<br>Traingoがまとめてご支援します。まずはお気軽にご相談ください。</p>
+<a class="cta-btn" href="https://fp-1.info/traingo/contact/">無料相談・資料請求はこちら</a>
+</div>
+<section class="related-section"><h2>関連記事</h2><div class="related-grid"><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/ojt-zokujinka/">
+<div class="related-card-img" style="background:#2563eb;"><span>OJTの属人化とは？暗黙知を形式知に変える仕組みづくり</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">人材育成の基礎知識</div>
+<div class="related-card-title">OJTの属人化とは？暗黙知を形式知に変える仕組みづくり</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/shugo-vs-douga/">
+<div class="related-card-img" style="background:#2563eb;"><span>集合研修と動画研修の違いとは？研修コンテンツを資産化するメリット</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">人材育成の基礎知識</div>
+<div class="related-card-title">集合研修と動画研修の違いとは？研修コンテンツを資産化するメリット</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/kenshu-naiseika/">
+<div class="related-card-img" style="background:#2563eb;"><span>社内研修の内製化とは？メリット・デメリットと外部委託との比較</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">人材育成の基礎知識</div>
+<div class="related-card-title">社内研修の内製化とは？メリット・デメリットと外部委託との比較</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/gijutsu-densho/">
+<div class="related-card-img" style="background:#2563eb;"><span>技術伝承の進め方｜ベテランのノウハウを動画で形式知化する方法</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">人材育成の基礎知識</div>
+<div class="related-card-title">技術伝承の進め方｜ベテランのノウハウを動画で形式知化する方法</div>
+</div></a></div></section>
+</main>
+<aside class="blog-sidebar">
+<div class="sidebar-guide">
+<img src="../../assets/uploads/2026/06/guide-cover.png" alt="Traingo活用ガイド" class="sidebar-guide-img">
+<div class="sidebar-guide-badge">無料ダウンロード</div>
+<div class="sidebar-guide-title">Traingo活用ガイド</div>
+<div class="sidebar-guide-desc">研修の内製化・eラーニング化の進め方を1冊に。導入前に押さえたい実務のポイントを無料でお渡しします（補助金・助成金の活用にも対応）。</div>
+<a class="sidebar-guide-btn" href="https://fp-1.info/traingo/guide/">ガイドを受け取る →</a>
+</div>
+<div class="sidebar-box"><div class="sidebar-title">記事カテゴリ</div>
+<div class="sidebar-cluster"><a href="https://fp-1.info/traingo/blog/#tsukuru">研修を作る・仕組み化する</a><a href="https://fp-1.info/traingo/blog/#lms-value">ツール（LMS）としての価値</a><a href="https://fp-1.info/traingo/blog/#hikaku">比較・選び方</a><a href="https://fp-1.info/traingo/blog/#keiei">人材育成の経営的効果</a><a href="https://fp-1.info/traingo/blog/#shueki">研修の収益化・事業化</a><a href="https://fp-1.info/traingo/blog/#jirei">事例・信頼</a><a href="https://fp-1.info/traingo/blog/#josei">助成金（活用例）</a></div></div>
+<div class="sidebar-box"><div class="sidebar-title">ヘルプ・使い方</div>
+<div class="sidebar-cluster">
+<a href="https://fp-1.info/traingo/help/">ツール活用ヘルプ（目次）</a>
+<a href="https://fp-1.info/traingo/manual-company/">会社管理者の使い方</a>
+<a href="https://fp-1.info/traingo/manual-learner/">受講者の使い方</a>
+</div></div>
+<div class="sidebar-consult">
+<p>研修の内製化・eラーニング化・人材開発支援助成金の活用をご相談ください。</p>
+<a class="sb-btn" href="https://fp-1.info/traingo/contact/">無料相談・資料請求 →</a>
+</div></aside>
+</div>
+<footer class="custom-footer"><div class="footer-inner">
+<nav class="footer-nav">
+<a href="https://fp-1.info/traingo/">Traingoとは</a>
+<a href="https://fp-1.info/traingo/blog/">Traingoブログ</a>
+<a href="https://fp-1.info/traingo/guide/">Traingo活用ガイド</a>
+<a href="https://fp-1.info/traingo/help/">ヘルプ・使い方</a>
+<a href="https://fp-1.info/hojokin/#about" target="_blank" rel="noopener">会社紹介</a>
+<a href="https://fp-1.info/traingo/contact/">お問い合わせ</a>
+<a href="https://fp-1.info/hojokin/" target="_blank" rel="noopener">補助金活用型経営</a>
+</nav>
+<div class="footer-copy">© Well Consultant合同会社　Traingo（トレインゴ）｜法人向け研修プラットフォーム</div>
+</div></footer>
+<script>(function(){function k(){
+document.documentElement.style.setProperty('margin-top','0','important');
+document.body.style.setProperty('margin-top','0','important');document.body.style.setProperty('padding-top','0','important');
+var wsb=document.querySelector('.wp-site-blocks');if(wsb){wsb.style.setProperty('margin-top','0','important');wsb.style.setProperty('padding-top','0','important');Array.prototype.forEach.call(wsb.children,function(c){c.style.setProperty('margin-top','0','important');});}
+['header.wp-block-template-part','.wp-site-blocks > header','.wp-block-post-title','.wp-block-template-part[data-area=\"footer\"]','.wp-site-blocks > footer'].forEach(function(s){document.querySelectorAll(s).forEach(function(e){e.style.setProperty('display','none','important');});});
+}if(document.readyState!=='loading')k();else document.addEventListener('DOMContentLoaded',k);window.addEventListener('load',k);})();</script>
+<!-- /wp:html -->

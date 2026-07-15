@@ -1,0 +1,117 @@
+<!-- wp:html -->
+<style>
+:root,html,body{--wp--style--global--content-size:100%!important;--wp--style--global--wide-size:100%!important;--wp--style--root--padding-top:0!important;--wp--style--root--padding-right:0!important;--wp--style--root--padding-bottom:0!important;--wp--style--root--padding-left:0!important;}
+body,body.page,body.home,body.single{margin:0!important;padding:0!important;padding-top:0!important;}
+.wp-site-blocks,.wp-site-blocks>main,main.wp-block-group,.wp-block-group.has-global-padding,.wp-block-post-content,.entry-content,.wp-block-group.alignfull,.wp-block-group-is-layout-constrained,.wp-block-post-content-is-layout-constrained,.wp-block-html,article.post,article.page,.post,.hentry,.page{max-width:100%!important;width:100%!important;margin:0!important;padding:0!important;}
+.has-global-padding,.has-global-padding>.alignfull{padding-left:0!important;padding-right:0!important;}
+.wp-block-post-title,.entry-header,.entry-title,header.entry-header,.wp-block-template-part header,header.wp-block-template-part,.wp-site-blocks>header,.wp-block-site-title,.wp-block-navigation,.wp-block-template-part[data-area="header"],aside.sidebar,.widget-area,.sidebar,#secondary{display:none!important;}
+.entry-meta,.post-meta,.byline,.posted-on,.cat-links,.author,.tags-links,.comments-link,.wp-block-post-author,.wp-block-post-date,.wp-block-post-terms,.wp-block-post-excerpt,.screen-reader-text{display:none!important;}
+#wpadminbar,#wpadminbar *{display:none!important;}
+html{margin-top:0!important;}
+.wp-site-blocks>footer,.wp-block-template-part[data-area="footer"],footer.wp-block-template-part{display:none!important;}
+.post-navigation,.posts-navigation,.wp-block-query-pagination,.wp-block-post-navigation-link,.wp-block-query{display:none!important;}
+#comments,.comments-area,.comment-respond,.wp-block-comments{display:none!important;}
+.is-layout-constrained>.wp-block-html,.is-layout-constrained>.wp-block-group:not(.alignwide):not(.alignfull){max-width:100%!important;margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important;}
+
+*,*::before,*::after{box-sizing:border-box;}
+body{font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic Medium',sans-serif;color:#222;background:#f9f6f2;}
+.contact-page{max-width:720px;margin:0 auto;padding:64px 24px 80px;}
+.contact-page h1{font-size:clamp(22px,4vw,30px);font-weight:900;color:#1a1a1a;margin:0 0 12px;line-height:1.4;}
+.contact-page .lead{font-size:15px;color:#555;line-height:1.8;margin:0 0 40px;}
+.cta-form{background:#fff;border-radius:10px;padding:36px 32px 28px;text-align:left;color:#222;box-shadow:0 8px 40px rgba(0,0,0,0.12);}
+.cta-form .form-row{margin-bottom:18px;}
+.cta-form .form-label{display:block;font-size:13px;font-weight:bold;color:#333;margin-bottom:6px;}
+.cta-form .form-required{display:inline-block;background:#d35400;color:#fff;font-size:10px;font-weight:bold;padding:2px 8px;border-radius:3px;margin-left:6px;vertical-align:middle;}
+.cta-form .form-input{width:100%;padding:12px 14px;border:1px solid #d0d0d0;border-radius:6px;font-size:14px;font-family:inherit;color:#222;background:#fff;transition:border-color 0.15s,box-shadow 0.15s;}
+.cta-form .form-input:focus{outline:none;border-color:#d35400;box-shadow:0 0 0 3px rgba(211,84,0,0.15);}
+.cta-form textarea.form-input{resize:vertical;min-height:110px;line-height:1.7;}
+.cta-form .form-submit{display:block;width:100%;background:#d35400;color:#fff;border:0;padding:16px 20px;border-radius:6px;font-size:15px;font-weight:bold;cursor:pointer;letter-spacing:0.05em;transition:background 0.15s;}
+.cta-form .form-submit:hover{background:#b84600;}
+.cta-form .form-privacy{font-size:11px;color:#888;margin-top:14px;text-align:center;line-height:1.7;}
+
+</style>
+<div class="contact-page">
+  <h1>お問い合わせ</h1>
+  <p class="lead">研修プランのご相談・IT導入補助金・人材開発支援助成金の活用など、お気軽にお問い合わせください。<br>2営業日以内にご返信いたします。</p>
+  <form class="cta-form" id="contactForm" novalidate autocomplete="off">
+    <div class="form-row">
+      <label class="form-label">お名前 <span class="form-required">必須</span></label>
+      <input type="text" name="name" class="form-input" placeholder="例：山田 太郎" autocomplete="name">
+    </div>
+    <div class="form-row">
+      <label class="form-label">メールアドレス <span class="form-required">必須</span></label>
+      <input type="text" name="email" class="form-input" placeholder="例：info@example.com" autocomplete="off">
+    </div>
+    <div class="form-row">
+      <label class="form-label">電話番号 <span class="form-required">必須</span></label>
+      <input type="text" name="phone" class="form-input" placeholder="例：090-1234-5678" autocomplete="off">
+    </div>
+    <div class="form-row">
+      <label class="form-label">会社名・屋号 <span class="form-required">必須</span></label>
+      <input type="text" name="company" class="form-input" placeholder="例：株式会社○○" autocomplete="organization">
+    </div>
+    <div class="form-row">
+      <label class="form-label">ご相談内容 <span class="form-required">必須</span></label>
+      <select name="topic" class="form-input">
+        <option value="">選択してください</option>
+        <option value="training_plan">研修プランについて詳しく知りたい</option>
+        <option value="it_hojo">IT導入補助金を活用したい</option>
+        <option value="jinzai_grant">人材開発支援助成金を活用したい</option>
+        <option value="price">料金・見積もりを知りたい</option>
+        <option value="demo">デモ・トライアルを試したい</option>
+        <option value="other">その他</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <label class="form-label">ご質問・ご相談 <span class="form-required">必須</span></label>
+      <textarea name="message" rows="5" class="form-input" placeholder="現在のご状況やご相談内容をお書きください" autocomplete="off"></textarea>
+    </div>
+    <input type="hidden" name="source" value="traingo-site-contact">
+    <div id="form-error-msg" style="display:none;color:#c0392b;font-size:13px;font-weight:bold;margin-bottom:12px;padding:10px 14px;background:#fdf0f0;border-radius:4px;border:1px solid #e8b4b4;">必須項目をすべて入力してください。</div>
+    <button type="submit" class="form-submit">送信する</button>
+    <p class="form-privacy">お預かりした情報は<a href="https://fp-1.info/hojokin/privacy/" target="_blank" rel="noopener">プライバシーポリシー</a>に基づき管理します。無料相談・関連情報のご案内のみに使用し、第三者への提供はいたしません。</p>
+  </form>
+</div>
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var f = e.target;
+  var name = f.name.value.trim();
+  var email = f.email.value.trim();
+  var phone = f.phone.value.trim();
+  var company = f.company.value.trim();
+  var topic = f.topic.value;
+  var message = f.message.value.trim();
+  var err = document.getElementById('form-error-msg');
+  if (!name || !email || !phone || !company || !topic || !message) {
+    err.style.display = 'block'; return;
+  }
+  err.style.display = 'none';
+  var btn = f.querySelector('.form-submit');
+  btn.disabled = true; btn.textContent = '送信中...';
+  fetch('https://fp-1.info/traingo/wp-json/traingo/v1/contact', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({name:name, email:email, phone:phone, company:company, topic:topic, message:message, source:'traingo-site-contact'})
+  }).then(function(r){ return r.json(); }).then(function(d){
+    if (d.success) {
+      window.location.href = 'https://fp-1.info/traingo/contact-thanks/';
+    } else {
+      btn.disabled = false; btn.textContent = '送信する';
+      err.textContent = '送信に失敗しました。しばらく待ってから再試行してください。';
+      err.style.display = 'block';
+    }
+  }).catch(function(){
+    btn.disabled = false; btn.textContent = '送信する';
+    err.textContent = '通信エラーが発生しました。時間をおいて再試行してください。';
+    err.style.display = 'block';
+  });
+});
+</script>
+<script>(function(){function k(){
+document.documentElement.style.setProperty('margin-top','0','important');
+document.body.style.setProperty('margin-top','0','important');document.body.style.setProperty('padding-top','0','important');
+var wsb=document.querySelector('.wp-site-blocks');if(wsb){wsb.style.setProperty('margin-top','0','important');wsb.style.setProperty('padding-top','0','important');Array.prototype.forEach.call(wsb.children,function(c){c.style.setProperty('margin-top','0','important');});}
+['header.wp-block-template-part','.wp-site-blocks > header','.wp-block-template-part[data-area=\"header\"]','.wp-block-post-title','.wp-block-template-part[data-area=\"footer\"]','.wp-site-blocks > footer'].forEach(function(s){document.querySelectorAll(s).forEach(function(e){e.style.setProperty('display','none','important');});});
+}if(document.readyState!=='loading')k();else document.addEventListener('DOMContentLoaded',k);window.addEventListener('load',k);})();</script>
+<!-- /wp:html -->

@@ -1,0 +1,324 @@
+<!-- wp:html -->
+<style>
+
+:root,html,body{--wp--style--global--content-size:100%!important;--wp--style--global--wide-size:100%!important;--wp--style--root--padding-top:0!important;--wp--style--root--padding-right:0!important;--wp--style--root--padding-bottom:0!important;--wp--style--root--padding-left:0!important;}
+body,body.page,body.home,body.single,body.single-post{margin:0!important;padding:0!important;padding-top:0!important;}
+.wp-site-blocks,.wp-site-blocks>main,main.wp-block-group,.wp-block-group.has-global-padding,.wp-block-post-content,.entry-content,.wp-block-group.alignfull,.wp-block-group-is-layout-constrained,.wp-block-post-content-is-layout-constrained,.wp-block-html,article.post,article.page,.post,.hentry,.page{max-width:100%!important;width:100%!important;margin:0!important;padding:0!important;}
+.has-global-padding,.has-global-padding>.alignfull{padding-left:0!important;padding-right:0!important;}
+.wp-block-post-title,.entry-header,.entry-title,header.entry-header,.wp-block-template-part header,header.wp-block-template-part,.wp-site-blocks>header,.wp-block-site-title,.wp-block-navigation,.wp-block-template-part[data-area="header"],aside.sidebar,.widget-area,.sidebar,#secondary{display:none!important;}
+.entry-meta,.post-meta,.byline,.posted-on,.cat-links,.author,.tags-links,.comments-link,.wp-block-post-author,.wp-block-post-author__bio,.wp-block-post-author-name,.wp-block-post-date,.wp-block-post-terms,.wp-block-post-excerpt,p.has-text-align-right,.screen-reader-text{display:none!important;}
+#wpadminbar,#wpadminbar *{display:none!important;}
+html{margin-top:0!important;}
+.wp-site-blocks>footer,.wp-block-template-part[data-area="footer"],footer.wp-block-template-part{display:none!important;}
+footer:not(.custom-footer){display:none!important;}
+.post-navigation,.posts-navigation,.nav-previous,.nav-next,.wp-block-query-pagination,.more-link,a.more-link,.wp-block-post-navigation-link,nav[aria-label="投稿ナビゲーション"]{display:none!important;}
+.wp-block-query{display:none!important;}
+#comments,.comments-area,.comment-respond,.wp-block-comments{display:none!important;}
+.is-layout-constrained>.wp-block-html,.is-layout-constrained>.wp-block-group:not(.alignwide):not(.alignfull){max-width:100%!important;margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important;}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP','Meiryo',sans-serif;font-size:16px;line-height:1.85;color:#222;background:#f7f7f5;}
+a{color:#2563eb;}
+.blog-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#0f1f33;}
+.blog-nav .nav-inner{max-width:1160px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:62px;}
+.blog-nav .nav-logo{color:#fff;font-weight:800;font-size:16px;text-decoration:none;letter-spacing:.02em;}
+.blog-nav .nav-logo span{color:#f59e0b;}
+.blog-nav .nav-links{display:flex;align-items:center;gap:24px;}
+.blog-nav .nav-links a{color:#fff;font-size:13px;text-decoration:none;transition:color .2s;}
+.blog-nav .nav-links a:hover{color:#f59e0b;}
+.blog-nav .nav-cta{background:#f59e0b;color:#fff !important;padding:8px 20px;border-radius:4px;font-weight:bold;font-size:13px;}
+.blog-nav .nav-cta:hover{background:#d98a06 !important;}
+.blog-nav-spacer{height:62px;}
+.breadcrumb{background:#e8edf3;padding:10px 0;font-size:13px;}
+.breadcrumb ol{list-style:none;display:flex;flex-wrap:wrap;gap:4px;max-width:1160px;margin:0 auto;padding:0 20px;}
+.breadcrumb li+li::before{content:'>';margin-right:4px;color:#888;}
+.breadcrumb a{color:#1a3a5c;text-decoration:none;}
+.page-layout{display:flex;flex-direction:row;gap:32px;max-width:1160px;margin:0 auto;padding:32px 20px 60px;align-items:flex-start;}
+.main-wrap{flex:1;min-width:0;max-width:820px;}
+.blog-sidebar{width:300px;flex-shrink:0;position:sticky;top:78px;align-self:flex-start;}
+.article-thumb{width:100%;height:auto;border-radius:8px;display:block;margin-bottom:28px;}
+.article-header{margin-bottom:28px;}
+.article-cat{display:inline-block;color:#fff;font-size:12px;font-weight:700;padding:3px 12px;border-radius:3px;margin-bottom:12px;}
+.article-title{font-size:28px;font-weight:900;color:#0f1f33;line-height:1.4;margin-bottom:12px;}
+.article-meta{font-size:13px;color:#6b7280;display:flex;gap:16px;flex-wrap:wrap;}
+.article-meta time{color:#1a3a5c;}
+.article-body{color:#333;}
+.article-body p{margin-bottom:1.4em;}
+.article-body h2{font-size:22px;font-weight:900;color:#0f1f33;border-left:5px solid #f59e0b;padding:6px 0 6px 14px;margin:48px 0 20px;line-height:1.4;}
+.article-body h3{font-size:18px;font-weight:700;color:#1a3a5c;border-bottom:2px solid #c8d8e8;padding-bottom:6px;margin:32px 0 16px;}
+.article-body ul,.article-body ol{margin:0 0 1.4em 1.4em;}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:#0f1f33;}
+.lead-box{background:#eef3fb;border-left:4px solid #2563eb;padding:20px 24px;border-radius:4px;margin-bottom:32px;}
+.lead-box p{margin-bottom:0;color:#0f1f33;font-weight:500;}
+.point-box{background:#fff8ed;border:2px solid #f59e0b;border-radius:6px;padding:20px 24px;margin:24px 0;}
+.point-box .point-box-title{font-size:14px;font-weight:700;color:#c47f06;margin-bottom:10px;}
+.point-box ul{padding-left:1.4em;margin:0;}
+.point-box li{margin-bottom:6px;}
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:15px;}
+table thead tr{background:#1a3a5c;color:#fff;}
+table th{padding:12px 14px;text-align:left;font-weight:700;}
+table td{padding:12px 14px;border-bottom:1px solid #d0dcea;vertical-align:top;}
+table tr:nth-child(even) td{background:#f0f5fa;}
+.inline-fig{display:block;margin:28px auto;width:100%;}
+.inline-fig img{width:100%;max-width:760px;height:auto;border-radius:8px;display:block;margin:0 auto;}
+.inline-fig figcaption{font-size:13px;color:#6b7280;text-align:center;margin-top:8px;}
+.source-box{background:#f9fafc;border:1px dashed #aabbcc;padding:16px 20px;margin:32px 0;font-size:13px;color:#555;border-radius:4px;}
+.source-box strong{color:#1a3a5c;display:block;margin-bottom:6px;}
+.source-box ul{padding-left:1.4em;margin:0;}
+.source-box a{color:#2563eb;word-break:break-all;}
+.faq-section{margin:40px 0;}
+.faq-item{border:1px solid #c8d8e8;border-radius:6px;margin-bottom:12px;overflow:hidden;}
+.faq-q{background:#1a3a5c;color:#fff;padding:14px 18px;font-weight:700;font-size:15px;display:flex;gap:10px;align-items:flex-start;}
+.faq-q .faq-icon{flex-shrink:0;color:#f59e0b;font-size:18px;font-weight:900;}
+.faq-a{padding:16px 18px;background:#fff;font-size:15px;display:flex;gap:10px;align-items:flex-start;}
+.faq-a .faq-icon{flex-shrink:0;color:#1a3a5c;font-size:18px;font-weight:900;}
+.faq-a p{margin-bottom:0;}
+.supervisor-box{display:flex;gap:20px;align-items:flex-start;border:1px solid #c8d8e8;border-radius:8px;padding:24px;margin:40px 0;background:#f5f8fc;}
+.supervisor-avatar{flex-shrink:0;width:72px;height:72px;border-radius:50%;background:#1a3a5c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;}
+.supervisor-info{flex:1;}
+.supervisor-label{font-size:11px;color:#888;font-weight:700;letter-spacing:.08em;margin-bottom:4px;}
+.supervisor-name{font-size:18px;font-weight:900;color:#0f1f33;margin-bottom:4px;}
+.supervisor-title{font-size:13px;color:#555;margin-bottom:10px;}
+.supervisor-bio{font-size:14px;color:#444;line-height:1.7;}
+.cta-box{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:8px;padding:36px 32px;text-align:center;margin:40px 0;}
+.cta-box h2{font-size:22px;font-weight:900;margin-bottom:12px;border:none;padding:0;color:#fff;}
+.cta-box p{font-size:15px;margin-bottom:24px;color:#cddbe8;}
+.cta-btn{display:inline-block;background:#f59e0b;color:#fff;font-size:17px;font-weight:700;padding:16px 40px;border-radius:4px;text-decoration:none;}
+.cta-btn:hover{background:#d98a06;}
+.related-section{margin:48px 0 32px;}
+.related-section h2{font-size:20px;font-weight:900;color:#0f1f33;border-left:5px solid #f59e0b;padding:4px 0 4px 14px;margin-bottom:20px;}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.related-card{border:1px solid #c8d8e8;border-radius:6px;overflow:hidden;text-decoration:none;color:inherit;background:#fff;display:block;}
+.related-card:hover{box-shadow:0 4px 16px rgba(15,31,51,.12);}
+.related-card-img{width:100%;height:120px;background:#1a3a5c;display:flex;align-items:center;justify-content:center;}
+.related-card-img span{color:#fff;font-size:13px;font-weight:700;text-align:center;padding:8px;line-height:1.5;}
+.related-card-body{padding:14px 16px;}
+.related-card-cat{font-size:11px;color:#f59e0b;font-weight:700;margin-bottom:6px;}
+.related-card-title{font-size:15px;font-weight:700;color:#1a3a5c;line-height:1.4;}
+.genre-nav{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:22px 24px;margin-bottom:36px;}
+.genre-nav-title{font-size:15px;font-weight:800;color:#0f1f33;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #f59e0b;}
+.genre-chips{display:flex;flex-wrap:wrap;gap:10px;}
+.genre-chip{display:inline-flex;align-items:center;gap:8px;background:#eef3fb;color:#1a3a5c;text-decoration:none;font-size:13px;font-weight:700;padding:9px 16px;border-radius:22px;transition:all .2s;}
+.genre-chip span{background:#f59e0b;color:#fff;border-radius:10px;padding:1px 9px;font-size:12px;}
+.genre-chip:hover{background:#1a3a5c;color:#fff;}
+.genre-count{font-size:13px;font-weight:700;color:#f59e0b;margin-left:12px;}
+.sidebar-box{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:20px;margin-bottom:20px;}
+.sidebar-title{font-size:14px;font-weight:800;color:#0f1f33;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #f59e0b;}
+.sidebar-cluster a{display:block;font-size:14px;color:#1a3a5c;text-decoration:none;padding:8px 0;border-bottom:1px solid #eef1f5;}
+.sidebar-cluster a:hover{color:#f59e0b;}
+.sidebar-consult{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:8px;padding:22px;text-align:center;}
+.sidebar-consult p{font-size:13px;color:#cddbe8;margin-bottom:14px;}
+.sidebar-consult .sb-btn{display:block;background:#f59e0b;color:#fff;text-decoration:none;font-weight:700;padding:12px;border-radius:4px;font-size:14px;}
+.sidebar-guide{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;border-radius:8px;padding:22px;margin-bottom:20px;text-align:center;box-shadow:0 4px 14px rgba(217,119,6,.25);}
+.sidebar-guide-badge{display:inline-block;background:rgba(255,255,255,.22);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:4px 12px;border-radius:99px;margin-bottom:12px;}
+.sidebar-guide-title{font-size:18px;font-weight:900;margin-bottom:10px;line-height:1.4;}
+.sidebar-guide-desc{font-size:13px;line-height:1.7;color:#fff8ee;margin-bottom:16px;text-align:left;}
+.sidebar-guide-btn{display:block;background:#fff;color:#0f1f33;text-decoration:none;font-weight:800;padding:13px;border-radius:5px;font-size:14px;transition:transform .15s;}
+.sidebar-guide-btn:hover{transform:translateY(-2px);}
+.sidebar-guide-img{width:100%;border-radius:8px;margin-bottom:14px;display:block;}
+.guide-hero{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:12px;padding:36px 30px;margin-bottom:28px;display:flex;gap:28px;align-items:center;}
+.guide-hero-text{flex:1;}
+.guide-hero-img{width:38%;max-width:280px;border-radius:10px;display:block;box-shadow:0 8px 24px rgba(0,0,0,.25);}
+@media (max-width:680px){.guide-hero{flex-direction:column;}.guide-hero-img{width:70%;max-width:240px;}}
+.guide-hero .gbadge{display:inline-block;background:#f59e0b;color:#fff;font-size:12px;font-weight:800;letter-spacing:.06em;padding:5px 14px;border-radius:99px;margin-bottom:14px;}
+.guide-hero h1{font-size:26px;font-weight:900;line-height:1.5;margin:0 0 14px;color:#fff;}
+.guide-hero p{font-size:15px;line-height:1.85;color:#dbe6f1;margin:0;}
+.guide-check{list-style:none;padding:0;margin:0 0 10px;}
+.guide-check li{position:relative;padding:12px 0 12px 34px;border-bottom:1px solid #eef1f5;font-size:15px;line-height:1.7;color:#1a3a5c;}
+.guide-check li::before{content:"✓";position:absolute;left:2px;top:11px;width:22px;height:22px;background:#f59e0b;color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;}
+.guide-form-box{background:#fff;border:2px solid #f59e0b;border-radius:12px;padding:30px;margin:28px 0;box-shadow:0 6px 22px rgba(15,31,51,.08);}
+.guide-form-box h2{margin-top:0;border:none;padding:0;font-size:21px;}
+.guide-form .grow{margin-bottom:16px;}
+.guide-form label{display:block;font-size:14px;font-weight:700;color:#0f1f33;margin-bottom:6px;}
+.guide-form .req{color:#dc2626;font-size:11px;margin-left:6px;}
+.guide-form input,.guide-form select,.guide-form textarea{width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:6px;font-size:15px;box-sizing:border-box;font-family:inherit;}
+.guide-form .gsubmit{width:100%;background:#f59e0b;color:#fff;border:none;padding:15px;border-radius:6px;font-size:16px;font-weight:800;cursor:pointer;margin-top:6px;}
+.guide-form .gnote{font-size:12px;color:#6b7280;margin-top:12px;text-align:center;}
+.custom-footer{background:#1f2937;color:#fff;padding:44px 24px 24px;margin-top:40px;}
+.footer-inner{max-width:880px;margin:0 auto;text-align:center;}
+.footer-nav{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:24px;justify-content:center;}
+.footer-nav a{font-size:13px;color:#fff;text-decoration:none;}
+.footer-nav a:hover{color:#f59e0b;}
+.footer-copy{font-size:12px;border-top:1px solid rgba(255,255,255,.12);padding-top:16px;color:#aaa;}
+#wpadminbar{display:none!important;}html{margin-top:0!important;}
+@media (max-width:980px){.page-layout{flex-direction:column;}.blog-sidebar{width:100%;}.main-wrap{max-width:100%;}}
+@media (max-width:880px){.blog-nav .nav-links a:not(.nav-cta){display:none!important;}.article-title{font-size:22px;}.related-grid{grid-template-columns:1fr;}.supervisor-box{flex-direction:column;}table{font-size:13px;}table th,table td{padding:10px;}}
+</style>
+<nav class="blog-nav"><div class="nav-inner">
+<a class="nav-logo" href="https://fp-1.info/traingo/">Train<span>go</span></a>
+<div class="nav-links">
+<a href="https://fp-1.info/traingo/">Traingoとは</a>
+<a href="https://fp-1.info/traingo/blog/">Traingoブログ</a>
+<a href="https://fp-1.info/traingo/guide/">Traingo活用ガイド</a>
+<a href="https://fp-1.info/hojokin/#about" target="_blank" rel="noopener">会社紹介</a>
+<a href="https://fp-1.info/traingo/contact/">お問い合わせ</a>
+<a href="https://fp-1.info/hojokin/" target="_blank" rel="noopener">補助金活用型経営</a>
+<a href="https://fp-1.info/traingo/contact/" class="nav-cta">無料相談・資料請求</a>
+</div></div></nav><div class="blog-nav-spacer"></div>
+<nav class="breadcrumb" aria-label="パンくずリスト"><ol>
+<li><a href="https://fp-1.info/traingo/">Traingo</a></li>
+<li><a href="https://fp-1.info/traingo/blog/">ブログ</a></li>
+<li>学習管理システム（LMS）の主な機能とは？できることと選定ポイント</li>
+</ol></nav>
+<div class="page-layout">
+<main class="main-wrap">
+<header class="article-header">
+<span class="article-cat" style="background:#f59e0b;">研修管理・LMS活用</span>
+<h1 class="article-title">学習管理システム（LMS）の主な機能とは？できることと選定ポイント</h1>
+<div class="article-meta">
+<span>公開日 <time datetime="2026-06-01">2026-06-01</time></span>
+<span>最終更新 <time datetime="2026-06-01">2026-06-01</time></span>
+</div>
+</header>
+<img class="article-thumb" src="../../assets/uploads/2026/06/lms-kino_thumb.png" alt="学習管理システム（LMS）の主な機能とは？できることと選定ポイント">
+<article class="article-body">
+<div class="lead-box">
+<p>「LMSという言葉は聞くけれど、結局何ができるのか分からない」——導入を検討する段階で、こう感じている方は多いのではないでしょうか。動画をクラウドに上げるのと何が違うのか、自社に必要なのか。この記事では、学習管理システム（LMS）の主な機能を一つずつ整理し、自社に合うものを選ぶときのチェックポイントまで、実務目線でお伝えします。</p>
+</div>
+<figure class="inline-fig"><img alt="図：学習管理システム（LMS）の全体像。教材配信・受講者管理・進捗可視化・テスト・修了証の5つの機能が中心でつながる概念図" src="../../assets/uploads/2026/06/lms-kino-1.png" /><figcaption>図：学習管理システム（LMS）の全体像。教材配信・受講者管理・進捗可視化・テスト・修了証の5つの機能が中心でつながる概念図</figcaption></figure>
+<h2>学習管理システム（LMS）とは？まず役割を整理する</h2>
+<p>LMSは Learning Management System の略で、日本語では学習管理システムと呼ばれます。ひとことで言うと、研修教材を配る場所と、誰がどこまで学んだかを記録する仕組みが、一つになったシステムのことです。</p>
+<p>ここで多くの方が疑問に思うのが、「動画を共有サービスに置くのと何が違うのか」という点ですよね。確かに、動画を見せるだけなら共有サービスでもできます。けれど、それだけでは「誰が見たのか」「理解できたのか」がまったく分かりません。研修は配って終わりではなく、受けた人が身につけて初めて意味を持ちます。LMSは、配信から受講状況の記録、理解度の確認までを一つの流れとして扱える点で、ただの動画置き場とは役割が違うわけです。</p>
+<p>言い換えると、LMSは「教材を届ける」だけでなく「学習を運用する」ためのシステムなんですね。この違いを押さえておくと、これから紹介する機能の意味が理解しやすくなります。</p>
+<p>もう少し身近な例で考えてみましょう。会社の研修を「健康診断」にたとえると分かりやすいかもしれません。動画を配るだけというのは、健康に関するパンフレットを配って終わり、という状態です。読んだかどうかも、健康になったかどうかも分かりません。一方のLMSは、誰が受診したかを記録し、検査結果を測り、要再検査の人を把握する仕組みにあたります。同じ「健康に役立てる」目的でも、配るだけと、受けて記録して次につなげるのとでは、得られる成果がまるで違ってきますよね。研修も同じで、配って終わりにしないための仕組みが、LMSの正体なんです。</p>
+<h2>LMSの主な機能5つ</h2>
+<p>では、LMSにはどんな機能があるのでしょうか。製品によって細かな違いはありますが、研修運用を支える中心的な機能は、おおむね次の5つに整理できます。</p>
+<h3>1. コース（教材）の配信</h3>
+<p>研修動画、資料、テストなどを「コース」としてまとめ、受講者に配信する機能です。たとえば「新入社員研修コース」「接客マナーコース」といった単位で教材を束ね、対象者に割り当てます。複数の教材を順番に並べて、ステップごとに学んでもらう設計もできます。教材を体系立てて届けられるので、見せたい順番で学習を進めてもらえるわけですね。動画だけ、資料だけ、とバラバラに渡すのではなく、学ぶ流れごとひとまとまりにして届けられる点が、ただ動画を置くだけの方法との大きな違いになります。</p>
+<h3>2. 受講者の登録・管理</h3>
+<p>誰がどのコースを受けるのかを管理する機能です。部署別・拠点別にグループを作り、必要な研修だけを割り当てられます。新しく入った人をグループに加えれば、その人に必要な研修が自動で割り当たる、という運用も可能です。人の出入りが多い職場ほど、この管理機能が効いてきます。</p>
+<h3>3. 進捗状況の可視化</h3>
+<p>受講者が今どこまで学んでいるかを、一覧で把握できる機能です。「全体の何割が完了したか」「誰がまだ未着手か」が画面で見える。これがあると、研修担当者は未受講者にだけ的を絞って声をかけられます。全員に一斉催促するのではなく、必要な人にだけリマインドできるわけです。</p>
+<h3>4. 確認テストと採点</h3>
+<p>研修内容の理解度を測るテストを実施し、自動で採点する機能です。合格点を設定しておけば、基準に届かなかった人に再受講を促すこともできます。「見ただけ」で終わらせず、理解したかどうかまで確認できる。研修の成果を見える形にするうえで、欠かせない機能です。</p>
+<h3>5. 修了証の発行</h3>
+<p>コースを修了した人に、修了証を発行する機能です。学んだことが形に残るので、受講者のモチベーションにもつながります。また、研修を受けた証明として、社内の記録や外部への提出資料に使えることもあります。資格更新の講習や、業界で求められる教育の修了証明など、対外的に「受けた」ことを示す必要がある場面では、この機能が実務上の意味を持ってきます。手作業で証明書を作る手間がなくなる、という点でも担当者の負担を減らしてくれるわけですね。</p>
+<figure class="inline-fig"><img alt="図：LMSの主な5機能。コース配信・受講者管理・進捗可視化・テスト・修了証発行を業務の流れに沿って並べた図解" src="../../assets/uploads/2026/06/lms-kino-2.png" /><figcaption>図：LMSの主な5機能。コース配信・受講者管理・進捗可視化・テスト・修了証発行を業務の流れに沿って並べた図解</figcaption></figure>
+<p>これらに加えて、受講案内やリマインドを自動で送る通知機能、複数の管理者で運用を分担する権限管理など、運用を楽にする機能を備えた製品も多くあります。ある多拠点展開の企業では、これまで担当者がエクセルで一人ひとりの受講状況を手入力していたのを、LMSの進捗可視化機能に置き換えたところ、集計作業がほぼなくなった、という話もあります。機能の一つひとつが、研修運用の手間を減らす方向に効いてくるわけですね。</p>
+<h2>LMSを使うと研修運用はどう変わるのか</h2>
+<p>機能を並べただけではイメージしづらいので、導入前と導入後で何が変わるのかを考えてみましょう。</p>
+<p>導入前によくあるのが、こういう状態です。研修動画はクラウドに置いてあるけれど、受講案内はメールで一斉送信。誰が見たかは分からないので、期限が近づくと全員にもう一度催促。理解度は確認しようがなく、受講記録はエクセルに手作業で転記——。これでは担当者の手間が大きいうえに、記録の正確さも怪しくなりますよね。</p>
+<p>LMSを入れると、この流れがまとめて整理されます。教材はコースとして配信され、受講案内とリマインドは自動。進捗は画面で一覧でき、未受講者にだけ声をかけられる。テストで理解度も測れ、受講記録はシステムに自動で残る。担当者がやっていた集計や催促の多くが、仕組みのほうに移るわけです。空いた時間を、研修内容の改善や個別フォローに回せるようになります。</p>
+<p>もう一つ、見落とされがちな変化があります。それは、記録が残ることで研修を「振り返れる」ようになる点です。どのコースの完了率が低いのか、どのテストでつまずく人が多いのか——こうしたデータが見えると、研修内容そのものを改善できます。受講率が低い研修は内容を見直し、つまずきが多い箇所は説明を足す。データに基づいて研修を良くしていく、という回し方ができるようになるわけです。これは、配って終わりの状態では決して手に入らない視点なんですね。</p>
+<p>ところで、こうした業務効率化の取り組みには、IT導入補助金のように、ツール導入の費用を国が支援する制度が活用できる場合もあります。研修の質を上げる投資が、費用面でも支援を受けられることがある、という点は知っておいて損はありません。</p>
+<h2>自社に合うLMSを選ぶときのチェックポイント</h2>
+<figure class="inline-fig"><img alt="図：自社に合うLMSを選ぶときのチェックポイント。課題への適合・受講者の使いやすさ・管理者の運用負担・記録の出力・教材活用・料金を並べた図解" src="../../assets/uploads/2026/06/lms-kino-3.png" /><figcaption>図：自社に合うLMSを選ぶときのチェックポイント。課題への適合・受講者の使いやすさ・管理者の運用負担・記録の出力・教材活用・料金を並べた図解</figcaption></figure>
+<p>ここまで機能を見てきましたが、大事なのは「機能が多いLMSがよいLMS」ではない、という点です。使わない機能が多いと操作が複雑になり、かえって運用が続かなくなることがあります。自社の課題に合うかどうかを軸に選ぶのが基本なんですね。選定時に確認したいポイントを挙げてみます。</p>
+<div class="point-box"><div class="point-box-title">LMS選定で確認したいチェックポイント</div><ul>
+<li>自社が解決したい課題に直結する機能が備わっているか</li>
+<li>受講者がスマホでも迷わず操作できるか</li>
+<li>管理者が日々の運用を負担なく回せるか</li>
+<li>受講履歴・修了状況をデータとして出力できるか</li>
+<li>既存の研修動画や資料をそのまま活用できるか</li>
+<li>料金体系が自社の人数・利用頻度に見合っているか</li>
+</ul></div>
+
+<p>特に見落とされやすいのが、<strong>受講者の使いやすさ</strong>です。管理者にとって便利でも、受講者がログインや操作でつまずけば、受講そのものが進みません。現場スタッフが多い職場なら、スマホで簡単に見られるかどうかが、受講率を大きく左右します。選定の場では、どうしても管理者の視点で機能を評価しがちですよね。けれど、実際に毎日そのシステムに触れるのは受講者のほうです。受講者役になって一度操作してみると、カタログには出てこない使い勝手が見えてきます。</p>
+<p>もう一つ重視したいのが、<strong>記録をデータとして出せるか</strong>という点です。受講履歴や受講時間、修了状況をきちんと出力できるかは、研修を制度として運用するうえで重要になります。たとえば人材開発支援助成金のように、研修の実施を証明する書類が求められる制度を使う場合、受講記録が証憑として使える形で残せるかが、後の手続きのしやすさに直結するわけです。導入を決める前に、どんな形でデータが残るのかを確認しておくと安心です。</p>
+<h2>中小企業がLMSを検討するときの考え方</h2>
+<p>「LMSは大企業のもの」というイメージを持つ方もいますが、近年はそうとも限らなくなってきています。中小企業でも導入しやすい料金体系のサービスが増え、規模を理由にあきらめる必要は薄れてきました。J-Net21などの中小企業向け情報でも、ITツールを活用した業務効率化や人材育成は、繰り返し取り上げられているテーマです。</p>
+<p>中小企業の場合、むしろ少人数だからこそLMSが効く場面があります。研修担当を専任で置けない会社では、受講案内や進捗管理を一人が片手間でやっていることが多いですよね。その作業を仕組みに任せられれば、限られた人手をより重要な業務に振り向けられます。人手が足りないからLMSは無理、ではなく、人手が足りないからこそ仕組みで補う、という発想の転換が効いてくるわけです。</p>
+<p>ある小規模な事業者の例では、繰り返し発生する安全教育と接客研修をLMSに載せたことで、新しい人が入るたびに先輩が同じ説明を繰り返す手間がなくなった、と聞きます。教材を一度作ってLMSに置けば、あとは仕組みが研修を回してくれる。この「一度作れば使い続けられる」という性質は、人手の限られた組織ほど価値が大きいんです。</p>
+<p>導入をためらう理由として、「使いこなせるか不安」という声もよく聞きます。けれど、最初から全機能を使う必要はありません。まずは繰り返し発生する研修を一つ載せて、受講管理だけを使ってみる。慣れてきたらテストを足し、修了証を足す——というように、段階的に広げていけば無理がありません。一度に完璧を目指さず、効きそうな機能から少しずつ取り入れていく。この進め方なら、ITに詳しい担当者がいない会社でも、無理なく運用に乗せられる傾向があります。</p>
+<h2>まとめ：機能の多さより「課題に合うか」で選ぶ</h2>
+<p>学習管理システム（LMS）は、教材を配信し、受講状況を記録し、理解度を確認できる、研修運用のためのシステムです。コース配信・受講者管理・進捗の可視化・確認テスト・修了証発行という5つの機能を中心に、研修を「配って終わり」から「成果まで追える状態」へと変えてくれます。</p>
+<p>選ぶときに大切なのは、機能の多さではなく、自社の課題に合っているかどうかです。受講者と管理者の双方が無理なく使えるか、記録をデータとして残せるか、既存の教材を活かせるか——こうした点を軸に判断すると、導入後に「使われないシステム」になるのを避けやすくなります。</p>
+<p>研修を仕組みとして定着させたいなら、まずは自社の研修運用のどこに手間がかかっているかを書き出してみてください。受講案内に時間がかかっているのか、受講状況の把握ができていないのか、記録が残せていないのか——困りごとがはっきりすれば、必要な機能も自然と見えてきます。その手間を減らす機能から検討していくことが、自社に合うLMS選びの確実な第一歩になります。</p>
+<div class="source-box"><strong>参考にした公式情報</strong><ul><li><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/kyufukin/d01-1.html" target="_blank" rel="noopener">厚生労働省「人材開発支援助成金」（職業訓練の経費・賃金を助成する制度）</a></li><li><a href="https://www.it-hojo.jp/" target="_blank" rel="noopener">経済産業省「IT導入補助金（ITツール活用による業務効率化支援）」</a></li><li><a href="https://j-net21.smrj.go.jp/" target="_blank" rel="noopener">独立行政法人 中小企業基盤整備機構 J-Net21（中小企業のIT活用・人材育成支援情報）</a></li></ul></div>
+<h2>よくある質問</h2>
+<div class="faq-section"><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>学習管理システム（LMS）とは何ですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>研修動画やテストなどの教材を配信し、誰がどこまで学んだかを記録・管理するためのシステムです。Learning Management System の頭文字をとってLMSと呼ばれます。教材を置く場所と、受講状況を追う仕組みが一体になっている点が、動画共有サービスとの大きな違いになります。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>LMSでは具体的に何ができますか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>教材の配信、受講者の登録・管理、進捗状況の可視化、確認テストの実施と採点、修了証の発行、受講案内やリマインドの送信などが代表的な機能です。製品によって備える機能の範囲は異なりますが、これらが研修運用を支える基本的な機能群と位置づけられています。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>動画をクラウドに置くのとLMSは何が違うのですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>動画を共有サービスに置くだけでは、視聴したかどうか、理解できたかどうかを把握できません。LMSは受講状況を記録し、テストで理解度を測り、未受講者を特定できる点が異なります。研修を「配って終わり」にせず、成果まで追える点が違いになります。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>中小企業にもLMSは必要ですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>従業員数が限られていても、研修を繰り返し行う、複数拠点に人がいる、受講状況を記録に残したい、といった事情があれば導入の価値が出やすくなります。近年は中小企業でも導入しやすい料金体系のサービスが増えており、規模を理由にあきらめる必要は薄れてきています。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>LMSを選ぶときに最も重視すべき点は何ですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>自社が解決したい課題に直結する機能を優先することが大切です。多機能であるほどよいとは限らず、使わない機能が多いと操作が複雑になり、かえって運用が続かないことがあります。受講者と管理者の双方にとって使いやすいかを軸に判断するとよいでしょう。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>助成金を使う場合、LMS選びで注意する点はありますか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>人材開発支援助成金のように研修の実施を証明する書類が求められる制度では、受講履歴・受講時間・修了状況を記録として出力できるかが重要になります。証憑として使える形でデータを残せるかを、導入前に確認しておくと安心です。</p></div>
+</div></div>
+<div class="supervisor-box" id="supervisor">
+<div class="supervisor-avatar"><img src="https://fp-1.info/hojokin/wp-content/uploads/2026/05/akutsu-portrait.jpg" alt="阿久津 和宏" style="width:100%;height:100%;border-radius:50%;object-fit:cover;"></div>
+<div class="supervisor-info">
+<div class="supervisor-label">監修・執筆</div>
+<div class="supervisor-name">阿久津 和宏</div>
+<div class="supervisor-title">人材育成・補助金活用コンサルタント</div>
+<div class="supervisor-bio">Well Consultant合同会社代表。中小企業の研修内製化・eラーニング導入・人材開発支援助成金の活用を支援。研修プラットフォーム「Traingo」を企画・運営。</div>
+</div></div>
+</article>
+<div class="cta-box">
+<h2>研修を「作って終わり」にしない仕組みを</h2>
+<p>動画研修・eラーニングの内製化、受講管理、人材開発支援助成金の活用まで。<br>Traingoがまとめてご支援します。まずはお気軽にご相談ください。</p>
+<a class="cta-btn" href="https://fp-1.info/traingo/contact/">無料相談・資料請求はこちら</a>
+</div>
+<section class="related-section"><h2>関連記事</h2><div class="related-grid"><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/kenshu-shinchoku/">
+<div class="related-card-img" style="background:#f59e0b;"><span>研修の進捗管理とは？受講状況を可視化するメリットと方法</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">研修管理・LMS活用</div>
+<div class="related-card-title">研修の進捗管理とは？受講状況を可視化するメリットと方法</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/elearning-jukoritsu/">
+<div class="related-card-img" style="background:#f59e0b;"><span>eラーニングの受講率を高める方法｜学習設計とコース構成のポイント</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">研修管理・LMS活用</div>
+<div class="related-card-title">eラーニングの受講率を高める方法｜学習設計とコース構成のポイント</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/kenshu-unyo-koritsu/">
+<div class="related-card-img" style="background:#f59e0b;"><span>研修運用の効率化とは？受講者登録・通知を自動化する方法</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">研修管理・LMS活用</div>
+<div class="related-card-title">研修運用の効率化とは？受講者登録・通知を自動化する方法</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/bumonbetsu-kenshu/">
+<div class="related-card-img" style="background:#f59e0b;"><span>部門別・拠点別の研修管理とは？複数の研修環境を分けて運用する方法</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">研修管理・LMS活用</div>
+<div class="related-card-title">部門別・拠点別の研修管理とは？複数の研修環境を分けて運用する方法</div>
+</div></a></div></section>
+</main>
+<aside class="blog-sidebar">
+<div class="sidebar-guide">
+<img src="../../assets/uploads/2026/06/guide-cover.png" alt="Traingo活用ガイド" class="sidebar-guide-img">
+<div class="sidebar-guide-badge">無料ダウンロード</div>
+<div class="sidebar-guide-title">Traingo活用ガイド</div>
+<div class="sidebar-guide-desc">研修の内製化・eラーニング化の進め方を1冊に。導入前に押さえたい実務のポイントを無料でお渡しします（補助金・助成金の活用にも対応）。</div>
+<a class="sidebar-guide-btn" href="https://fp-1.info/traingo/guide/">ガイドを受け取る →</a>
+</div>
+<div class="sidebar-box"><div class="sidebar-title">記事カテゴリ</div>
+<div class="sidebar-cluster"><a href="https://fp-1.info/traingo/blog/#tsukuru">研修を作る・仕組み化する</a><a href="https://fp-1.info/traingo/blog/#lms-value">ツール（LMS）としての価値</a><a href="https://fp-1.info/traingo/blog/#hikaku">比較・選び方</a><a href="https://fp-1.info/traingo/blog/#keiei">人材育成の経営的効果</a><a href="https://fp-1.info/traingo/blog/#shueki">研修の収益化・事業化</a><a href="https://fp-1.info/traingo/blog/#jirei">事例・信頼</a><a href="https://fp-1.info/traingo/blog/#josei">助成金（活用例）</a></div></div>
+<div class="sidebar-box"><div class="sidebar-title">ヘルプ・使い方</div>
+<div class="sidebar-cluster">
+<a href="https://fp-1.info/traingo/help/">ツール活用ヘルプ（目次）</a>
+<a href="https://fp-1.info/traingo/manual-company/">会社管理者の使い方</a>
+<a href="https://fp-1.info/traingo/manual-learner/">受講者の使い方</a>
+</div></div>
+<div class="sidebar-consult">
+<p>研修の内製化・eラーニング化・人材開発支援助成金の活用をご相談ください。</p>
+<a class="sb-btn" href="https://fp-1.info/traingo/contact/">無料相談・資料請求 →</a>
+</div></aside>
+</div>
+<footer class="custom-footer"><div class="footer-inner">
+<nav class="footer-nav">
+<a href="https://fp-1.info/traingo/">Traingoとは</a>
+<a href="https://fp-1.info/traingo/blog/">Traingoブログ</a>
+<a href="https://fp-1.info/traingo/guide/">Traingo活用ガイド</a>
+<a href="https://fp-1.info/traingo/help/">ヘルプ・使い方</a>
+<a href="https://fp-1.info/hojokin/#about" target="_blank" rel="noopener">会社紹介</a>
+<a href="https://fp-1.info/traingo/contact/">お問い合わせ</a>
+<a href="https://fp-1.info/hojokin/" target="_blank" rel="noopener">補助金活用型経営</a>
+</nav>
+<div class="footer-copy">© Well Consultant合同会社　Traingo（トレインゴ）｜法人向け研修プラットフォーム</div>
+</div></footer>
+<script>(function(){function k(){
+document.documentElement.style.setProperty('margin-top','0','important');
+document.body.style.setProperty('margin-top','0','important');document.body.style.setProperty('padding-top','0','important');
+var wsb=document.querySelector('.wp-site-blocks');if(wsb){wsb.style.setProperty('margin-top','0','important');wsb.style.setProperty('padding-top','0','important');Array.prototype.forEach.call(wsb.children,function(c){c.style.setProperty('margin-top','0','important');});}
+['header.wp-block-template-part','.wp-site-blocks > header','.wp-block-post-title','.wp-block-template-part[data-area=\"footer\"]','.wp-site-blocks > footer'].forEach(function(s){document.querySelectorAll(s).forEach(function(e){e.style.setProperty('display','none','important');});});
+}if(document.readyState!=='loading')k();else document.addEventListener('DOMContentLoaded',k);window.addEventListener('load',k);})();</script>
+<!-- /wp:html -->

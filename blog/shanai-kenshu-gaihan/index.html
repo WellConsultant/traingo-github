@@ -1,0 +1,325 @@
+<!-- wp:html -->
+<style>
+
+:root,html,body{--wp--style--global--content-size:100%!important;--wp--style--global--wide-size:100%!important;--wp--style--root--padding-top:0!important;--wp--style--root--padding-right:0!important;--wp--style--root--padding-bottom:0!important;--wp--style--root--padding-left:0!important;}
+body,body.page,body.home,body.single,body.single-post{margin:0!important;padding:0!important;padding-top:0!important;}
+.wp-site-blocks,.wp-site-blocks>main,main.wp-block-group,.wp-block-group.has-global-padding,.wp-block-post-content,.entry-content,.wp-block-group.alignfull,.wp-block-group-is-layout-constrained,.wp-block-post-content-is-layout-constrained,.wp-block-html,article.post,article.page,.post,.hentry,.page{max-width:100%!important;width:100%!important;margin:0!important;padding:0!important;}
+.has-global-padding,.has-global-padding>.alignfull{padding-left:0!important;padding-right:0!important;}
+.wp-block-post-title,.entry-header,.entry-title,header.entry-header,.wp-block-template-part header,header.wp-block-template-part,.wp-site-blocks>header,.wp-block-site-title,.wp-block-navigation,.wp-block-template-part[data-area="header"],aside.sidebar,.widget-area,.sidebar,#secondary{display:none!important;}
+.entry-meta,.post-meta,.byline,.posted-on,.cat-links,.author,.tags-links,.comments-link,.wp-block-post-author,.wp-block-post-author__bio,.wp-block-post-author-name,.wp-block-post-date,.wp-block-post-terms,.wp-block-post-excerpt,p.has-text-align-right,.screen-reader-text{display:none!important;}
+#wpadminbar,#wpadminbar *{display:none!important;}
+html{margin-top:0!important;}
+.wp-site-blocks>footer,.wp-block-template-part[data-area="footer"],footer.wp-block-template-part{display:none!important;}
+footer:not(.custom-footer){display:none!important;}
+.post-navigation,.posts-navigation,.nav-previous,.nav-next,.wp-block-query-pagination,.more-link,a.more-link,.wp-block-post-navigation-link,nav[aria-label="投稿ナビゲーション"]{display:none!important;}
+.wp-block-query{display:none!important;}
+#comments,.comments-area,.comment-respond,.wp-block-comments{display:none!important;}
+.is-layout-constrained>.wp-block-html,.is-layout-constrained>.wp-block-group:not(.alignwide):not(.alignfull){max-width:100%!important;margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important;}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP','Meiryo',sans-serif;font-size:16px;line-height:1.85;color:#222;background:#f7f7f5;}
+a{color:#2563eb;}
+.blog-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#0f1f33;}
+.blog-nav .nav-inner{max-width:1160px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:62px;}
+.blog-nav .nav-logo{color:#fff;font-weight:800;font-size:16px;text-decoration:none;letter-spacing:.02em;}
+.blog-nav .nav-logo span{color:#f59e0b;}
+.blog-nav .nav-links{display:flex;align-items:center;gap:24px;}
+.blog-nav .nav-links a{color:#fff;font-size:13px;text-decoration:none;transition:color .2s;}
+.blog-nav .nav-links a:hover{color:#f59e0b;}
+.blog-nav .nav-cta{background:#f59e0b;color:#fff !important;padding:8px 20px;border-radius:4px;font-weight:bold;font-size:13px;}
+.blog-nav .nav-cta:hover{background:#d98a06 !important;}
+.blog-nav-spacer{height:62px;}
+.breadcrumb{background:#e8edf3;padding:10px 0;font-size:13px;}
+.breadcrumb ol{list-style:none;display:flex;flex-wrap:wrap;gap:4px;max-width:1160px;margin:0 auto;padding:0 20px;}
+.breadcrumb li+li::before{content:'>';margin-right:4px;color:#888;}
+.breadcrumb a{color:#1a3a5c;text-decoration:none;}
+.page-layout{display:flex;flex-direction:row;gap:32px;max-width:1160px;margin:0 auto;padding:32px 20px 60px;align-items:flex-start;}
+.main-wrap{flex:1;min-width:0;max-width:820px;}
+.blog-sidebar{width:300px;flex-shrink:0;position:sticky;top:78px;align-self:flex-start;}
+.article-thumb{width:100%;height:auto;border-radius:8px;display:block;margin-bottom:28px;}
+.article-header{margin-bottom:28px;}
+.article-cat{display:inline-block;color:#fff;font-size:12px;font-weight:700;padding:3px 12px;border-radius:3px;margin-bottom:12px;}
+.article-title{font-size:28px;font-weight:900;color:#0f1f33;line-height:1.4;margin-bottom:12px;}
+.article-meta{font-size:13px;color:#6b7280;display:flex;gap:16px;flex-wrap:wrap;}
+.article-meta time{color:#1a3a5c;}
+.article-body{color:#333;}
+.article-body p{margin-bottom:1.4em;}
+.article-body h2{font-size:22px;font-weight:900;color:#0f1f33;border-left:5px solid #f59e0b;padding:6px 0 6px 14px;margin:48px 0 20px;line-height:1.4;}
+.article-body h3{font-size:18px;font-weight:700;color:#1a3a5c;border-bottom:2px solid #c8d8e8;padding-bottom:6px;margin:32px 0 16px;}
+.article-body ul,.article-body ol{margin:0 0 1.4em 1.4em;}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:#0f1f33;}
+.lead-box{background:#eef3fb;border-left:4px solid #2563eb;padding:20px 24px;border-radius:4px;margin-bottom:32px;}
+.lead-box p{margin-bottom:0;color:#0f1f33;font-weight:500;}
+.point-box{background:#fff8ed;border:2px solid #f59e0b;border-radius:6px;padding:20px 24px;margin:24px 0;}
+.point-box .point-box-title{font-size:14px;font-weight:700;color:#c47f06;margin-bottom:10px;}
+.point-box ul{padding-left:1.4em;margin:0;}
+.point-box li{margin-bottom:6px;}
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:15px;}
+table thead tr{background:#1a3a5c;color:#fff;}
+table th{padding:12px 14px;text-align:left;font-weight:700;}
+table td{padding:12px 14px;border-bottom:1px solid #d0dcea;vertical-align:top;}
+table tr:nth-child(even) td{background:#f0f5fa;}
+.inline-fig{display:block;margin:28px auto;width:100%;}
+.inline-fig img{width:100%;max-width:760px;height:auto;border-radius:8px;display:block;margin:0 auto;}
+.inline-fig figcaption{font-size:13px;color:#6b7280;text-align:center;margin-top:8px;}
+.source-box{background:#f9fafc;border:1px dashed #aabbcc;padding:16px 20px;margin:32px 0;font-size:13px;color:#555;border-radius:4px;}
+.source-box strong{color:#1a3a5c;display:block;margin-bottom:6px;}
+.source-box ul{padding-left:1.4em;margin:0;}
+.source-box a{color:#2563eb;word-break:break-all;}
+.faq-section{margin:40px 0;}
+.faq-item{border:1px solid #c8d8e8;border-radius:6px;margin-bottom:12px;overflow:hidden;}
+.faq-q{background:#1a3a5c;color:#fff;padding:14px 18px;font-weight:700;font-size:15px;display:flex;gap:10px;align-items:flex-start;}
+.faq-q .faq-icon{flex-shrink:0;color:#f59e0b;font-size:18px;font-weight:900;}
+.faq-a{padding:16px 18px;background:#fff;font-size:15px;display:flex;gap:10px;align-items:flex-start;}
+.faq-a .faq-icon{flex-shrink:0;color:#1a3a5c;font-size:18px;font-weight:900;}
+.faq-a p{margin-bottom:0;}
+.supervisor-box{display:flex;gap:20px;align-items:flex-start;border:1px solid #c8d8e8;border-radius:8px;padding:24px;margin:40px 0;background:#f5f8fc;}
+.supervisor-avatar{flex-shrink:0;width:72px;height:72px;border-radius:50%;background:#1a3a5c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;}
+.supervisor-info{flex:1;}
+.supervisor-label{font-size:11px;color:#888;font-weight:700;letter-spacing:.08em;margin-bottom:4px;}
+.supervisor-name{font-size:18px;font-weight:900;color:#0f1f33;margin-bottom:4px;}
+.supervisor-title{font-size:13px;color:#555;margin-bottom:10px;}
+.supervisor-bio{font-size:14px;color:#444;line-height:1.7;}
+.cta-box{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:8px;padding:36px 32px;text-align:center;margin:40px 0;}
+.cta-box h2{font-size:22px;font-weight:900;margin-bottom:12px;border:none;padding:0;color:#fff;}
+.cta-box p{font-size:15px;margin-bottom:24px;color:#cddbe8;}
+.cta-btn{display:inline-block;background:#f59e0b;color:#fff;font-size:17px;font-weight:700;padding:16px 40px;border-radius:4px;text-decoration:none;}
+.cta-btn:hover{background:#d98a06;}
+.related-section{margin:48px 0 32px;}
+.related-section h2{font-size:20px;font-weight:900;color:#0f1f33;border-left:5px solid #f59e0b;padding:4px 0 4px 14px;margin-bottom:20px;}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.related-card{border:1px solid #c8d8e8;border-radius:6px;overflow:hidden;text-decoration:none;color:inherit;background:#fff;display:block;}
+.related-card:hover{box-shadow:0 4px 16px rgba(15,31,51,.12);}
+.related-card-img{width:100%;height:120px;background:#1a3a5c;display:flex;align-items:center;justify-content:center;}
+.related-card-img span{color:#fff;font-size:13px;font-weight:700;text-align:center;padding:8px;line-height:1.5;}
+.related-card-body{padding:14px 16px;}
+.related-card-cat{font-size:11px;color:#f59e0b;font-weight:700;margin-bottom:6px;}
+.related-card-title{font-size:15px;font-weight:700;color:#1a3a5c;line-height:1.4;}
+.genre-nav{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:22px 24px;margin-bottom:36px;}
+.genre-nav-title{font-size:15px;font-weight:800;color:#0f1f33;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #f59e0b;}
+.genre-chips{display:flex;flex-wrap:wrap;gap:10px;}
+.genre-chip{display:inline-flex;align-items:center;gap:8px;background:#eef3fb;color:#1a3a5c;text-decoration:none;font-size:13px;font-weight:700;padding:9px 16px;border-radius:22px;transition:all .2s;}
+.genre-chip span{background:#f59e0b;color:#fff;border-radius:10px;padding:1px 9px;font-size:12px;}
+.genre-chip:hover{background:#1a3a5c;color:#fff;}
+.genre-count{font-size:13px;font-weight:700;color:#f59e0b;margin-left:12px;}
+.sidebar-box{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:20px;margin-bottom:20px;}
+.sidebar-title{font-size:14px;font-weight:800;color:#0f1f33;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #f59e0b;}
+.sidebar-cluster a{display:block;font-size:14px;color:#1a3a5c;text-decoration:none;padding:8px 0;border-bottom:1px solid #eef1f5;}
+.sidebar-cluster a:hover{color:#f59e0b;}
+.sidebar-consult{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:8px;padding:22px;text-align:center;}
+.sidebar-consult p{font-size:13px;color:#cddbe8;margin-bottom:14px;}
+.sidebar-consult .sb-btn{display:block;background:#f59e0b;color:#fff;text-decoration:none;font-weight:700;padding:12px;border-radius:4px;font-size:14px;}
+.sidebar-guide{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;border-radius:8px;padding:22px;margin-bottom:20px;text-align:center;box-shadow:0 4px 14px rgba(217,119,6,.25);}
+.sidebar-guide-badge{display:inline-block;background:rgba(255,255,255,.22);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:4px 12px;border-radius:99px;margin-bottom:12px;}
+.sidebar-guide-title{font-size:18px;font-weight:900;margin-bottom:10px;line-height:1.4;}
+.sidebar-guide-desc{font-size:13px;line-height:1.7;color:#fff8ee;margin-bottom:16px;text-align:left;}
+.sidebar-guide-btn{display:block;background:#fff;color:#0f1f33;text-decoration:none;font-weight:800;padding:13px;border-radius:5px;font-size:14px;transition:transform .15s;}
+.sidebar-guide-btn:hover{transform:translateY(-2px);}
+.sidebar-guide-img{width:100%;border-radius:8px;margin-bottom:14px;display:block;}
+.guide-hero{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:12px;padding:36px 30px;margin-bottom:28px;display:flex;gap:28px;align-items:center;}
+.guide-hero-text{flex:1;}
+.guide-hero-img{width:38%;max-width:280px;border-radius:10px;display:block;box-shadow:0 8px 24px rgba(0,0,0,.25);}
+@media (max-width:680px){.guide-hero{flex-direction:column;}.guide-hero-img{width:70%;max-width:240px;}}
+.guide-hero .gbadge{display:inline-block;background:#f59e0b;color:#fff;font-size:12px;font-weight:800;letter-spacing:.06em;padding:5px 14px;border-radius:99px;margin-bottom:14px;}
+.guide-hero h1{font-size:26px;font-weight:900;line-height:1.5;margin:0 0 14px;color:#fff;}
+.guide-hero p{font-size:15px;line-height:1.85;color:#dbe6f1;margin:0;}
+.guide-check{list-style:none;padding:0;margin:0 0 10px;}
+.guide-check li{position:relative;padding:12px 0 12px 34px;border-bottom:1px solid #eef1f5;font-size:15px;line-height:1.7;color:#1a3a5c;}
+.guide-check li::before{content:"✓";position:absolute;left:2px;top:11px;width:22px;height:22px;background:#f59e0b;color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;}
+.guide-form-box{background:#fff;border:2px solid #f59e0b;border-radius:12px;padding:30px;margin:28px 0;box-shadow:0 6px 22px rgba(15,31,51,.08);}
+.guide-form-box h2{margin-top:0;border:none;padding:0;font-size:21px;}
+.guide-form .grow{margin-bottom:16px;}
+.guide-form label{display:block;font-size:14px;font-weight:700;color:#0f1f33;margin-bottom:6px;}
+.guide-form .req{color:#dc2626;font-size:11px;margin-left:6px;}
+.guide-form input,.guide-form select,.guide-form textarea{width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:6px;font-size:15px;box-sizing:border-box;font-family:inherit;}
+.guide-form .gsubmit{width:100%;background:#f59e0b;color:#fff;border:none;padding:15px;border-radius:6px;font-size:16px;font-weight:800;cursor:pointer;margin-top:6px;}
+.guide-form .gnote{font-size:12px;color:#6b7280;margin-top:12px;text-align:center;}
+.custom-footer{background:#1f2937;color:#fff;padding:44px 24px 24px;margin-top:40px;}
+.footer-inner{max-width:880px;margin:0 auto;text-align:center;}
+.footer-nav{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:24px;justify-content:center;}
+.footer-nav a{font-size:13px;color:#fff;text-decoration:none;}
+.footer-nav a:hover{color:#f59e0b;}
+.footer-copy{font-size:12px;border-top:1px solid rgba(255,255,255,.12);padding-top:16px;color:#aaa;}
+#wpadminbar{display:none!important;}html{margin-top:0!important;}
+@media (max-width:980px){.page-layout{flex-direction:column;}.blog-sidebar{width:100%;}.main-wrap{max-width:100%;}}
+@media (max-width:880px){.blog-nav .nav-links a:not(.nav-cta){display:none!important;}.article-title{font-size:22px;}.related-grid{grid-template-columns:1fr;}.supervisor-box{flex-direction:column;}table{font-size:13px;}table th,table td{padding:10px;}}
+</style>
+<nav class="blog-nav"><div class="nav-inner">
+<a class="nav-logo" href="https://fp-1.info/traingo/">Train<span>go</span></a>
+<div class="nav-links">
+<a href="https://fp-1.info/traingo/">Traingoとは</a>
+<a href="https://fp-1.info/traingo/blog/">Traingoブログ</a>
+<a href="https://fp-1.info/traingo/guide/">Traingo活用ガイド</a>
+<a href="https://fp-1.info/hojokin/#about" target="_blank" rel="noopener">会社紹介</a>
+<a href="https://fp-1.info/traingo/contact/">お問い合わせ</a>
+<a href="https://fp-1.info/hojokin/" target="_blank" rel="noopener">補助金活用型経営</a>
+<a href="https://fp-1.info/traingo/contact/" class="nav-cta">無料相談・資料請求</a>
+</div></div></nav><div class="blog-nav-spacer"></div>
+<nav class="breadcrumb" aria-label="パンくずリスト"><ol>
+<li><a href="https://fp-1.info/traingo/">Traingo</a></li>
+<li><a href="https://fp-1.info/traingo/blog/">ブログ</a></li>
+<li>社内研修の外販とは？自社ノウハウを収益化する方法</li>
+</ol></nav>
+<div class="page-layout">
+<main class="main-wrap">
+<header class="article-header">
+<span class="article-cat" style="background:#f59e0b;">研修管理・LMS活用</span>
+<h1 class="article-title">社内研修の外販とは？自社ノウハウを収益化する方法</h1>
+<div class="article-meta">
+<span>公開日 <time datetime="2026-06-01">2026-06-01</time></span>
+<span>最終更新 <time datetime="2026-06-01">2026-06-01</time></span>
+</div>
+</header>
+<img class="article-thumb" src="../../assets/uploads/2026/06/shanai-kenshu-gaihan_thumb.png" alt="社内研修の外販とは？自社ノウハウを収益化する方法">
+<article class="article-body">
+<div class="lead-box">
+<p>社員教育のために作りこんだ研修——その中身、社内だけで眠らせていませんか。同じ業界の会社や取引先が、まさにその知識を必要としていることは少なくありません。一度作った研修を社外に届け、受講料を得る。それが「社内研修の外販」です。この記事では、自社のノウハウを商品に変え、収益の柱を一つ増やしていく進め方を、実務目線で整理します。</p>
+</div>
+<figure class="inline-fig"><img alt="図：社内研修の外販の全体像。社内向けに作った研修を商品化し、社外の受講者へ届けて収益化する流れを示した概念図" src="../../assets/uploads/2026/06/shanai-kenshu-gaihan-1.png" /><figcaption>図：社内研修の外販の全体像。社内向けに作った研修を商品化し、社外の受講者へ届けて収益化する流れを示した概念図</figcaption></figure>
+<h2>社内研修の外販とは？まず全体像を整理する</h2>
+<p>社内研修の外販とは、自社の社員教育のために作った研修コンテンツを、社外に向けて販売することを指します。販売の相手は、同業他社、取引先、これから業界に参入したい企業、関連する協会の会員などさまざまです。要は、社内向けに磨いてきた手順や知識を、社外の人にも役立つ商品として整え、受講料を得る取り組みなんですね。</p>
+<p>なぜこれが成り立つのでしょうか。それは、自社が当たり前にやっている教育が、外から見ると価値ある知識だからです。長年かけて積み上げた安全教育、現場で磨いた接客の型、独自の機器の扱い方——社内では「いつものこと」でも、これから同じ業界で人を育てたい会社にとっては、ゼロから作るのが大変な財産です。すでに持っている資産を、もう一段活かす。これが外販の発想の核になります。自社にとっての「当たり前」が、他社にとっては「お金を払ってでも欲しい知識」になりうる、という視点の転換が出発点なんですね。</p>
+<p>ここで押さえておきたいのは、外販は「新しく何かを作る」より「あるものを活かす」事業だ、という点です。研修を一から開発するのではなく、社内ですでに動いている教材を土台にする。だから、ゼロから新規事業を立ち上げるのに比べて、踏み出しやすい面があります。J-Net21などの中小企業向けの情報でも、既存の強みを生かした事業の多角化は経営の選択肢として取り上げられていますが、社内研修の外販は、その身近な一例だと考えると分かりやすいと思います。</p>
+<p>もう一つ、外販ならではの強みがあります。それは、すでに社内で「使われて、直された」教材が土台になっている点です。実際に新人に見せて、分かりにくいところを直し、つまずく箇所を補ってきた教材は、机上で作った教材より実用的なことが多いんですね。社内で揉まれてきたぶん、社外の受講者にとっても役立つ完成度に近づいている。この「すでに現場で鍛えられている」という点が、ゼロから作った研修商品にはない説得力につながるわけです。</p>
+<h2>なぜ今、社内研修の外販が現実的になったのか</h2>
+<p>「研修を売る」というと、これまでは講師が出向いて教える集合研修のイメージが強かったかもしれません。けれど、それだと講師の時間が足かせになり、広げにくいですよね。ここ数年で状況が変わってきた理由を整理してみます。</p>
+<h3>1. 動画とオンラインで「場所と時間」の制約が外れた</h3>
+<p>研修を動画にしてオンラインで届けられるようになり、講師がその場にいなくても受講できるようになりました。一度作った動画は、何度でも、何人にでも配信できます。つまり、講師の時間と売上が切り離せるわけです。これが外販を現実的にした一番大きな変化です。</p>
+<h3>2. 受講管理を仕組みで回せるようになった</h3>
+<p>社外の人に有料で提供するとなると、誰がどこまで受けたか、修了したかを管理する必要があります。これを手作業でやるのは大変ですが、学習管理システム（LMS）を使えば、受講者の登録から進捗の把握、修了証の発行までまとめて回せます。仕組みで管理できるようになったことで、社外への提供の手間が大きく下がりました。</p>
+<h3>3. 業界全体で「育成の負担」が共通の悩みになっている</h3>
+<p>人手不足が続くなか、どの会社も人を育てる負担に悩んでいます。だからこそ、すでに整った研修があれば「自社で一から作るより買いたい」というニーズが生まれます。同じ業界内ほど、抱えている育成の悩みが似ているので、外販の相手として相性が良いことが多いんです。</p>
+<p>ある事例を挙げます。ある会社が、自社の安全教育の動画を社内用に整えていたところ、取引先から「うちの新人にも見せたい」と相談を受けたそうです。最初は好意で共有していたものの、要望が増えてきたため、社外向けに整え直して有料の講座にした。すると、本業とは別の収益が少しずつ立つようになった、という流れでした。外販は、社内向けの取り組みの延長線上から始まることが多いんですね。</p>
+<figure class="inline-fig"><img alt="図：社内研修の外販が現実的になった3つの背景。オンライン配信・受講管理の仕組み化・業界共通の育成課題を並べた図解" src="../../assets/uploads/2026/06/shanai-kenshu-gaihan-2.png" /><figcaption>図：社内研修の外販が現実的になった3つの背景。オンライン配信・受講管理の仕組み化・業界共通の育成課題を並べた図解</figcaption></figure>
+<h2>社内研修を外販する4つのステップ</h2>
+<p>では、具体的にどう進めればいいのでしょうか。最初から大きな商品ラインを揃えようとすると重くなるので、1本を売れる形にするところから始めるのがおすすめです。</p>
+<h3>ステップ1：外販に向くテーマを1つ選ぶ</h3>
+<p>社内研修の中から、社外でも役立ちそうな汎用性の高いテーマを1つ選びます。手順がある程度決まっていて、自社だけに通じる内部事情に依存しない内容ほど向いています。安全教育、接客の基本、機器の扱い方、業界特有の知識などが候補になります。逆に、機密に深く関わる内容や、自社固有の事情が前提になっている研修は、外販には向きにくいので外します。</p>
+<h3>ステップ2：社内向けから「社外向け」に整え直す</h3>
+<p>選んだ研修を、社外の人が見ても分かる形に整えます。社内の固有名詞や、自社だけの前提を一般化し、機密に関わる部分を取り除く。ここが商品化の肝です。社内では省略していた前提も、社外の受講者には丁寧に補う必要があります。「自社の社員なら分かること」を、「初めて見る人でも分かること」に作り変えていく工程だと考えると整理しやすいです。</p>
+<h3>ステップ3：価格と提供の形を決める</h3>
+<p>価格は、制作にかけた費用だけで決めるのではなく、受講者が得られる効果や、同種の集合研修・外部講座の相場を踏まえて決めると整理しやすくなります。提供の形も、一人あたりの受講料にするのか、企業単位のまとめ契約にするのか、一定期間アクセスできる権利として売るのか、いくつか選択肢があります。相手が同業の企業なのか個人なのかによっても、合う形は変わってきます。</p>
+<h3>ステップ4：配信と受講管理の環境を整える</h3>
+<p>社外の受講者に有料で届ける以上、誰がどこまで受講したかを管理し、修了を記録できる環境があると安心です。学習管理システム（LMS）を使えば、受講者の登録・進捗の把握・修了証の発行などをまとめて行えます。社外向けでも品質を保てる土台を用意してから提供を始めると、運用が安定します。</p>
+<figure class="inline-fig"><img alt="図：社内研修を外販する4ステップ。テーマ選定・社外向けへの整え直し・価格と提供形態の決定・配信環境づくりの流れ図" src="../../assets/uploads/2026/06/shanai-kenshu-gaihan-3.png" /><figcaption>図：社内研修を外販する4ステップ。テーマ選定・社外向けへの整え直し・価格と提供形態の決定・配信環境づくりの流れ図</figcaption></figure>
+<h2>外販で気をつけたいポイント</h2>
+<p>外販は魅力的な取り組みですが、進め方を整理しておかないと、思わぬところでつまずくことがあります。気をつけたい点を挙げておきます。</p>
+<div class="point-box"><div class="point-box-title">社内研修の外販で押さえておきたいこと</div><ul>
+<li>機密情報・自社固有の手の内を、そのまま社外に出していないか確認する</li>
+<li>社外の人が前提知識なしで理解できる形になっているか見直す</li>
+<li>競合に強みを丸ごと渡す形になっていないか、出す範囲を線引きする</li>
+<li>受講管理・修了記録の仕組みを整え、有料提供に耐える運用にする</li>
+<li>問い合わせや返金など、社外対応の窓口と方針を決めておく</li>
+</ul></div>
+
+<p>とくに気をつけたいのが、機密と強みの線引きです。自社の競争力の源そのものを外販してしまうと、自分の足元を崩しかねません。外販に出すのは「業界で共通して役立つ基礎の部分」、社内に残すのは「自社ならではの応用や独自の判断」——このあたりの線引きを最初に決めておくと、安心して進められます。</p>
+<p>もう一つ、見落とされやすいのが社外対応の準備です。社内向けなら多少の不備も口頭で補えますが、有料で社外に提供する以上、問い合わせへの対応や、内容についての説明責任が生まれます。受講者からの質問にどう答えるか、提供の範囲や期間をどう示すか、といった点をあらかじめ整えておくと、トラブルを避けやすくなります。中小企業庁やJ-Net21などの公的な情報では、新たな商品・サービスを展開する際の留意点も紹介されているので、こうした情報も参考にしながら準備を進めるとよいと考えられます。</p>
+<h2>外販は「もう一つの収益の柱」になりうる</h2>
+<p>ここで少し、外販がうまく回り始めた状態をイメージしてみましょう。社内向けに作った研修を社外にも届けられるようになると、本業の売上とは別に、研修からの収益が積み上がっていきます。しかも、一度作った動画は何度でも配信できるので、受講者が増えても制作の手間はそれほど増えません。講師の時間に縛られないぶん、売上の伸び方が本業とは違ってくるわけです。</p>
+<p>さらに、外販には収益以外の効果も期待できます。自社の研修を社外に提供しているという事実は、「この分野に詳しい会社」という信頼につながります。業界内での存在感が増し、本業のほうにも良い影響が及ぶことがあるんですね。教育を売ることが、結果として本業の評判を支える、という循環です。</p>
+<p>ところで、すべての社内研修が外販に向くわけではありません。前述のとおり、機密に深く関わるものや自社固有の事情が前提のものは向きにくい傾向があります。だからこそ、向くテーマを見極めて1本から始め、反応を見ながら広げていくのが現実的です。最初の1本がうまくいけば、「この内容も売れるのでは」という次の候補が見えてきます。外販は、一気に大きく始めるより、小さく試して育てていくほうが定着しやすいんです。</p>
+<p>販売の相手についても、最初から広く構える必要はありません。すでに取引のある会社や、同じ業界のつながりのある相手から声をかけるほうが、話が早いことが多いものです。相手の困りごとが分かっている分、「この研修が役に立ちますよ」と具体的に伝えられますよね。最初の数社で手応えを得てから、業界団体や関連する協会など、より広い相手へ広げていく。こうした段階を踏むと、無理なく外販を育てていけます。</p>
+<p>そしてもう一つ、外販を続けるうえで意識したいのが、教材を古びさせない工夫です。制度や手順が変われば、研修の中身も更新が必要になります。社外に有料で提供している以上、内容が古いままだと信頼を損ないかねません。学習管理システムに教材を集約しておけば、更新した内容を一括で差し替えられ、受講者に常に新しい状態を届けやすくなります。売りっぱなしにせず、手入れしながら届け続ける——これが外販を長く続けるコツになります。</p>
+<p>なお、社内向けの研修を整える段階——つまり外販の土台を作る段階——では、人材開発支援助成金のように、訓練にかかった経費や賃金の一部を国が助成する制度を活用できる場合があります。社内教育の充実と、その先の外販を見据えた準備を、費用面の制度とあわせて検討してみるとよいでしょう。</p>
+<h2>まとめ：眠っているノウハウを、収益と信頼に変える</h2>
+<p>社内研修の外販は、社員教育のために作った研修コンテンツを社外に届け、受講料を得る取り組みです。新しく何かを生み出すというより、すでに社内にある資産をもう一段活かす発想に立っています。動画とオンライン配信で講師の時間の制約が外れ、学習管理システムで受講管理を仕組み化できるようになった今、中小企業にとっても現実的な選択肢になってきました。</p>
+<p>進め方としては、外販に向く汎用性の高いテーマを1つ選び、社外向けに整え直し、価格と提供の形を決め、配信と受講管理の環境を整える。機密と強みの線引きや社外対応の準備を押さえておけば、無理なく一本を売れる形にできます。そしてその一本が回り始めれば、本業とは別の収益の柱と、業界内での信頼という二つの果実が見えてきます。</p>
+<p>社内に眠っているノウハウは、整え方しだいで収益にも信頼にも変わります。その第一歩として、まずは社外でも役立ちそうな研修テーマを1つ選び、社外向けに整え直すところから始めてみるのがよいでしょう。</p>
+<div class="source-box"><strong>参考にした公式情報</strong><ul><li><a href="https://j-net21.smrj.go.jp/" target="_blank" rel="noopener">独立行政法人 中小企業基盤整備機構 J-Net21（新規事業・事業多角化・販路開拓に関する支援情報）</a></li><li><a href="https://www.chusho.meti.go.jp/" target="_blank" rel="noopener">中小企業庁（中小企業の経営・新事業展開に関する施策情報）</a></li><li><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/kyufukin/d01-1.html" target="_blank" rel="noopener">厚生労働省「人材開発支援助成金」（職業訓練の経費・賃金を助成する制度）</a></li></ul></div>
+<h2>よくある質問</h2>
+<div class="faq-section"><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>社内研修の外販とは何ですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>自社の社員教育のために作った研修コンテンツを、同業他社・取引先・業界内の企業など、社外に向けて販売することを指します。社内向けに磨いた手順やノウハウを商品として整え、受講料を得る取り組みで、既にある資産を収益に変える発想に立っています。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>どんな研修コンテンツが外販に向いていますか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>手順がある程度決まっていて、社外の人にも役立つ汎用性のある内容が向いている傾向があります。安全教育・接客の基本・機器の扱い方・業界特有の知識などです。逆に自社だけに通じる内部事情や、機密に深く関わる内容は外販には向きにくいため、切り分けが必要になります。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>外販の価格はどう決めればよいですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>制作にかけた費用だけで決めるより、受講者が得られる効果や、同種の集合研修・外部講座の相場を踏まえて決めると整理しやすくなります。一人あたりの受講料、企業単位のまとめ契約、期間制のアクセス権など、提供の形に応じて価格の付け方を変える方法もあります。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>外販には配信や受講管理の仕組みが必要ですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>社外の受講者に有料で提供する以上、誰がどこまで受講したかを管理し、修了を記録できる仕組みがあると運用しやすくなります。学習管理システム（LMS）を使うと、受講者の登録・進捗の把握・修了証の発行などをまとめて行え、社外向けの提供でも品質を保ちやすくなります。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>社内研修をそのまま外販してよいですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>そのままでは社内の固有名詞や内部前提が含まれていることが多く、社外の受講者には伝わりにくい場合があります。社外の人が見ても理解できるよう、内部事情を一般化し、機密に関わる部分を取り除くといった商品化の工程を経てから提供するほうが、トラブルを避けやすくなります。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>外販を始めるとき、まず何から取り組めばよいですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>まずは既にある社内研修の中から、社外でも役立ちそうな汎用性の高いテーマを1つ選び、社外向けに整え直すところから始めると着手しやすいです。最初から大きな商品ラインを揃えるより、1本を売れる形にして反応を見ながら広げるほうが、無理なく進められる傾向があります。</p></div>
+</div></div>
+<div class="supervisor-box" id="supervisor">
+<div class="supervisor-avatar"><img src="https://fp-1.info/hojokin/wp-content/uploads/2026/05/akutsu-portrait.jpg" alt="阿久津 和宏" style="width:100%;height:100%;border-radius:50%;object-fit:cover;"></div>
+<div class="supervisor-info">
+<div class="supervisor-label">監修・執筆</div>
+<div class="supervisor-name">阿久津 和宏</div>
+<div class="supervisor-title">人材育成・補助金活用コンサルタント</div>
+<div class="supervisor-bio">Well Consultant合同会社代表。中小企業の研修内製化・eラーニング導入・人材開発支援助成金の活用を支援。研修プラットフォーム「Traingo」を企画・運営。</div>
+</div></div>
+</article>
+<div class="cta-box">
+<h2>研修を「作って終わり」にしない仕組みを</h2>
+<p>動画研修・eラーニングの内製化、受講管理、人材開発支援助成金の活用まで。<br>Traingoがまとめてご支援します。まずはお気軽にご相談ください。</p>
+<a class="cta-btn" href="https://fp-1.info/traingo/contact/">無料相談・資料請求はこちら</a>
+</div>
+<section class="related-section"><h2>関連記事</h2><div class="related-grid"><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/online-koza-hanbai/">
+<div class="related-card-img" style="background:#f59e0b;"><span>オンライン講座の販売方法｜決済連動でeラーニングを商品化する手順</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">研修管理・LMS活用</div>
+<div class="related-card-title">オンライン講座の販売方法｜決済連動でeラーニングを商品化する手順</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/kenshu-jigyo-hajimekata/">
+<div class="related-card-img" style="background:#f59e0b;"><span>研修事業の始め方｜士業・コンサルが講座ビジネスで収益を作る方法</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">研修管理・LMS活用</div>
+<div class="related-card-title">研修事業の始め方｜士業・コンサルが講座ビジネスで収益を作る方法</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/kyokai-kaiin-kyoiku/">
+<div class="related-card-img" style="background:#f59e0b;"><span>業界団体・協会の会員教育とは？オンライン化と横展開の進め方</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">研修管理・LMS活用</div>
+<div class="related-card-title">業界団体・協会の会員教育とは？オンライン化と横展開の進め方</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/tatenpo-kenshu/">
+<div class="related-card-img" style="background:#f59e0b;"><span>多店舗・多拠点の研修管理とは？拠点間の教育のばらつきをなくす方法</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">研修管理・LMS活用</div>
+<div class="related-card-title">多店舗・多拠点の研修管理とは？拠点間の教育のばらつきをなくす方法</div>
+</div></a></div></section>
+</main>
+<aside class="blog-sidebar">
+<div class="sidebar-guide">
+<img src="../../assets/uploads/2026/06/guide-cover.png" alt="Traingo活用ガイド" class="sidebar-guide-img">
+<div class="sidebar-guide-badge">無料ダウンロード</div>
+<div class="sidebar-guide-title">Traingo活用ガイド</div>
+<div class="sidebar-guide-desc">研修の内製化・eラーニング化の進め方を1冊に。導入前に押さえたい実務のポイントを無料でお渡しします（補助金・助成金の活用にも対応）。</div>
+<a class="sidebar-guide-btn" href="https://fp-1.info/traingo/guide/">ガイドを受け取る →</a>
+</div>
+<div class="sidebar-box"><div class="sidebar-title">記事カテゴリ</div>
+<div class="sidebar-cluster"><a href="https://fp-1.info/traingo/blog/#tsukuru">研修を作る・仕組み化する</a><a href="https://fp-1.info/traingo/blog/#lms-value">ツール（LMS）としての価値</a><a href="https://fp-1.info/traingo/blog/#hikaku">比較・選び方</a><a href="https://fp-1.info/traingo/blog/#keiei">人材育成の経営的効果</a><a href="https://fp-1.info/traingo/blog/#shueki">研修の収益化・事業化</a><a href="https://fp-1.info/traingo/blog/#jirei">事例・信頼</a><a href="https://fp-1.info/traingo/blog/#josei">助成金（活用例）</a></div></div>
+<div class="sidebar-box"><div class="sidebar-title">ヘルプ・使い方</div>
+<div class="sidebar-cluster">
+<a href="https://fp-1.info/traingo/help/">ツール活用ヘルプ（目次）</a>
+<a href="https://fp-1.info/traingo/manual-company/">会社管理者の使い方</a>
+<a href="https://fp-1.info/traingo/manual-learner/">受講者の使い方</a>
+</div></div>
+<div class="sidebar-consult">
+<p>研修の内製化・eラーニング化・人材開発支援助成金の活用をご相談ください。</p>
+<a class="sb-btn" href="https://fp-1.info/traingo/contact/">無料相談・資料請求 →</a>
+</div></aside>
+</div>
+<footer class="custom-footer"><div class="footer-inner">
+<nav class="footer-nav">
+<a href="https://fp-1.info/traingo/">Traingoとは</a>
+<a href="https://fp-1.info/traingo/blog/">Traingoブログ</a>
+<a href="https://fp-1.info/traingo/guide/">Traingo活用ガイド</a>
+<a href="https://fp-1.info/traingo/help/">ヘルプ・使い方</a>
+<a href="https://fp-1.info/hojokin/#about" target="_blank" rel="noopener">会社紹介</a>
+<a href="https://fp-1.info/traingo/contact/">お問い合わせ</a>
+<a href="https://fp-1.info/hojokin/" target="_blank" rel="noopener">補助金活用型経営</a>
+</nav>
+<div class="footer-copy">© Well Consultant合同会社　Traingo（トレインゴ）｜法人向け研修プラットフォーム</div>
+</div></footer>
+<script>(function(){function k(){
+document.documentElement.style.setProperty('margin-top','0','important');
+document.body.style.setProperty('margin-top','0','important');document.body.style.setProperty('padding-top','0','important');
+var wsb=document.querySelector('.wp-site-blocks');if(wsb){wsb.style.setProperty('margin-top','0','important');wsb.style.setProperty('padding-top','0','important');Array.prototype.forEach.call(wsb.children,function(c){c.style.setProperty('margin-top','0','important');});}
+['header.wp-block-template-part','.wp-site-blocks > header','.wp-block-post-title','.wp-block-template-part[data-area=\"footer\"]','.wp-site-blocks > footer'].forEach(function(s){document.querySelectorAll(s).forEach(function(e){e.style.setProperty('display','none','important');});});
+}if(document.readyState!=='loading')k();else document.addEventListener('DOMContentLoaded',k);window.addEventListener('load',k);})();</script>
+<!-- /wp:html -->

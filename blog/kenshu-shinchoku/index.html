@@ -1,0 +1,332 @@
+<!-- wp:html -->
+<style>
+
+:root,html,body{--wp--style--global--content-size:100%!important;--wp--style--global--wide-size:100%!important;--wp--style--root--padding-top:0!important;--wp--style--root--padding-right:0!important;--wp--style--root--padding-bottom:0!important;--wp--style--root--padding-left:0!important;}
+body,body.page,body.home,body.single,body.single-post{margin:0!important;padding:0!important;padding-top:0!important;}
+.wp-site-blocks,.wp-site-blocks>main,main.wp-block-group,.wp-block-group.has-global-padding,.wp-block-post-content,.entry-content,.wp-block-group.alignfull,.wp-block-group-is-layout-constrained,.wp-block-post-content-is-layout-constrained,.wp-block-html,article.post,article.page,.post,.hentry,.page{max-width:100%!important;width:100%!important;margin:0!important;padding:0!important;}
+.has-global-padding,.has-global-padding>.alignfull{padding-left:0!important;padding-right:0!important;}
+.wp-block-post-title,.entry-header,.entry-title,header.entry-header,.wp-block-template-part header,header.wp-block-template-part,.wp-site-blocks>header,.wp-block-site-title,.wp-block-navigation,.wp-block-template-part[data-area="header"],aside.sidebar,.widget-area,.sidebar,#secondary{display:none!important;}
+.entry-meta,.post-meta,.byline,.posted-on,.cat-links,.author,.tags-links,.comments-link,.wp-block-post-author,.wp-block-post-author__bio,.wp-block-post-author-name,.wp-block-post-date,.wp-block-post-terms,.wp-block-post-excerpt,p.has-text-align-right,.screen-reader-text{display:none!important;}
+#wpadminbar,#wpadminbar *{display:none!important;}
+html{margin-top:0!important;}
+.wp-site-blocks>footer,.wp-block-template-part[data-area="footer"],footer.wp-block-template-part{display:none!important;}
+footer:not(.custom-footer){display:none!important;}
+.post-navigation,.posts-navigation,.nav-previous,.nav-next,.wp-block-query-pagination,.more-link,a.more-link,.wp-block-post-navigation-link,nav[aria-label="投稿ナビゲーション"]{display:none!important;}
+.wp-block-query{display:none!important;}
+#comments,.comments-area,.comment-respond,.wp-block-comments{display:none!important;}
+.is-layout-constrained>.wp-block-html,.is-layout-constrained>.wp-block-group:not(.alignwide):not(.alignfull){max-width:100%!important;margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important;}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP','Meiryo',sans-serif;font-size:16px;line-height:1.85;color:#222;background:#f7f7f5;}
+a{color:#2563eb;}
+.blog-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#0f1f33;}
+.blog-nav .nav-inner{max-width:1160px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:62px;}
+.blog-nav .nav-logo{color:#fff;font-weight:800;font-size:16px;text-decoration:none;letter-spacing:.02em;}
+.blog-nav .nav-logo span{color:#f59e0b;}
+.blog-nav .nav-links{display:flex;align-items:center;gap:24px;}
+.blog-nav .nav-links a{color:#fff;font-size:13px;text-decoration:none;transition:color .2s;}
+.blog-nav .nav-links a:hover{color:#f59e0b;}
+.blog-nav .nav-cta{background:#f59e0b;color:#fff !important;padding:8px 20px;border-radius:4px;font-weight:bold;font-size:13px;}
+.blog-nav .nav-cta:hover{background:#d98a06 !important;}
+.blog-nav-spacer{height:62px;}
+.breadcrumb{background:#e8edf3;padding:10px 0;font-size:13px;}
+.breadcrumb ol{list-style:none;display:flex;flex-wrap:wrap;gap:4px;max-width:1160px;margin:0 auto;padding:0 20px;}
+.breadcrumb li+li::before{content:'>';margin-right:4px;color:#888;}
+.breadcrumb a{color:#1a3a5c;text-decoration:none;}
+.page-layout{display:flex;flex-direction:row;gap:32px;max-width:1160px;margin:0 auto;padding:32px 20px 60px;align-items:flex-start;}
+.main-wrap{flex:1;min-width:0;max-width:820px;}
+.blog-sidebar{width:300px;flex-shrink:0;position:sticky;top:78px;align-self:flex-start;}
+.article-thumb{width:100%;height:auto;border-radius:8px;display:block;margin-bottom:28px;}
+.article-header{margin-bottom:28px;}
+.article-cat{display:inline-block;color:#fff;font-size:12px;font-weight:700;padding:3px 12px;border-radius:3px;margin-bottom:12px;}
+.article-title{font-size:28px;font-weight:900;color:#0f1f33;line-height:1.4;margin-bottom:12px;}
+.article-meta{font-size:13px;color:#6b7280;display:flex;gap:16px;flex-wrap:wrap;}
+.article-meta time{color:#1a3a5c;}
+.article-body{color:#333;}
+.article-body p{margin-bottom:1.4em;}
+.article-body h2{font-size:22px;font-weight:900;color:#0f1f33;border-left:5px solid #f59e0b;padding:6px 0 6px 14px;margin:48px 0 20px;line-height:1.4;}
+.article-body h3{font-size:18px;font-weight:700;color:#1a3a5c;border-bottom:2px solid #c8d8e8;padding-bottom:6px;margin:32px 0 16px;}
+.article-body ul,.article-body ol{margin:0 0 1.4em 1.4em;}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:#0f1f33;}
+.lead-box{background:#eef3fb;border-left:4px solid #2563eb;padding:20px 24px;border-radius:4px;margin-bottom:32px;}
+.lead-box p{margin-bottom:0;color:#0f1f33;font-weight:500;}
+.point-box{background:#fff8ed;border:2px solid #f59e0b;border-radius:6px;padding:20px 24px;margin:24px 0;}
+.point-box .point-box-title{font-size:14px;font-weight:700;color:#c47f06;margin-bottom:10px;}
+.point-box ul{padding-left:1.4em;margin:0;}
+.point-box li{margin-bottom:6px;}
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:15px;}
+table thead tr{background:#1a3a5c;color:#fff;}
+table th{padding:12px 14px;text-align:left;font-weight:700;}
+table td{padding:12px 14px;border-bottom:1px solid #d0dcea;vertical-align:top;}
+table tr:nth-child(even) td{background:#f0f5fa;}
+.inline-fig{display:block;margin:28px auto;width:100%;}
+.inline-fig img{width:100%;max-width:760px;height:auto;border-radius:8px;display:block;margin:0 auto;}
+.inline-fig figcaption{font-size:13px;color:#6b7280;text-align:center;margin-top:8px;}
+.source-box{background:#f9fafc;border:1px dashed #aabbcc;padding:16px 20px;margin:32px 0;font-size:13px;color:#555;border-radius:4px;}
+.source-box strong{color:#1a3a5c;display:block;margin-bottom:6px;}
+.source-box ul{padding-left:1.4em;margin:0;}
+.source-box a{color:#2563eb;word-break:break-all;}
+.faq-section{margin:40px 0;}
+.faq-item{border:1px solid #c8d8e8;border-radius:6px;margin-bottom:12px;overflow:hidden;}
+.faq-q{background:#1a3a5c;color:#fff;padding:14px 18px;font-weight:700;font-size:15px;display:flex;gap:10px;align-items:flex-start;}
+.faq-q .faq-icon{flex-shrink:0;color:#f59e0b;font-size:18px;font-weight:900;}
+.faq-a{padding:16px 18px;background:#fff;font-size:15px;display:flex;gap:10px;align-items:flex-start;}
+.faq-a .faq-icon{flex-shrink:0;color:#1a3a5c;font-size:18px;font-weight:900;}
+.faq-a p{margin-bottom:0;}
+.supervisor-box{display:flex;gap:20px;align-items:flex-start;border:1px solid #c8d8e8;border-radius:8px;padding:24px;margin:40px 0;background:#f5f8fc;}
+.supervisor-avatar{flex-shrink:0;width:72px;height:72px;border-radius:50%;background:#1a3a5c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;}
+.supervisor-info{flex:1;}
+.supervisor-label{font-size:11px;color:#888;font-weight:700;letter-spacing:.08em;margin-bottom:4px;}
+.supervisor-name{font-size:18px;font-weight:900;color:#0f1f33;margin-bottom:4px;}
+.supervisor-title{font-size:13px;color:#555;margin-bottom:10px;}
+.supervisor-bio{font-size:14px;color:#444;line-height:1.7;}
+.cta-box{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:8px;padding:36px 32px;text-align:center;margin:40px 0;}
+.cta-box h2{font-size:22px;font-weight:900;margin-bottom:12px;border:none;padding:0;color:#fff;}
+.cta-box p{font-size:15px;margin-bottom:24px;color:#cddbe8;}
+.cta-btn{display:inline-block;background:#f59e0b;color:#fff;font-size:17px;font-weight:700;padding:16px 40px;border-radius:4px;text-decoration:none;}
+.cta-btn:hover{background:#d98a06;}
+.related-section{margin:48px 0 32px;}
+.related-section h2{font-size:20px;font-weight:900;color:#0f1f33;border-left:5px solid #f59e0b;padding:4px 0 4px 14px;margin-bottom:20px;}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.related-card{border:1px solid #c8d8e8;border-radius:6px;overflow:hidden;text-decoration:none;color:inherit;background:#fff;display:block;}
+.related-card:hover{box-shadow:0 4px 16px rgba(15,31,51,.12);}
+.related-card-img{width:100%;height:120px;background:#1a3a5c;display:flex;align-items:center;justify-content:center;}
+.related-card-img span{color:#fff;font-size:13px;font-weight:700;text-align:center;padding:8px;line-height:1.5;}
+.related-card-body{padding:14px 16px;}
+.related-card-cat{font-size:11px;color:#f59e0b;font-weight:700;margin-bottom:6px;}
+.related-card-title{font-size:15px;font-weight:700;color:#1a3a5c;line-height:1.4;}
+.genre-nav{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:22px 24px;margin-bottom:36px;}
+.genre-nav-title{font-size:15px;font-weight:800;color:#0f1f33;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #f59e0b;}
+.genre-chips{display:flex;flex-wrap:wrap;gap:10px;}
+.genre-chip{display:inline-flex;align-items:center;gap:8px;background:#eef3fb;color:#1a3a5c;text-decoration:none;font-size:13px;font-weight:700;padding:9px 16px;border-radius:22px;transition:all .2s;}
+.genre-chip span{background:#f59e0b;color:#fff;border-radius:10px;padding:1px 9px;font-size:12px;}
+.genre-chip:hover{background:#1a3a5c;color:#fff;}
+.genre-count{font-size:13px;font-weight:700;color:#f59e0b;margin-left:12px;}
+.sidebar-box{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:20px;margin-bottom:20px;}
+.sidebar-title{font-size:14px;font-weight:800;color:#0f1f33;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #f59e0b;}
+.sidebar-cluster a{display:block;font-size:14px;color:#1a3a5c;text-decoration:none;padding:8px 0;border-bottom:1px solid #eef1f5;}
+.sidebar-cluster a:hover{color:#f59e0b;}
+.sidebar-consult{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:8px;padding:22px;text-align:center;}
+.sidebar-consult p{font-size:13px;color:#cddbe8;margin-bottom:14px;}
+.sidebar-consult .sb-btn{display:block;background:#f59e0b;color:#fff;text-decoration:none;font-weight:700;padding:12px;border-radius:4px;font-size:14px;}
+.sidebar-guide{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;border-radius:8px;padding:22px;margin-bottom:20px;text-align:center;box-shadow:0 4px 14px rgba(217,119,6,.25);}
+.sidebar-guide-badge{display:inline-block;background:rgba(255,255,255,.22);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:4px 12px;border-radius:99px;margin-bottom:12px;}
+.sidebar-guide-title{font-size:18px;font-weight:900;margin-bottom:10px;line-height:1.4;}
+.sidebar-guide-desc{font-size:13px;line-height:1.7;color:#fff8ee;margin-bottom:16px;text-align:left;}
+.sidebar-guide-btn{display:block;background:#fff;color:#0f1f33;text-decoration:none;font-weight:800;padding:13px;border-radius:5px;font-size:14px;transition:transform .15s;}
+.sidebar-guide-btn:hover{transform:translateY(-2px);}
+.sidebar-guide-img{width:100%;border-radius:8px;margin-bottom:14px;display:block;}
+.guide-hero{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:12px;padding:36px 30px;margin-bottom:28px;display:flex;gap:28px;align-items:center;}
+.guide-hero-text{flex:1;}
+.guide-hero-img{width:38%;max-width:280px;border-radius:10px;display:block;box-shadow:0 8px 24px rgba(0,0,0,.25);}
+@media (max-width:680px){.guide-hero{flex-direction:column;}.guide-hero-img{width:70%;max-width:240px;}}
+.guide-hero .gbadge{display:inline-block;background:#f59e0b;color:#fff;font-size:12px;font-weight:800;letter-spacing:.06em;padding:5px 14px;border-radius:99px;margin-bottom:14px;}
+.guide-hero h1{font-size:26px;font-weight:900;line-height:1.5;margin:0 0 14px;color:#fff;}
+.guide-hero p{font-size:15px;line-height:1.85;color:#dbe6f1;margin:0;}
+.guide-check{list-style:none;padding:0;margin:0 0 10px;}
+.guide-check li{position:relative;padding:12px 0 12px 34px;border-bottom:1px solid #eef1f5;font-size:15px;line-height:1.7;color:#1a3a5c;}
+.guide-check li::before{content:"✓";position:absolute;left:2px;top:11px;width:22px;height:22px;background:#f59e0b;color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;}
+.guide-form-box{background:#fff;border:2px solid #f59e0b;border-radius:12px;padding:30px;margin:28px 0;box-shadow:0 6px 22px rgba(15,31,51,.08);}
+.guide-form-box h2{margin-top:0;border:none;padding:0;font-size:21px;}
+.guide-form .grow{margin-bottom:16px;}
+.guide-form label{display:block;font-size:14px;font-weight:700;color:#0f1f33;margin-bottom:6px;}
+.guide-form .req{color:#dc2626;font-size:11px;margin-left:6px;}
+.guide-form input,.guide-form select,.guide-form textarea{width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:6px;font-size:15px;box-sizing:border-box;font-family:inherit;}
+.guide-form .gsubmit{width:100%;background:#f59e0b;color:#fff;border:none;padding:15px;border-radius:6px;font-size:16px;font-weight:800;cursor:pointer;margin-top:6px;}
+.guide-form .gnote{font-size:12px;color:#6b7280;margin-top:12px;text-align:center;}
+.custom-footer{background:#1f2937;color:#fff;padding:44px 24px 24px;margin-top:40px;}
+.footer-inner{max-width:880px;margin:0 auto;text-align:center;}
+.footer-nav{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:24px;justify-content:center;}
+.footer-nav a{font-size:13px;color:#fff;text-decoration:none;}
+.footer-nav a:hover{color:#f59e0b;}
+.footer-copy{font-size:12px;border-top:1px solid rgba(255,255,255,.12);padding-top:16px;color:#aaa;}
+#wpadminbar{display:none!important;}html{margin-top:0!important;}
+@media (max-width:980px){.page-layout{flex-direction:column;}.blog-sidebar{width:100%;}.main-wrap{max-width:100%;}}
+@media (max-width:880px){.blog-nav .nav-links a:not(.nav-cta){display:none!important;}.article-title{font-size:22px;}.related-grid{grid-template-columns:1fr;}.supervisor-box{flex-direction:column;}table{font-size:13px;}table th,table td{padding:10px;}}
+</style>
+<nav class="blog-nav"><div class="nav-inner">
+<a class="nav-logo" href="https://fp-1.info/traingo/">Train<span>go</span></a>
+<div class="nav-links">
+<a href="https://fp-1.info/traingo/">Traingoとは</a>
+<a href="https://fp-1.info/traingo/blog/">Traingoブログ</a>
+<a href="https://fp-1.info/traingo/guide/">Traingo活用ガイド</a>
+<a href="https://fp-1.info/hojokin/#about" target="_blank" rel="noopener">会社紹介</a>
+<a href="https://fp-1.info/traingo/contact/">お問い合わせ</a>
+<a href="https://fp-1.info/hojokin/" target="_blank" rel="noopener">補助金活用型経営</a>
+<a href="https://fp-1.info/traingo/contact/" class="nav-cta">無料相談・資料請求</a>
+</div></div></nav><div class="blog-nav-spacer"></div>
+<nav class="breadcrumb" aria-label="パンくずリスト"><ol>
+<li><a href="https://fp-1.info/traingo/">Traingo</a></li>
+<li><a href="https://fp-1.info/traingo/blog/">ブログ</a></li>
+<li>研修の進捗管理とは？受講状況を可視化するメリットと方法</li>
+</ol></nav>
+<div class="page-layout">
+<main class="main-wrap">
+<header class="article-header">
+<span class="article-cat" style="background:#f59e0b;">研修管理・LMS活用</span>
+<h1 class="article-title">研修の進捗管理とは？受講状況を可視化するメリットと方法</h1>
+<div class="article-meta">
+<span>公開日 <time datetime="2026-06-01">2026-06-01</time></span>
+<span>最終更新 <time datetime="2026-06-01">2026-06-01</time></span>
+</div>
+</header>
+<img class="article-thumb" src="../../assets/uploads/2026/06/kenshu-shinchoku_thumb.png" alt="研修の進捗管理とは？受講状況を可視化するメリットと方法">
+<article class="article-body">
+<div class="lead-box">
+<p>「あの研修、もう受けてもらえましたか？」——担当者がこの一言を何度も繰り返している会社は、少なくありません。誰がどこまで受けたか分からない状態が続くと、催促に追われるうえ、研修が本当に役立ったのかも見えてきません。この記事では、研修の進捗管理とは何かを整理しつつ、受講状況を見える化するメリットと、その具体的な進め方を現場目線でお話しします。</p>
+</div>
+<figure class="inline-fig"><img alt="図：研修の進捗管理が見えない状態と見える状態の比較。未受講者の把握と催促の手間の違いを示した概念図" src="../../assets/uploads/2026/06/kenshu-shinchoku-1.png" /><figcaption>図：研修の進捗管理が見えない状態と見える状態の比較。未受講者の把握と催促の手間の違いを示した概念図</figcaption></figure>
+<h2>研修の進捗管理とは？まず言葉を整理する</h2>
+<p>研修の進捗管理とは、ひとことで言えば「誰が・どの研修を・どこまで受けたか」を記録して、受講の状況を見える形で把握することです。研修を配って終わりにするのではなく、受講が進んでいるか、止まっている人はいないか、を追いかける取り組み、と考えると分かりやすいですよね。</p>
+<p>ここで大事なのが、進捗には段階があるということです。単に「受講した／していない」を追うだけでも管理にはなりますが、それだけでは「見たけれど分かっていない」人を見逃してしまいます。動画をどこまで視聴したか、確認テストに合格したか、というところまで含めて把握すると、研修が実際に効いているかどうかまで見えてくるわけです。</p>
+<p>厚生労働省の能力開発基本調査でも、計画的な教育訓練を実施する企業の状況が継続的に調べられていますが、研修を「実施したかどうか」と「効果が出たかどうか」は別の話です。実施した研修がきちんと受講され、理解につながっているかを確かめる手段が、進捗管理だと言えます。たとえば、安全教育を全社員に配ったある会社では、配信した直後は「やった」という安心感がありました。ところが実際にログを見てみると、半数近くが最後まで視聴していなかった、という場面もあります。見える化して初めて、配っただけでは届いていなかったことに気づけるんです。</p>
+<h2>なぜ進捗管理が必要なのか</h2>
+<p>「受講は本人の責任だから、わざわざ管理しなくても」と考える方もいます。けれど、見える化されていない状態は、思った以上に組織に負担をかけていることが多いんです。理由を整理してみましょう。</p>
+<h3>1. 未受講者が分からず、催促に追われる</h3>
+<p>進捗が見えないと、誰が受けていないのかを特定できません。結果として「全員にもう一度お知らせする」しかなくなり、すでに受けた人にまで催促のメールが飛びます。受けた側からすれば「もう受けたのに」と感じますし、担当者は何度も同じ案内を出すことになる。この往復が、見えないことの最初の負担です。</p>
+<h3>2. 研修が効いているか判断できない</h3>
+<p>受講状況が記録に残らないと、「この研修は役に立ったのか」を後から振り返る材料がありません。来年も同じ内容でいいのか、どこを直すべきなのかを決める根拠がないまま、なんとなく前年踏襲になりがちです。データがないと、改善のしようがないわけですね。</p>
+<h3>3. 助成金や監査の証明に困ることがある</h3>
+<p>研修の実施を社外に示す必要が出たとき、記録がなければ証明できません。人材開発支援助成金のように、訓練を実施した事実を書類で示すことが求められる制度を使う場合、誰がいつ何時間受講したかが残っていないと、後から整えるのに苦労することがあります。記録は、いざというときの裏付けにもなるわけです。</p>
+<figure class="inline-fig"><img alt="図：進捗管理が必要な3つの理由。未受講者の特定・効果の検証・実施の証明を並べた図解" src="../../assets/uploads/2026/06/kenshu-shinchoku-2.png" /><figcaption>図：進捗管理が必要な3つの理由。未受講者の特定・効果の検証・実施の証明を並べた図解</figcaption></figure>
+<h2>受講状況を可視化する4つのメリット</h2>
+<p>進捗を見える化すると、現場では具体的にどんな変化が起きるのでしょうか。代表的なものを挙げてみます。</p>
+<div class="point-box"><div class="point-box-title">受講状況を可視化して得られること</div><ul>
+<li>未受講者だけに絞って案内でき、無駄な催促が減る</li>
+<li>受講期限と残りの本数が本人にも見え、自発的な受講が進む</li>
+<li>確認テストの結果から、理解が浅い箇所を特定できる</li>
+<li>部署ごとの受講率が分かり、進んでいない組織に手を打てる</li>
+<li>受講日・受講時間が記録に残り、実施の証明に使える</li>
+</ul></div>
+
+<p>特に効いてくるのが、未受講者を絞り込めることです。全員に一斉案内するのと、受けていない3人にだけ声をかけるのとでは、受け手の印象がまったく違います。「あなただけまだですよ」と個別に伝えられると、後回しにしていた人も動きやすくなる。催促の総量を減らしながら、受講は進む、という状態をつくれるわけです。</p>
+<p>もう少し具体的に考えてみましょう。ある多店舗展開の小売業では、新しい接客ルールの研修を全店に配信していました。以前は本部の担当者が各店に電話して受講状況を聞いて回っていたのですが、これが半日仕事だったそうです。受講状況が一覧で見えるようになってからは、画面を開けば未受講の店舗がすぐ分かるので、その店にだけ連絡すればよくなった。電話の本数も、担当者の時間も大きく減ったといいます。見える化は、催促という作業そのものを軽くしてくれるんですよね。</p>
+<h2>Excel管理の限界と、つまずきやすい点</h2>
+<p>進捗管理というと、まずExcelで受講者リストを作る会社が多いと思います。実際、対象者が数人で研修も1本なら、それで十分回ります。ところが、人数や研修の本数が増えてくると、Excel管理はだんだん苦しくなってくるんです。</p>
+<p>一番の負担は、更新が手作業になることです。受講者が研修を受けても、その事実は自動では記録されません。誰かが受講状況を聞き取って、セルに「済」と入力する必要があります。対象者が100人、研修が10本あれば、それだけで1000個のセルを人の手で埋めることになる。しかも、月をまたいで再受講が発生すると、どれが最新の状態なのか分からなくなりがちです。</p>
+<p>ファイルが分散するのも、つまずきやすい点です。部署ごとに別々のExcelで管理していると、全社の受講率を出すには手作業で集計し直さなければなりません。集計している間にも受講は進むので、出した数字はすでに古い、ということも起こります。J-Net21などの中小企業向け情報でも、限られた人手で管理業務をどう効率化するかは繰り返し課題に挙がっていますが、進捗管理もその一つだと言えます。</p>
+<p>念のため付け加えると、Excelが悪いわけではありません。規模に合わなくなってきたサインが出てきたら、仕組みを見直す時期だ、というだけのことです。受講者の操作がそのまま記録に反映される仕組みに移すと、この更新と集計の手間から解放されます。</p>
+<h2>LMSを使った進捗管理の進め方</h2>
+<p>そこで現実的な選択肢になるのが、学習管理システム（LMS）を使う方法です。LMSは、研修動画や確認テストを配信しつつ、誰がどこまで受けたかを自動で記録してくれる仕組みのことです。受講者がログインして動画を視聴すれば、その進捗がそのままデータとして残る。担当者が手で入力する必要がないわけです。</p>
+<p>具体的な進め方を、4つのステップで見てみましょう。</p>
+<h3>ステップ1：管理したい研修と対象者を決める</h3>
+<p>まずは対象を絞ります。「全社員に安全教育」「新入社員に基礎研修」というように、研修と受講対象をはっきりさせる。あわせて、いつまでに受けてほしいかという受講期限と、何をもって修了とするかの条件も決めておきます。ここが曖昧だと、後の進捗の見方もぼやけてしまいます。</p>
+<h3>ステップ2：教材と確認テストをLMSに載せる</h3>
+<p>研修動画や資料をLMSに登録し、必要なら確認テストを付けます。受講したかどうかだけでなく理解度まで見たい場合は、テストをセットにしておくと、後でつまずいている箇所が分かるようになります。</p>
+<h3>ステップ3：受講状況を一覧で確認する</h3>
+<p>配信後は、管理画面で受講状況を確認します。誰が完了し、誰が途中で止まり、誰が手をつけていないかが一覧で見えるので、状況の把握に時間がかかりません。部署別の受講率が出せる仕組みなら、進んでいない組織を早めに見つけられます。</p>
+<h3>ステップ4：未受講者に絞って案内する</h3>
+<p>止まっている人が分かったら、その人にだけ案内を送ります。LMSによっては、未受講者へのリマインドを自動で送れるものもあり、担当者が手作業で送る手間を減らせます。受講が進んだら、また状況を確認する。この繰り返しで、催促に追われず研修を回せるようになります。</p>
+<figure class="inline-fig"><img alt="図：LMSを使った進捗管理の4ステップ。研修設定→教材登録→状況確認→未受講者への案内の流れ図" src="../../assets/uploads/2026/06/kenshu-shinchoku-3.png" /><figcaption>図：LMSを使った進捗管理の4ステップ。研修設定→教材登録→状況確認→未受講者への案内の流れ図</figcaption></figure>
+<h2>進捗の「数字」をどう活かすか</h2>
+<p>ところで、進捗を見える化すると数字が手に入りますが、その数字をただ眺めるだけでは意味が半減してしまいます。せっかくのデータを、次の手につなげたいところですよね。</p>
+<p>たとえば、受講率が部署によって大きく違う場合。ある部署だけ極端に低いなら、その部署では研修の時間が取れていないのかもしれませんし、案内が現場まで届いていないのかもしれません。数字は「なぜそうなっているのか」を考えるきっかけになります。全体の平均だけ見ていると気づけない偏りも、部署別に分けると見えてくるわけです。</p>
+<p>確認テストの結果も、活かしどころがあります。多くの受講者が同じ問題でつまずいているなら、その箇所は教材の説明が足りない可能性があります。つまり、受講者の理解度は、教材を直すためのヒントにもなるんです。研修を一度作って終わりにせず、データを見ながら手を入れていくと、回を重ねるごとに研修の質が上がっていきます。</p>
+<p>そしてもう一つ、進捗の記録は時間の経過とともに価値が増していきます。今年の受講状況だけでなく、去年との比較ができるようになると、「研修の浸透が早くなった」「特定の層の受講が遅れがち」といった傾向が見えてきます。一年単位では気づきにくい変化も、記録を積み重ねることで見えるようになる。進捗管理は、その場の催促を楽にするだけでなく、組織の教育を長い目で良くしていく土台にもなるわけです。</p>
+<h2>進捗管理を始めるときの注意点</h2>
+<p>最後に、進捗管理を始めるときに気をつけたい点を挙げておきます。仕組みを入れること自体が目的になってしまうと、かえって現場に負担をかけることがあるためです。</p>
+<p>まず、追う項目を最初から増やしすぎないこと。視聴時間も、テスト得点も、再受講回数もまとめて追おうとすると、運用が重くなり、データを見る側も疲れてしまいます。まずは目的に必要な最小限から始め、足りなければ後から増やすほうが続きやすい傾向があります。</p>
+<p>次に、数字で人を追い詰めないこと。受講率を見える化すると、未受講者が特定できる反面、それが過度なプレッシャーになると、形だけ受講して中身が頭に入らない、という事態になりかねません。進捗は「責める材料」ではなく「支援するための材料」だと位置づけ、受けやすい環境づくりとセットで考えることが大切です。</p>
+<p>そして、記録を一か所に集めること。受講状況が複数のファイルやシステムに散らばると、結局また集計の手間が発生し、見える化の効果が薄れます。研修の配信から受講記録、確認テストまでを1か所にまとめておくと、必要なときにすぐ全体を把握できる状態を保てます。</p>
+<h2>まとめ：見える化が、催促と推測から担当者を解放する</h2>
+<p>研修の進捗管理は、誰がどこまで受けたかを記録し、受講状況を見える形にする取り組みです。見えていない状態は、未受講者の特定ができず催促に追われ、研修が効いているかも判断できないという、もろさを抱えています。</p>
+<p>受講状況を可視化すると、未受講者だけに絞って案内でき、確認テストから理解の浅い箇所が分かり、受講日や受講時間が実施の証明にも使えるようになります。Excelでも小規模なら回りますが、人数や本数が増えたら、受講操作がそのまま記録に残る学習管理システム（LMS）に移すと、更新と集計の手間から解放されます。</p>
+<p>進捗で得た数字は、眺めるだけでなく次の手につなげることが肝心です。部署別の受講率や確認テストの結果を、研修を良くする材料として活かしていく。なお、受講日・受講時間・修了状況の記録は、人材開発支援助成金のように訓練の実施を示す書類が求められる制度を使う際にも役立つことがあります。まずは管理したい研修を1つ決め、対象者と期限と修了条件をはっきりさせるところから始めてみてください。</p>
+<div class="source-box"><strong>参考にした公式情報</strong><ul><li><a href="https://www.mhlw.go.jp/toukei/list/104-1.html" target="_blank" rel="noopener">厚生労働省「能力開発基本調査」（企業の教育訓練・自己啓発支援の実施状況に関する公式統計）</a></li><li><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/kyufukin/d01-1.html" target="_blank" rel="noopener">厚生労働省「人材開発支援助成金」（職業訓練の経費・賃金を助成する制度）</a></li><li><a href="https://j-net21.smrj.go.jp/" target="_blank" rel="noopener">独立行政法人 中小企業基盤整備機構 J-Net21（中小企業の人材育成・経営支援情報）</a></li></ul></div>
+<h2>よくある質問</h2>
+<div class="faq-section"><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>研修の進捗管理とは何ですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>誰が・どの研修を・どこまで受けたかを記録し、受講状況を見える形で把握する取り組みのことです。受講したかどうかだけでなく、視聴の進み具合や確認テストの結果まで含めて追うと、研修が実際に役立っているかを判断しやすくなります。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>Excelで受講状況を管理するのは難しいですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>規模が小さいうちはExcelでも回りますが、対象者が増えたり研修の本数が増えたりすると、集計と更新の手間が一気に重くなる傾向があります。受講者本人の操作が記録に反映されない点も負担になりやすく、人数が増えてきた段階で仕組みの見直しを検討する企業が多いようです。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>進捗管理をすると受講率は上がりますか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>見える化そのものが受講を強制するわけではありませんが、未受講者が誰か分かることで声かけやリマインドの的が絞れるため、結果として受講が進みやすくなることが多いです。締め切りと残りの本数が本人にも見える状態にすると、自発的な受講につながりやすい傾向があります。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>進捗をどこまで細かく追うべきですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>目的によります。受講したかどうかの確認だけなら修了フラグで足りますが、理解度まで把握したい場合は確認テストの得点や再受講の回数まで見るとよいでしょう。最初から細かく追いすぎると運用が重くなるため、目的に必要な範囲から始めるのが現実的です。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>進捗管理の記録は助成金の申請に使えますか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>人材開発支援助成金などの制度では、訓練を実施した事実を示す記録が求められることがあります。受講日・受講時間・修了状況がシステムに残っていると、こうした書類を整えやすくなる場合があります。ただし要件は制度や年度で変わることがあるため、詳細は公式情報や窓口で確認することをおすすめします。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>進捗管理を始めるには何から手をつければよいですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>まずは管理したい研修を1つ決め、対象者・受講期限・修了の条件を明確にするところから始めると整理しやすいです。そのうえで、受講操作がそのまま記録に残る学習管理システム（LMS）に載せると、集計の手間をかけずに状況を把握できるようになります。</p></div>
+</div></div>
+<div class="supervisor-box" id="supervisor">
+<div class="supervisor-avatar"><img src="https://fp-1.info/hojokin/wp-content/uploads/2026/05/akutsu-portrait.jpg" alt="阿久津 和宏" style="width:100%;height:100%;border-radius:50%;object-fit:cover;"></div>
+<div class="supervisor-info">
+<div class="supervisor-label">監修・執筆</div>
+<div class="supervisor-name">阿久津 和宏</div>
+<div class="supervisor-title">人材育成・補助金活用コンサルタント</div>
+<div class="supervisor-bio">Well Consultant合同会社代表。中小企業の研修内製化・eラーニング導入・人材開発支援助成金の活用を支援。研修プラットフォーム「Traingo」を企画・運営。</div>
+</div></div>
+</article>
+<div class="cta-box">
+<h2>研修を「作って終わり」にしない仕組みを</h2>
+<p>動画研修・eラーニングの内製化、受講管理、人材開発支援助成金の活用まで。<br>Traingoがまとめてご支援します。まずはお気軽にご相談ください。</p>
+<a class="cta-btn" href="https://fp-1.info/traingo/contact/">無料相談・資料請求はこちら</a>
+</div>
+<section class="related-section"><h2>関連記事</h2><div class="related-grid"><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/elearning-jukoritsu/">
+<div class="related-card-img" style="background:#f59e0b;"><span>eラーニングの受講率を高める方法｜学習設計とコース構成のポイント</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">研修管理・LMS活用</div>
+<div class="related-card-title">eラーニングの受講率を高める方法｜学習設計とコース構成のポイント</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/kenshu-unyo-koritsu/">
+<div class="related-card-img" style="background:#f59e0b;"><span>研修運用の効率化とは？受講者登録・通知を自動化する方法</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">研修管理・LMS活用</div>
+<div class="related-card-title">研修運用の効率化とは？受講者登録・通知を自動化する方法</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/bumonbetsu-kenshu/">
+<div class="related-card-img" style="background:#f59e0b;"><span>部門別・拠点別の研修管理とは？複数の研修環境を分けて運用する方法</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">研修管理・LMS活用</div>
+<div class="related-card-title">部門別・拠点別の研修管理とは？複数の研修環境を分けて運用する方法</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/rikaido-sokutei/">
+<div class="related-card-img" style="background:#f59e0b;"><span>研修の理解度測定とは？確認テストで学習効果を把握する方法</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">研修管理・LMS活用</div>
+<div class="related-card-title">研修の理解度測定とは？確認テストで学習効果を把握する方法</div>
+</div></a></div></section>
+</main>
+<aside class="blog-sidebar">
+<div class="sidebar-guide">
+<img src="../../assets/uploads/2026/06/guide-cover.png" alt="Traingo活用ガイド" class="sidebar-guide-img">
+<div class="sidebar-guide-badge">無料ダウンロード</div>
+<div class="sidebar-guide-title">Traingo活用ガイド</div>
+<div class="sidebar-guide-desc">研修の内製化・eラーニング化の進め方を1冊に。導入前に押さえたい実務のポイントを無料でお渡しします（補助金・助成金の活用にも対応）。</div>
+<a class="sidebar-guide-btn" href="https://fp-1.info/traingo/guide/">ガイドを受け取る →</a>
+</div>
+<div class="sidebar-box"><div class="sidebar-title">記事カテゴリ</div>
+<div class="sidebar-cluster"><a href="https://fp-1.info/traingo/blog/#tsukuru">研修を作る・仕組み化する</a><a href="https://fp-1.info/traingo/blog/#lms-value">ツール（LMS）としての価値</a><a href="https://fp-1.info/traingo/blog/#hikaku">比較・選び方</a><a href="https://fp-1.info/traingo/blog/#keiei">人材育成の経営的効果</a><a href="https://fp-1.info/traingo/blog/#shueki">研修の収益化・事業化</a><a href="https://fp-1.info/traingo/blog/#jirei">事例・信頼</a><a href="https://fp-1.info/traingo/blog/#josei">助成金（活用例）</a></div></div>
+<div class="sidebar-box"><div class="sidebar-title">ヘルプ・使い方</div>
+<div class="sidebar-cluster">
+<a href="https://fp-1.info/traingo/help/">ツール活用ヘルプ（目次）</a>
+<a href="https://fp-1.info/traingo/manual-company/">会社管理者の使い方</a>
+<a href="https://fp-1.info/traingo/manual-learner/">受講者の使い方</a>
+</div></div>
+<div class="sidebar-consult">
+<p>研修の内製化・eラーニング化・人材開発支援助成金の活用をご相談ください。</p>
+<a class="sb-btn" href="https://fp-1.info/traingo/contact/">無料相談・資料請求 →</a>
+</div></aside>
+</div>
+<footer class="custom-footer"><div class="footer-inner">
+<nav class="footer-nav">
+<a href="https://fp-1.info/traingo/">Traingoとは</a>
+<a href="https://fp-1.info/traingo/blog/">Traingoブログ</a>
+<a href="https://fp-1.info/traingo/guide/">Traingo活用ガイド</a>
+<a href="https://fp-1.info/traingo/help/">ヘルプ・使い方</a>
+<a href="https://fp-1.info/hojokin/#about" target="_blank" rel="noopener">会社紹介</a>
+<a href="https://fp-1.info/traingo/contact/">お問い合わせ</a>
+<a href="https://fp-1.info/hojokin/" target="_blank" rel="noopener">補助金活用型経営</a>
+</nav>
+<div class="footer-copy">© Well Consultant合同会社　Traingo（トレインゴ）｜法人向け研修プラットフォーム</div>
+</div></footer>
+<script>(function(){function k(){
+document.documentElement.style.setProperty('margin-top','0','important');
+document.body.style.setProperty('margin-top','0','important');document.body.style.setProperty('padding-top','0','important');
+var wsb=document.querySelector('.wp-site-blocks');if(wsb){wsb.style.setProperty('margin-top','0','important');wsb.style.setProperty('padding-top','0','important');Array.prototype.forEach.call(wsb.children,function(c){c.style.setProperty('margin-top','0','important');});}
+['header.wp-block-template-part','.wp-site-blocks > header','.wp-block-post-title','.wp-block-template-part[data-area=\"footer\"]','.wp-site-blocks > footer'].forEach(function(s){document.querySelectorAll(s).forEach(function(e){e.style.setProperty('display','none','important');});});
+}if(document.readyState!=='loading')k();else document.addEventListener('DOMContentLoaded',k);window.addEventListener('load',k);})();</script>
+<!-- /wp:html -->

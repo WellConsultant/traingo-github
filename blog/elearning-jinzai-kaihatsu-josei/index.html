@@ -1,0 +1,315 @@
+<!-- wp:html -->
+<style>
+
+:root,html,body{--wp--style--global--content-size:100%!important;--wp--style--global--wide-size:100%!important;--wp--style--root--padding-top:0!important;--wp--style--root--padding-right:0!important;--wp--style--root--padding-bottom:0!important;--wp--style--root--padding-left:0!important;}
+body,body.page,body.home,body.single,body.single-post{margin:0!important;padding:0!important;padding-top:0!important;}
+.wp-site-blocks,.wp-site-blocks>main,main.wp-block-group,.wp-block-group.has-global-padding,.wp-block-post-content,.entry-content,.wp-block-group.alignfull,.wp-block-group-is-layout-constrained,.wp-block-post-content-is-layout-constrained,.wp-block-html,article.post,article.page,.post,.hentry,.page{max-width:100%!important;width:100%!important;margin:0!important;padding:0!important;}
+.has-global-padding,.has-global-padding>.alignfull{padding-left:0!important;padding-right:0!important;}
+.wp-block-post-title,.entry-header,.entry-title,header.entry-header,.wp-block-template-part header,header.wp-block-template-part,.wp-site-blocks>header,.wp-block-site-title,.wp-block-navigation,.wp-block-template-part[data-area="header"],aside.sidebar,.widget-area,.sidebar,#secondary{display:none!important;}
+.entry-meta,.post-meta,.byline,.posted-on,.cat-links,.author,.tags-links,.comments-link,.wp-block-post-author,.wp-block-post-author__bio,.wp-block-post-author-name,.wp-block-post-date,.wp-block-post-terms,.wp-block-post-excerpt,p.has-text-align-right,.screen-reader-text{display:none!important;}
+#wpadminbar,#wpadminbar *{display:none!important;}
+html{margin-top:0!important;}
+.wp-site-blocks>footer,.wp-block-template-part[data-area="footer"],footer.wp-block-template-part{display:none!important;}
+footer:not(.custom-footer){display:none!important;}
+.post-navigation,.posts-navigation,.nav-previous,.nav-next,.wp-block-query-pagination,.more-link,a.more-link,.wp-block-post-navigation-link,nav[aria-label="投稿ナビゲーション"]{display:none!important;}
+.wp-block-query{display:none!important;}
+#comments,.comments-area,.comment-respond,.wp-block-comments{display:none!important;}
+.is-layout-constrained>.wp-block-html,.is-layout-constrained>.wp-block-group:not(.alignwide):not(.alignfull){max-width:100%!important;margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important;}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP','Meiryo',sans-serif;font-size:16px;line-height:1.85;color:#222;background:#f7f7f5;}
+a{color:#2563eb;}
+.blog-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#0f1f33;}
+.blog-nav .nav-inner{max-width:1160px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:62px;}
+.blog-nav .nav-logo{color:#fff;font-weight:800;font-size:16px;text-decoration:none;letter-spacing:.02em;}
+.blog-nav .nav-logo span{color:#f59e0b;}
+.blog-nav .nav-links{display:flex;align-items:center;gap:24px;}
+.blog-nav .nav-links a{color:#fff;font-size:13px;text-decoration:none;transition:color .2s;}
+.blog-nav .nav-links a:hover{color:#f59e0b;}
+.blog-nav .nav-cta{background:#f59e0b;color:#fff !important;padding:8px 20px;border-radius:4px;font-weight:bold;font-size:13px;}
+.blog-nav .nav-cta:hover{background:#d98a06 !important;}
+.blog-nav-spacer{height:62px;}
+.breadcrumb{background:#e8edf3;padding:10px 0;font-size:13px;}
+.breadcrumb ol{list-style:none;display:flex;flex-wrap:wrap;gap:4px;max-width:1160px;margin:0 auto;padding:0 20px;}
+.breadcrumb li+li::before{content:'>';margin-right:4px;color:#888;}
+.breadcrumb a{color:#1a3a5c;text-decoration:none;}
+.page-layout{display:flex;flex-direction:row;gap:32px;max-width:1160px;margin:0 auto;padding:32px 20px 60px;align-items:flex-start;}
+.main-wrap{flex:1;min-width:0;max-width:820px;}
+.blog-sidebar{width:300px;flex-shrink:0;position:sticky;top:78px;align-self:flex-start;}
+.article-thumb{width:100%;height:auto;border-radius:8px;display:block;margin-bottom:28px;}
+.article-header{margin-bottom:28px;}
+.article-cat{display:inline-block;color:#fff;font-size:12px;font-weight:700;padding:3px 12px;border-radius:3px;margin-bottom:12px;}
+.article-title{font-size:28px;font-weight:900;color:#0f1f33;line-height:1.4;margin-bottom:12px;}
+.article-meta{font-size:13px;color:#6b7280;display:flex;gap:16px;flex-wrap:wrap;}
+.article-meta time{color:#1a3a5c;}
+.article-body{color:#333;}
+.article-body p{margin-bottom:1.4em;}
+.article-body h2{font-size:22px;font-weight:900;color:#0f1f33;border-left:5px solid #f59e0b;padding:6px 0 6px 14px;margin:48px 0 20px;line-height:1.4;}
+.article-body h3{font-size:18px;font-weight:700;color:#1a3a5c;border-bottom:2px solid #c8d8e8;padding-bottom:6px;margin:32px 0 16px;}
+.article-body ul,.article-body ol{margin:0 0 1.4em 1.4em;}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:#0f1f33;}
+.lead-box{background:#eef3fb;border-left:4px solid #2563eb;padding:20px 24px;border-radius:4px;margin-bottom:32px;}
+.lead-box p{margin-bottom:0;color:#0f1f33;font-weight:500;}
+.point-box{background:#fff8ed;border:2px solid #f59e0b;border-radius:6px;padding:20px 24px;margin:24px 0;}
+.point-box .point-box-title{font-size:14px;font-weight:700;color:#c47f06;margin-bottom:10px;}
+.point-box ul{padding-left:1.4em;margin:0;}
+.point-box li{margin-bottom:6px;}
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:15px;}
+table thead tr{background:#1a3a5c;color:#fff;}
+table th{padding:12px 14px;text-align:left;font-weight:700;}
+table td{padding:12px 14px;border-bottom:1px solid #d0dcea;vertical-align:top;}
+table tr:nth-child(even) td{background:#f0f5fa;}
+.inline-fig{display:block;margin:28px auto;width:100%;}
+.inline-fig img{width:100%;max-width:760px;height:auto;border-radius:8px;display:block;margin:0 auto;}
+.inline-fig figcaption{font-size:13px;color:#6b7280;text-align:center;margin-top:8px;}
+.source-box{background:#f9fafc;border:1px dashed #aabbcc;padding:16px 20px;margin:32px 0;font-size:13px;color:#555;border-radius:4px;}
+.source-box strong{color:#1a3a5c;display:block;margin-bottom:6px;}
+.source-box ul{padding-left:1.4em;margin:0;}
+.source-box a{color:#2563eb;word-break:break-all;}
+.faq-section{margin:40px 0;}
+.faq-item{border:1px solid #c8d8e8;border-radius:6px;margin-bottom:12px;overflow:hidden;}
+.faq-q{background:#1a3a5c;color:#fff;padding:14px 18px;font-weight:700;font-size:15px;display:flex;gap:10px;align-items:flex-start;}
+.faq-q .faq-icon{flex-shrink:0;color:#f59e0b;font-size:18px;font-weight:900;}
+.faq-a{padding:16px 18px;background:#fff;font-size:15px;display:flex;gap:10px;align-items:flex-start;}
+.faq-a .faq-icon{flex-shrink:0;color:#1a3a5c;font-size:18px;font-weight:900;}
+.faq-a p{margin-bottom:0;}
+.supervisor-box{display:flex;gap:20px;align-items:flex-start;border:1px solid #c8d8e8;border-radius:8px;padding:24px;margin:40px 0;background:#f5f8fc;}
+.supervisor-avatar{flex-shrink:0;width:72px;height:72px;border-radius:50%;background:#1a3a5c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;}
+.supervisor-info{flex:1;}
+.supervisor-label{font-size:11px;color:#888;font-weight:700;letter-spacing:.08em;margin-bottom:4px;}
+.supervisor-name{font-size:18px;font-weight:900;color:#0f1f33;margin-bottom:4px;}
+.supervisor-title{font-size:13px;color:#555;margin-bottom:10px;}
+.supervisor-bio{font-size:14px;color:#444;line-height:1.7;}
+.cta-box{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:8px;padding:36px 32px;text-align:center;margin:40px 0;}
+.cta-box h2{font-size:22px;font-weight:900;margin-bottom:12px;border:none;padding:0;color:#fff;}
+.cta-box p{font-size:15px;margin-bottom:24px;color:#cddbe8;}
+.cta-btn{display:inline-block;background:#f59e0b;color:#fff;font-size:17px;font-weight:700;padding:16px 40px;border-radius:4px;text-decoration:none;}
+.cta-btn:hover{background:#d98a06;}
+.related-section{margin:48px 0 32px;}
+.related-section h2{font-size:20px;font-weight:900;color:#0f1f33;border-left:5px solid #f59e0b;padding:4px 0 4px 14px;margin-bottom:20px;}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.related-card{border:1px solid #c8d8e8;border-radius:6px;overflow:hidden;text-decoration:none;color:inherit;background:#fff;display:block;}
+.related-card:hover{box-shadow:0 4px 16px rgba(15,31,51,.12);}
+.related-card-img{width:100%;height:120px;background:#1a3a5c;display:flex;align-items:center;justify-content:center;}
+.related-card-img span{color:#fff;font-size:13px;font-weight:700;text-align:center;padding:8px;line-height:1.5;}
+.related-card-body{padding:14px 16px;}
+.related-card-cat{font-size:11px;color:#f59e0b;font-weight:700;margin-bottom:6px;}
+.related-card-title{font-size:15px;font-weight:700;color:#1a3a5c;line-height:1.4;}
+.genre-nav{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:22px 24px;margin-bottom:36px;}
+.genre-nav-title{font-size:15px;font-weight:800;color:#0f1f33;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #f59e0b;}
+.genre-chips{display:flex;flex-wrap:wrap;gap:10px;}
+.genre-chip{display:inline-flex;align-items:center;gap:8px;background:#eef3fb;color:#1a3a5c;text-decoration:none;font-size:13px;font-weight:700;padding:9px 16px;border-radius:22px;transition:all .2s;}
+.genre-chip span{background:#f59e0b;color:#fff;border-radius:10px;padding:1px 9px;font-size:12px;}
+.genre-chip:hover{background:#1a3a5c;color:#fff;}
+.genre-count{font-size:13px;font-weight:700;color:#f59e0b;margin-left:12px;}
+.sidebar-box{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:20px;margin-bottom:20px;}
+.sidebar-title{font-size:14px;font-weight:800;color:#0f1f33;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #f59e0b;}
+.sidebar-cluster a{display:block;font-size:14px;color:#1a3a5c;text-decoration:none;padding:8px 0;border-bottom:1px solid #eef1f5;}
+.sidebar-cluster a:hover{color:#f59e0b;}
+.sidebar-consult{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:8px;padding:22px;text-align:center;}
+.sidebar-consult p{font-size:13px;color:#cddbe8;margin-bottom:14px;}
+.sidebar-consult .sb-btn{display:block;background:#f59e0b;color:#fff;text-decoration:none;font-weight:700;padding:12px;border-radius:4px;font-size:14px;}
+.sidebar-guide{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;border-radius:8px;padding:22px;margin-bottom:20px;text-align:center;box-shadow:0 4px 14px rgba(217,119,6,.25);}
+.sidebar-guide-badge{display:inline-block;background:rgba(255,255,255,.22);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:4px 12px;border-radius:99px;margin-bottom:12px;}
+.sidebar-guide-title{font-size:18px;font-weight:900;margin-bottom:10px;line-height:1.4;}
+.sidebar-guide-desc{font-size:13px;line-height:1.7;color:#fff8ee;margin-bottom:16px;text-align:left;}
+.sidebar-guide-btn{display:block;background:#fff;color:#0f1f33;text-decoration:none;font-weight:800;padding:13px;border-radius:5px;font-size:14px;transition:transform .15s;}
+.sidebar-guide-btn:hover{transform:translateY(-2px);}
+.sidebar-guide-img{width:100%;border-radius:8px;margin-bottom:14px;display:block;}
+.guide-hero{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:12px;padding:36px 30px;margin-bottom:28px;display:flex;gap:28px;align-items:center;}
+.guide-hero-text{flex:1;}
+.guide-hero-img{width:38%;max-width:280px;border-radius:10px;display:block;box-shadow:0 8px 24px rgba(0,0,0,.25);}
+@media (max-width:680px){.guide-hero{flex-direction:column;}.guide-hero-img{width:70%;max-width:240px;}}
+.guide-hero .gbadge{display:inline-block;background:#f59e0b;color:#fff;font-size:12px;font-weight:800;letter-spacing:.06em;padding:5px 14px;border-radius:99px;margin-bottom:14px;}
+.guide-hero h1{font-size:26px;font-weight:900;line-height:1.5;margin:0 0 14px;color:#fff;}
+.guide-hero p{font-size:15px;line-height:1.85;color:#dbe6f1;margin:0;}
+.guide-check{list-style:none;padding:0;margin:0 0 10px;}
+.guide-check li{position:relative;padding:12px 0 12px 34px;border-bottom:1px solid #eef1f5;font-size:15px;line-height:1.7;color:#1a3a5c;}
+.guide-check li::before{content:"✓";position:absolute;left:2px;top:11px;width:22px;height:22px;background:#f59e0b;color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;}
+.guide-form-box{background:#fff;border:2px solid #f59e0b;border-radius:12px;padding:30px;margin:28px 0;box-shadow:0 6px 22px rgba(15,31,51,.08);}
+.guide-form-box h2{margin-top:0;border:none;padding:0;font-size:21px;}
+.guide-form .grow{margin-bottom:16px;}
+.guide-form label{display:block;font-size:14px;font-weight:700;color:#0f1f33;margin-bottom:6px;}
+.guide-form .req{color:#dc2626;font-size:11px;margin-left:6px;}
+.guide-form input,.guide-form select,.guide-form textarea{width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:6px;font-size:15px;box-sizing:border-box;font-family:inherit;}
+.guide-form .gsubmit{width:100%;background:#f59e0b;color:#fff;border:none;padding:15px;border-radius:6px;font-size:16px;font-weight:800;cursor:pointer;margin-top:6px;}
+.guide-form .gnote{font-size:12px;color:#6b7280;margin-top:12px;text-align:center;}
+.custom-footer{background:#1f2937;color:#fff;padding:44px 24px 24px;margin-top:40px;}
+.footer-inner{max-width:880px;margin:0 auto;text-align:center;}
+.footer-nav{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:24px;justify-content:center;}
+.footer-nav a{font-size:13px;color:#fff;text-decoration:none;}
+.footer-nav a:hover{color:#f59e0b;}
+.footer-copy{font-size:12px;border-top:1px solid rgba(255,255,255,.12);padding-top:16px;color:#aaa;}
+#wpadminbar{display:none!important;}html{margin-top:0!important;}
+@media (max-width:980px){.page-layout{flex-direction:column;}.blog-sidebar{width:100%;}.main-wrap{max-width:100%;}}
+@media (max-width:880px){.blog-nav .nav-links a:not(.nav-cta){display:none!important;}.article-title{font-size:22px;}.related-grid{grid-template-columns:1fr;}.supervisor-box{flex-direction:column;}table{font-size:13px;}table th,table td{padding:10px;}}
+</style>
+<nav class="blog-nav"><div class="nav-inner">
+<a class="nav-logo" href="https://fp-1.info/traingo/">Train<span>go</span></a>
+<div class="nav-links">
+<a href="https://fp-1.info/traingo/">Traingoとは</a>
+<a href="https://fp-1.info/traingo/blog/">Traingoブログ</a>
+<a href="https://fp-1.info/traingo/guide/">Traingo活用ガイド</a>
+<a href="https://fp-1.info/hojokin/#about" target="_blank" rel="noopener">会社紹介</a>
+<a href="https://fp-1.info/traingo/contact/">お問い合わせ</a>
+<a href="https://fp-1.info/hojokin/" target="_blank" rel="noopener">補助金活用型経営</a>
+<a href="https://fp-1.info/traingo/contact/" class="nav-cta">無料相談・資料請求</a>
+</div></div></nav><div class="blog-nav-spacer"></div>
+<nav class="breadcrumb" aria-label="パンくずリスト"><ol>
+<li><a href="https://fp-1.info/traingo/">Traingo</a></li>
+<li><a href="https://fp-1.info/traingo/blog/">ブログ</a></li>
+<li>eラーニングで使える人材開発支援助成金とは？対象と活用例</li>
+</ol></nav>
+<div class="page-layout">
+<main class="main-wrap">
+<header class="article-header">
+<span class="article-cat" style="background:#0f1f33;">助成金・法令</span>
+<h1 class="article-title">eラーニングで使える人材開発支援助成金とは？対象と活用例</h1>
+<div class="article-meta">
+<span>公開日 <time datetime="2026-06-01">2026-06-01</time></span>
+<span>最終更新 <time datetime="2026-06-01">2026-06-01</time></span>
+</div>
+</header>
+<img class="article-thumb" src="../../assets/uploads/2026/06/elearning-jinzai-kaihatsu-josei_thumb.png" alt="eラーニングで使える人材開発支援助成金とは？対象と活用例">
+<article class="article-body">
+<div class="lead-box">
+<p>「研修にお金がかかるのは分かっているけれど、なるべく負担を抑えたい」——そう考える経営者や人事担当者にとって、人材開発支援助成金は気になる制度ですよね。しかも、近年はeラーニングや動画研修も活用の対象になり得ます。この記事では、人材開発支援助成金の基本と、研修プラットフォームの導入とどう組み合わせられるのかを、実務目線で整理します。なお、制度の細かな要件や金額は変わることがあるため、活用にあたっては最新の公募要領や厚生労働省の案内をご確認ください。</p>
+</div>
+<figure class="inline-fig"><img alt="図：人材開発支援助成金の全体像。事業主が訓練を行い、経費と賃金の一部が助成される流れを示した概念図" src="../../assets/uploads/2026/06/elearning-jinzai-kaihatsu-josei-1.png" /><figcaption>図：人材開発支援助成金の全体像。事業主が訓練を行い、経費と賃金の一部が助成される流れを示した概念図</figcaption></figure>
+<h2>人材開発支援助成金とは？まず基本を整理する</h2>
+<p>人材開発支援助成金は、事業主が従業員に対して、職務に関連した知識や技能を習得させる訓練を行った場合に、その訓練にかかった経費や、訓練期間中に支払った賃金の一部を国が助成する制度です。厚生労働省が所管していて、人を育てる企業の取り組みを後押しすることを目的としています。</p>
+<p>この助成金は、一つの制度というより、いくつかのコースに分かれた制度の集まりだと捉えると整理しやすいです。コースによって、対象となる訓練の種類や、助成の内容が異なります。たとえば、職務に必要な知識を学ばせる一般的な訓練を対象とするもの、特定の分野の人材育成を後押しするものなど、目的に応じた区分が設けられています。どのコースが自社の研修に合うかは、行おうとしている訓練の中身によって変わってくるわけです。</p>
+<p>ところで、なぜ国がこうした助成を行うのでしょうか。背景には、人を育てる投資が企業の競争力につながり、ひいては経済全体の底上げになる、という考え方があります。厚生労働省の能力開発基本調査を見ても、人材育成に取り組む企業は多い一方で、費用や時間が課題になっている実態がうかがえます。その負担を和らげることで、教育に踏み出しやすくする。それがこの制度の役割と言えます。</p>
+<p>とくに中小企業では、「研修にお金をかけたいけれど、すぐに売上に結びつくわけではないので踏み出しづらい」という声をよく聞きます。人を育てる効果は、すぐには数字に表れにくいものですよね。だからこそ、目先の費用が重く感じられ、後回しになりがちです。助成金は、その最初の一歩のハードルを下げる役割を担っています。すべての費用が戻ってくるわけではありませんが、負担の一部が和らぐだけでも、教育に取り組むかどうかの判断は変わってきます。制度を知っているかどうかで、踏み出せる範囲が変わってくる、というのが実情なんですよね。</p>
+<h2>eラーニング・動画研修は対象になるのか</h2>
+<p>ここで多くの方が気になるのが、「集合研修だけでなく、eラーニングや動画研修も対象になるのか」という点ですよね。</p>
+<p>結論から言うと、コースや訓練の内容によっては、eラーニングや動画による訓練も対象となる場合があります。働き方が多様になり、オンラインでの学習が広がる中で、こうした形態の訓練を後押しする方向の見直しも進められてきました。現場を離れずにすきま時間で学べるeラーニングは、中小企業にとって取り組みやすい訓練の形でもあります。</p>
+<p>ただし、ここは慎重に確認すべき点です。対象となる訓練の形態や、必要な訓練時間、内容には要件が定められていて、その要件はコースや年度によって異なることがあります。「eラーニングなら何でも対象になる」と考えるのは早計で、自社が行おうとしている訓練が要件に当てはまるかどうかは、その時点の公募要領で一つずつ確認する必要があります。要件は改正されることがあるため、過去の情報や伝聞ではなく、最新の厚生労働省の案内をもとに判断することが欠かせません。</p>
+<figure class="inline-fig"><img alt="図：eラーニングが助成対象となるかを確認する流れ。コースの確認・訓練要件の確認・最新公募要領の確認を並べた図解" src="../../assets/uploads/2026/06/elearning-jinzai-kaihatsu-josei-2.png" /><figcaption>図：eラーニングが助成対象となるかを確認する流れ。コースの確認・訓練要件の確認・最新公募要領の確認を並べた図解</figcaption></figure>
+<h2>助成の内容と申請の流れ</h2>
+<p>助成金がどういう形でもらえるのか、そしてどう申請するのかを整理しておきます。</p>
+<h3>何が助成されるのか</h3>
+<p>人材開発支援助成金で助成される対象は、大きく分けて2つの考え方があります。一つは、訓練にかかった経費の一部。教材費や受講料、外部講師への委託費といった、訓練そのものにかかったお金が対象になり得ます。もう一つは、訓練期間中に従業員へ支払った賃金の一部。業務時間内に訓練を受けさせた場合、その時間分の賃金が対象になることがあります。</p>
+<p>助成率や上限額は、コース、企業の規模、訓練の内容によって異なり、制度改正で変わることもあります。一般的に、中小企業のほうが助成率が高く設定されている傾向がありますが、具体的な数値はここで断定せず、最新の公募要領や厚生労働省の案内でご確認ください。金額の見込みは、申請を検討する段階で最新の資料に当たることをおすすめします。</p>
+<h3>申請の流れ</h3>
+<p>申請は、一般的に次のような流れになることが多い傾向があります。まず、訓練を始める前に訓練計画を作成し、所管の労働局へ提出します。次に、計画に沿って訓練を実施します。そして、訓練を実施したことを示す書類とともに、支給申請を行う。この「事前に計画を出す」という点が、見落とされやすいポイントです。訓練を始めてしまってから申請しようとしても、計画の事前提出が要件になっているコースでは間に合わないことがあります。</p>
+<p>必要な書類や提出のタイミングは、コースによって異なります。受講記録、賃金台帳、訓練の内容を示す資料など、求められるものはさまざまです。所管する労働局やハローワークの案内に沿って、一つずつ準備を進めることが大切です。手続きに不安がある場合は、社会保険労務士など助成金に詳しい専門家に相談する方法もあります。</p>
+<p>申請の準備で多くの会社がつまずきやすいのが、書類の整合性です。訓練計画に書いた内容と、実際に行った訓練の記録、そして賃金の記録が、互いに食い違っていないことが求められる傾向があります。たとえば、計画では「この時間にこの訓練を行う」としていたのに、実際の受講記録とずれていると、確認に時間がかかることがあります。だからこそ、訓練の記録は、後から整理し直すのではなく、実施しながら正確に残していくことが大切なんですよね。受講した日時や時間が自動で記録される仕組みを使っていれば、こうした整合性の確認もしやすくなります。手作業で記録していると、転記の際のずれや記録漏れが起きやすく、後の確認作業が重くなりがちです。</p>
+<h2>研修プラットフォーム導入での活用例</h2>
+<p>ここからは、eラーニングや動画研修の仕組み——研修プラットフォーム（学習管理システム、LMS）の導入と、この助成金をどう組み合わせられるのかを、想定例で考えてみます。なお、ここで示すのは一般的な考え方であり、実際に対象となるかは要件次第である点をあらためて申し添えます。</p>
+<p>たとえば、ある中小企業が、新人向けの基礎研修や安全教育を動画化し、LMSに載せて全社員に受講させる取り組みを始めたとします。この訓練が助成金の要件に当てはまる場合、教材の制作や受講にかかった費用、訓練を受けた時間分の賃金の一部が、助成の対象になり得ます。研修の仕組みづくりにかかる初期の負担を、制度の活用で和らげられる可能性があるわけです。</p>
+<p>ここで効いてくるのが、受講記録の残り方です。助成金の申請では、「誰が、いつ、どの訓練を、どれだけ受けたか」を示す記録が求められることが多い傾向があります。紙の出欠表や手集計だと、記録の抜けや転記ミスが心配になりますよね。LMSを使うと、受講日時、視聴時間、確認テストの結果などが自動で記録されるため、実施を示す書類を整理しやすくなります。助成金の活用を視野に入れるなら、こうした記録がきちんと残る仕組みかどうかを、研修プラットフォーム選びの基準の一つに加えておくとよいでしょう。</p>
+<p>つまり、研修を仕組み化することと、助成金を活用することは、別々の話ではなく、つながっているんです。教育を仕組みに変える過程で生まれる受講記録が、そのまま制度活用の土台になる。この相乗効果を意識すると、研修への投資をより前向きに検討しやすくなります。</p>
+<figure class="inline-fig"><img alt="図：研修プラットフォーム導入と助成金活用のつながり。教材制作・受講・自動記録・申請書類の整理がつながる流れ図" src="../../assets/uploads/2026/06/elearning-jinzai-kaihatsu-josei-3.png" /><figcaption>図：研修プラットフォーム導入と助成金活用のつながり。教材制作・受講・自動記録・申請書類の整理がつながる流れ図</figcaption></figure>
+<h2>どんな会社が活用を検討しやすいか</h2>
+<p>人材開発支援助成金は、特定の業種だけのものではありません。職務に関連した訓練を従業員に行う事業主であれば、幅広く検討の対象になり得ます。そのうえで、とくに活用を考えやすいのはどんな場面か、いくつか挙げてみます。</p>
+<p>一つは、これから研修の仕組みを整えようとしている会社です。新人教育や安全教育を、口頭のOJT中心から、動画やeラーニングを使った仕組みへ移そうとしている。こうした「これから投資する」タイミングは、助成金の活用を組み込みやすい場面です。研修の計画を立てる段階で制度の活用を視野に入れておけば、事前の手続きにも間に合わせやすくなります。</p>
+<p>もう一つは、繰り返しの研修が多く、教育にかかる費用や時間が課題になっている会社です。毎年・毎月のように同じ研修を行っているなら、その内容を教材化する取り組みが、助成の要件に当てはまる場合があります。研修を仕組みに変える費用の負担を、制度で和らげられる可能性があるわけです。</p>
+<p>ただし、繰り返しになりますが、どのケースでも対象になるかは要件次第です。「うちは対象になりそうだ」と感じたら、思い込みで進めるのではなく、その時点の公募要領を確認し、労働局や専門家に問い合わせて、自社の計画が要件に合うかを一つずつ確かめることが大切です。可能性があるなら、まず確認してみる。その一歩が、教育への投資を後押ししてくれることがあります。</p>
+<h2>活用するときに気をつけたいこと</h2>
+<p>最後に、人材開発支援助成金を活用するうえで、押さえておきたい点を整理します。</p>
+<p>まず、<strong>制度の要件は変わることを前提にする</strong>こと。助成金の制度は、年度ごとや改正のたびに、対象や金額、手続きが見直されることがあります。「去年はこうだった」「知り合いの会社ではこうだった」という情報をそのまま当てにすると、要件に合わずに申請できない、ということが起こり得ます。検討する時点での最新の公募要領を、自分で確認することが基本になります。</p>
+<p>次に、<strong>訓練を始める前に確認・準備をする</strong>こと。多くのコースでは、訓練計画の事前提出が求められます。研修を進めてから「助成金を使えないか」と考え始めると、事前手続きの要件を満たせず、対象外になってしまうことがあります。研修の計画段階で、助成金の活用を視野に入れて準備を進めると、選択肢を広く保てます。</p>
+<p>そして、<strong>判断に迷ったら公的窓口や専門家に相談する</strong>こと。制度の所管は厚生労働省、申請の窓口は各都道府県の労働局やハローワークです。要件の確認はこれらの窓口に問い合わせるほか、社会保険労務士など助成金に詳しい専門家に相談する方法もあります。自己判断で進めて要件を取り違えるより、確実な情報をもとに進めるほうが、結果的に近道になることが多いわけです。</p>
+<h2>まとめ：研修の仕組み化と助成金活用をつなげる</h2>
+<p>人材開発支援助成金は、従業員への訓練にかかった経費や賃金の一部を国が助成する制度です。コースや内容によっては、eラーニングや動画研修も活用の対象になり得ます。教育に踏み出す際の費用負担を和らげる、心強い制度と言えます。</p>
+<p>ただし、対象となる訓練の要件、助成率や上限額、申請の手続きは、コースや年度によって異なり、改正で変わることもあります。この記事では具体的な数値を断定せず、考え方の整理にとどめました。実際に活用を検討する際は、最新の公募要領や厚生労働省の案内を確認し、必要に応じて労働局や専門家に相談しながら進めてください。</p>
+<p>研修プラットフォームを導入して教育を仕組み化することと、助成金を活用することは、受講記録という形でつながっています。教育を仕組みに変える取り組みが、そのまま制度活用の土台になる。この視点を持って、自社の人材育成と費用面の両方から、無理のない進め方を検討してみてはいかがでしょうか。</p>
+<div class="source-box"><strong>参考にした公式情報</strong><ul><li><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/kyufukin/d01-1.html" target="_blank" rel="noopener">厚生労働省「人材開発支援助成金」（職業訓練の経費・賃金を助成する制度）</a></li><li><a href="https://www.mhlw.go.jp/toukei/list/104-1.html" target="_blank" rel="noopener">厚生労働省「能力開発基本調査」（OJT・OFF-JTの実施状況に関する公式統計）</a></li><li><a href="https://j-net21.smrj.go.jp/" target="_blank" rel="noopener">独立行政法人 中小企業基盤整備機構 J-Net21（中小企業の人材育成・助成金活用情報）</a></li></ul></div>
+<h2>よくある質問</h2>
+<div class="faq-section"><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>人材開発支援助成金とは何ですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>事業主が従業員に対して職務に関連した知識・技能を習得させる訓練を行った場合に、訓練にかかった経費や、訓練期間中の賃金の一部を国が助成する制度です。厚生労働省が所管しています。複数のコースに分かれており、対象となる訓練や助成の内容はコースによって異なります。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>eラーニングや動画研修も対象になりますか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>コースや訓練の内容によっては、eラーニングや動画による訓練も対象となる場合があります。ただし、対象となる訓練の形態や時間、内容には要件が定められており、要件はコースや年度によって異なることがあります。活用を検討する際は、最新の公募要領や厚生労働省の案内を確認することが欠かせません。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>助成率や上限額はどれくらいですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>助成率や上限額は、コース・企業規模・訓練の内容によって異なり、制度改正で変わることもあります。中小企業のほうが助成率が高く設定されている傾向がありますが、具体的な数値は最新の公募要領や厚生労働省の案内で確認する必要があります。この記事で特定の数値を断定することは避けています。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>申請には何が必要ですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>一般的に、訓練を始める前に訓練計画を作成して労働局へ提出し、訓練を実施したうえで、実施したことを示す書類とともに支給申請を行う、という流れが多い傾向があります。必要な書類や提出のタイミングはコースによって異なるため、所管する労働局やハローワークの案内に沿って進めることが大切です。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>受講記録はどのように残せばよいですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>誰が、いつ、どの訓練を、どれだけ受けたかを示す記録が求められることが多い傾向があります。学習管理システム（LMS）を使うと、受講日時・視聴時間・確認テストの結果などが自動で記録されるため、実施を示す書類を整理しやすくなります。記録の残し方も、活用を見据えるなら確認しておきたい点です。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>助成金の活用は誰に相談すればよいですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>制度の所管は厚生労働省で、申請の窓口は各都道府県の労働局やハローワークになります。要件の確認や申請の準備は、これらの公的窓口に問い合わせるほか、社会保険労務士など助成金に詳しい専門家に相談する方法もあります。制度は変わることがあるため、最新の情報をもとに進めることをおすすめします。</p></div>
+</div></div>
+<div class="supervisor-box" id="supervisor">
+<div class="supervisor-avatar"><img src="https://fp-1.info/hojokin/wp-content/uploads/2026/05/akutsu-portrait.jpg" alt="阿久津 和宏" style="width:100%;height:100%;border-radius:50%;object-fit:cover;"></div>
+<div class="supervisor-info">
+<div class="supervisor-label">監修・執筆</div>
+<div class="supervisor-name">阿久津 和宏</div>
+<div class="supervisor-title">人材育成・補助金活用コンサルタント</div>
+<div class="supervisor-bio">Well Consultant合同会社代表。中小企業の研修内製化・eラーニング導入・人材開発支援助成金の活用を支援。研修プラットフォーム「Traingo」を企画・運営。</div>
+</div></div>
+</article>
+<div class="cta-box">
+<h2>研修を「作って終わり」にしない仕組みを</h2>
+<p>動画研修・eラーニングの内製化、受講管理、人材開発支援助成金の活用まで。<br>Traingoがまとめてご支援します。まずはお気軽にご相談ください。</p>
+<a class="cta-btn" href="https://fp-1.info/traingo/contact/">無料相談・資料請求はこちら</a>
+</div>
+<section class="related-section"><h2>関連記事</h2><div class="related-grid"><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/ojt-zokujinka/">
+<div class="related-card-img" style="background:#2563eb;"><span>OJTの属人化とは？暗黙知を形式知に変える仕組みづくり</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">人材育成の基礎知識</div>
+<div class="related-card-title">OJTの属人化とは？暗黙知を形式知に変える仕組みづくり</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/shugo-vs-douga/">
+<div class="related-card-img" style="background:#2563eb;"><span>集合研修と動画研修の違いとは？研修コンテンツを資産化するメリット</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">人材育成の基礎知識</div>
+<div class="related-card-title">集合研修と動画研修の違いとは？研修コンテンツを資産化するメリット</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/kenshu-naiseika/">
+<div class="related-card-img" style="background:#2563eb;"><span>社内研修の内製化とは？メリット・デメリットと外部委託との比較</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">人材育成の基礎知識</div>
+<div class="related-card-title">社内研修の内製化とは？メリット・デメリットと外部委託との比較</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/gijutsu-densho/">
+<div class="related-card-img" style="background:#2563eb;"><span>技術伝承の進め方｜ベテランのノウハウを動画で形式知化する方法</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">人材育成の基礎知識</div>
+<div class="related-card-title">技術伝承の進め方｜ベテランのノウハウを動画で形式知化する方法</div>
+</div></a></div></section>
+</main>
+<aside class="blog-sidebar">
+<div class="sidebar-guide">
+<img src="../../assets/uploads/2026/06/guide-cover.png" alt="Traingo活用ガイド" class="sidebar-guide-img">
+<div class="sidebar-guide-badge">無料ダウンロード</div>
+<div class="sidebar-guide-title">Traingo活用ガイド</div>
+<div class="sidebar-guide-desc">研修の内製化・eラーニング化の進め方を1冊に。導入前に押さえたい実務のポイントを無料でお渡しします（補助金・助成金の活用にも対応）。</div>
+<a class="sidebar-guide-btn" href="https://fp-1.info/traingo/guide/">ガイドを受け取る →</a>
+</div>
+<div class="sidebar-box"><div class="sidebar-title">記事カテゴリ</div>
+<div class="sidebar-cluster"><a href="https://fp-1.info/traingo/blog/#tsukuru">研修を作る・仕組み化する</a><a href="https://fp-1.info/traingo/blog/#lms-value">ツール（LMS）としての価値</a><a href="https://fp-1.info/traingo/blog/#hikaku">比較・選び方</a><a href="https://fp-1.info/traingo/blog/#keiei">人材育成の経営的効果</a><a href="https://fp-1.info/traingo/blog/#shueki">研修の収益化・事業化</a><a href="https://fp-1.info/traingo/blog/#jirei">事例・信頼</a><a href="https://fp-1.info/traingo/blog/#josei">助成金（活用例）</a></div></div>
+<div class="sidebar-box"><div class="sidebar-title">ヘルプ・使い方</div>
+<div class="sidebar-cluster">
+<a href="https://fp-1.info/traingo/help/">ツール活用ヘルプ（目次）</a>
+<a href="https://fp-1.info/traingo/manual-company/">会社管理者の使い方</a>
+<a href="https://fp-1.info/traingo/manual-learner/">受講者の使い方</a>
+</div></div>
+<div class="sidebar-consult">
+<p>研修の内製化・eラーニング化・人材開発支援助成金の活用をご相談ください。</p>
+<a class="sb-btn" href="https://fp-1.info/traingo/contact/">無料相談・資料請求 →</a>
+</div></aside>
+</div>
+<footer class="custom-footer"><div class="footer-inner">
+<nav class="footer-nav">
+<a href="https://fp-1.info/traingo/">Traingoとは</a>
+<a href="https://fp-1.info/traingo/blog/">Traingoブログ</a>
+<a href="https://fp-1.info/traingo/guide/">Traingo活用ガイド</a>
+<a href="https://fp-1.info/traingo/help/">ヘルプ・使い方</a>
+<a href="https://fp-1.info/hojokin/#about" target="_blank" rel="noopener">会社紹介</a>
+<a href="https://fp-1.info/traingo/contact/">お問い合わせ</a>
+<a href="https://fp-1.info/hojokin/" target="_blank" rel="noopener">補助金活用型経営</a>
+</nav>
+<div class="footer-copy">© Well Consultant合同会社　Traingo（トレインゴ）｜法人向け研修プラットフォーム</div>
+</div></footer>
+<script>(function(){function k(){
+document.documentElement.style.setProperty('margin-top','0','important');
+document.body.style.setProperty('margin-top','0','important');document.body.style.setProperty('padding-top','0','important');
+var wsb=document.querySelector('.wp-site-blocks');if(wsb){wsb.style.setProperty('margin-top','0','important');wsb.style.setProperty('padding-top','0','important');Array.prototype.forEach.call(wsb.children,function(c){c.style.setProperty('margin-top','0','important');});}
+['header.wp-block-template-part','.wp-site-blocks > header','.wp-block-post-title','.wp-block-template-part[data-area=\"footer\"]','.wp-site-blocks > footer'].forEach(function(s){document.querySelectorAll(s).forEach(function(e){e.style.setProperty('display','none','important');});});
+}if(document.readyState!=='loading')k();else document.addEventListener('DOMContentLoaded',k);window.addEventListener('load',k);})();</script>
+<!-- /wp:html -->

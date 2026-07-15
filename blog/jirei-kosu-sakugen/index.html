@@ -1,0 +1,322 @@
+<!-- wp:html -->
+<style>
+
+:root,html,body{--wp--style--global--content-size:100%!important;--wp--style--global--wide-size:100%!important;--wp--style--root--padding-top:0!important;--wp--style--root--padding-right:0!important;--wp--style--root--padding-bottom:0!important;--wp--style--root--padding-left:0!important;}
+body,body.page,body.home,body.single,body.single-post{margin:0!important;padding:0!important;padding-top:0!important;}
+.wp-site-blocks,.wp-site-blocks>main,main.wp-block-group,.wp-block-group.has-global-padding,.wp-block-post-content,.entry-content,.wp-block-group.alignfull,.wp-block-group-is-layout-constrained,.wp-block-post-content-is-layout-constrained,.wp-block-html,article.post,article.page,.post,.hentry,.page{max-width:100%!important;width:100%!important;margin:0!important;padding:0!important;}
+.has-global-padding,.has-global-padding>.alignfull{padding-left:0!important;padding-right:0!important;}
+.wp-block-post-title,.entry-header,.entry-title,header.entry-header,.wp-block-template-part header,header.wp-block-template-part,.wp-site-blocks>header,.wp-block-site-title,.wp-block-navigation,.wp-block-template-part[data-area="header"],aside.sidebar,.widget-area,.sidebar,#secondary{display:none!important;}
+.entry-meta,.post-meta,.byline,.posted-on,.cat-links,.author,.tags-links,.comments-link,.wp-block-post-author,.wp-block-post-author__bio,.wp-block-post-author-name,.wp-block-post-date,.wp-block-post-terms,.wp-block-post-excerpt,p.has-text-align-right,.screen-reader-text{display:none!important;}
+#wpadminbar,#wpadminbar *{display:none!important;}
+html{margin-top:0!important;}
+.wp-site-blocks>footer,.wp-block-template-part[data-area="footer"],footer.wp-block-template-part{display:none!important;}
+footer:not(.custom-footer){display:none!important;}
+.post-navigation,.posts-navigation,.nav-previous,.nav-next,.wp-block-query-pagination,.more-link,a.more-link,.wp-block-post-navigation-link,nav[aria-label="投稿ナビゲーション"]{display:none!important;}
+.wp-block-query{display:none!important;}
+#comments,.comments-area,.comment-respond,.wp-block-comments{display:none!important;}
+.is-layout-constrained>.wp-block-html,.is-layout-constrained>.wp-block-group:not(.alignwide):not(.alignfull){max-width:100%!important;margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important;}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP','Meiryo',sans-serif;font-size:16px;line-height:1.85;color:#222;background:#f7f7f5;}
+a{color:#2563eb;}
+.blog-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#0f1f33;}
+.blog-nav .nav-inner{max-width:1160px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:62px;}
+.blog-nav .nav-logo{color:#fff;font-weight:800;font-size:16px;text-decoration:none;letter-spacing:.02em;}
+.blog-nav .nav-logo span{color:#f59e0b;}
+.blog-nav .nav-links{display:flex;align-items:center;gap:24px;}
+.blog-nav .nav-links a{color:#fff;font-size:13px;text-decoration:none;transition:color .2s;}
+.blog-nav .nav-links a:hover{color:#f59e0b;}
+.blog-nav .nav-cta{background:#f59e0b;color:#fff !important;padding:8px 20px;border-radius:4px;font-weight:bold;font-size:13px;}
+.blog-nav .nav-cta:hover{background:#d98a06 !important;}
+.blog-nav-spacer{height:62px;}
+.breadcrumb{background:#e8edf3;padding:10px 0;font-size:13px;}
+.breadcrumb ol{list-style:none;display:flex;flex-wrap:wrap;gap:4px;max-width:1160px;margin:0 auto;padding:0 20px;}
+.breadcrumb li+li::before{content:'>';margin-right:4px;color:#888;}
+.breadcrumb a{color:#1a3a5c;text-decoration:none;}
+.page-layout{display:flex;flex-direction:row;gap:32px;max-width:1160px;margin:0 auto;padding:32px 20px 60px;align-items:flex-start;}
+.main-wrap{flex:1;min-width:0;max-width:820px;}
+.blog-sidebar{width:300px;flex-shrink:0;position:sticky;top:78px;align-self:flex-start;}
+.article-thumb{width:100%;height:auto;border-radius:8px;display:block;margin-bottom:28px;}
+.article-header{margin-bottom:28px;}
+.article-cat{display:inline-block;color:#fff;font-size:12px;font-weight:700;padding:3px 12px;border-radius:3px;margin-bottom:12px;}
+.article-title{font-size:28px;font-weight:900;color:#0f1f33;line-height:1.4;margin-bottom:12px;}
+.article-meta{font-size:13px;color:#6b7280;display:flex;gap:16px;flex-wrap:wrap;}
+.article-meta time{color:#1a3a5c;}
+.article-body{color:#333;}
+.article-body p{margin-bottom:1.4em;}
+.article-body h2{font-size:22px;font-weight:900;color:#0f1f33;border-left:5px solid #f59e0b;padding:6px 0 6px 14px;margin:48px 0 20px;line-height:1.4;}
+.article-body h3{font-size:18px;font-weight:700;color:#1a3a5c;border-bottom:2px solid #c8d8e8;padding-bottom:6px;margin:32px 0 16px;}
+.article-body ul,.article-body ol{margin:0 0 1.4em 1.4em;}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:#0f1f33;}
+.lead-box{background:#eef3fb;border-left:4px solid #2563eb;padding:20px 24px;border-radius:4px;margin-bottom:32px;}
+.lead-box p{margin-bottom:0;color:#0f1f33;font-weight:500;}
+.point-box{background:#fff8ed;border:2px solid #f59e0b;border-radius:6px;padding:20px 24px;margin:24px 0;}
+.point-box .point-box-title{font-size:14px;font-weight:700;color:#c47f06;margin-bottom:10px;}
+.point-box ul{padding-left:1.4em;margin:0;}
+.point-box li{margin-bottom:6px;}
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:15px;}
+table thead tr{background:#1a3a5c;color:#fff;}
+table th{padding:12px 14px;text-align:left;font-weight:700;}
+table td{padding:12px 14px;border-bottom:1px solid #d0dcea;vertical-align:top;}
+table tr:nth-child(even) td{background:#f0f5fa;}
+.inline-fig{display:block;margin:28px auto;width:100%;}
+.inline-fig img{width:100%;max-width:760px;height:auto;border-radius:8px;display:block;margin:0 auto;}
+.inline-fig figcaption{font-size:13px;color:#6b7280;text-align:center;margin-top:8px;}
+.source-box{background:#f9fafc;border:1px dashed #aabbcc;padding:16px 20px;margin:32px 0;font-size:13px;color:#555;border-radius:4px;}
+.source-box strong{color:#1a3a5c;display:block;margin-bottom:6px;}
+.source-box ul{padding-left:1.4em;margin:0;}
+.source-box a{color:#2563eb;word-break:break-all;}
+.faq-section{margin:40px 0;}
+.faq-item{border:1px solid #c8d8e8;border-radius:6px;margin-bottom:12px;overflow:hidden;}
+.faq-q{background:#1a3a5c;color:#fff;padding:14px 18px;font-weight:700;font-size:15px;display:flex;gap:10px;align-items:flex-start;}
+.faq-q .faq-icon{flex-shrink:0;color:#f59e0b;font-size:18px;font-weight:900;}
+.faq-a{padding:16px 18px;background:#fff;font-size:15px;display:flex;gap:10px;align-items:flex-start;}
+.faq-a .faq-icon{flex-shrink:0;color:#1a3a5c;font-size:18px;font-weight:900;}
+.faq-a p{margin-bottom:0;}
+.supervisor-box{display:flex;gap:20px;align-items:flex-start;border:1px solid #c8d8e8;border-radius:8px;padding:24px;margin:40px 0;background:#f5f8fc;}
+.supervisor-avatar{flex-shrink:0;width:72px;height:72px;border-radius:50%;background:#1a3a5c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;}
+.supervisor-info{flex:1;}
+.supervisor-label{font-size:11px;color:#888;font-weight:700;letter-spacing:.08em;margin-bottom:4px;}
+.supervisor-name{font-size:18px;font-weight:900;color:#0f1f33;margin-bottom:4px;}
+.supervisor-title{font-size:13px;color:#555;margin-bottom:10px;}
+.supervisor-bio{font-size:14px;color:#444;line-height:1.7;}
+.cta-box{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:8px;padding:36px 32px;text-align:center;margin:40px 0;}
+.cta-box h2{font-size:22px;font-weight:900;margin-bottom:12px;border:none;padding:0;color:#fff;}
+.cta-box p{font-size:15px;margin-bottom:24px;color:#cddbe8;}
+.cta-btn{display:inline-block;background:#f59e0b;color:#fff;font-size:17px;font-weight:700;padding:16px 40px;border-radius:4px;text-decoration:none;}
+.cta-btn:hover{background:#d98a06;}
+.related-section{margin:48px 0 32px;}
+.related-section h2{font-size:20px;font-weight:900;color:#0f1f33;border-left:5px solid #f59e0b;padding:4px 0 4px 14px;margin-bottom:20px;}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.related-card{border:1px solid #c8d8e8;border-radius:6px;overflow:hidden;text-decoration:none;color:inherit;background:#fff;display:block;}
+.related-card:hover{box-shadow:0 4px 16px rgba(15,31,51,.12);}
+.related-card-img{width:100%;height:120px;background:#1a3a5c;display:flex;align-items:center;justify-content:center;}
+.related-card-img span{color:#fff;font-size:13px;font-weight:700;text-align:center;padding:8px;line-height:1.5;}
+.related-card-body{padding:14px 16px;}
+.related-card-cat{font-size:11px;color:#f59e0b;font-weight:700;margin-bottom:6px;}
+.related-card-title{font-size:15px;font-weight:700;color:#1a3a5c;line-height:1.4;}
+.genre-nav{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:22px 24px;margin-bottom:36px;}
+.genre-nav-title{font-size:15px;font-weight:800;color:#0f1f33;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #f59e0b;}
+.genre-chips{display:flex;flex-wrap:wrap;gap:10px;}
+.genre-chip{display:inline-flex;align-items:center;gap:8px;background:#eef3fb;color:#1a3a5c;text-decoration:none;font-size:13px;font-weight:700;padding:9px 16px;border-radius:22px;transition:all .2s;}
+.genre-chip span{background:#f59e0b;color:#fff;border-radius:10px;padding:1px 9px;font-size:12px;}
+.genre-chip:hover{background:#1a3a5c;color:#fff;}
+.genre-count{font-size:13px;font-weight:700;color:#f59e0b;margin-left:12px;}
+.sidebar-box{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:20px;margin-bottom:20px;}
+.sidebar-title{font-size:14px;font-weight:800;color:#0f1f33;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #f59e0b;}
+.sidebar-cluster a{display:block;font-size:14px;color:#1a3a5c;text-decoration:none;padding:8px 0;border-bottom:1px solid #eef1f5;}
+.sidebar-cluster a:hover{color:#f59e0b;}
+.sidebar-consult{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:8px;padding:22px;text-align:center;}
+.sidebar-consult p{font-size:13px;color:#cddbe8;margin-bottom:14px;}
+.sidebar-consult .sb-btn{display:block;background:#f59e0b;color:#fff;text-decoration:none;font-weight:700;padding:12px;border-radius:4px;font-size:14px;}
+.sidebar-guide{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;border-radius:8px;padding:22px;margin-bottom:20px;text-align:center;box-shadow:0 4px 14px rgba(217,119,6,.25);}
+.sidebar-guide-badge{display:inline-block;background:rgba(255,255,255,.22);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:4px 12px;border-radius:99px;margin-bottom:12px;}
+.sidebar-guide-title{font-size:18px;font-weight:900;margin-bottom:10px;line-height:1.4;}
+.sidebar-guide-desc{font-size:13px;line-height:1.7;color:#fff8ee;margin-bottom:16px;text-align:left;}
+.sidebar-guide-btn{display:block;background:#fff;color:#0f1f33;text-decoration:none;font-weight:800;padding:13px;border-radius:5px;font-size:14px;transition:transform .15s;}
+.sidebar-guide-btn:hover{transform:translateY(-2px);}
+.sidebar-guide-img{width:100%;border-radius:8px;margin-bottom:14px;display:block;}
+.guide-hero{background:linear-gradient(135deg,#0f1f33,#1a3a5c);color:#fff;border-radius:12px;padding:36px 30px;margin-bottom:28px;display:flex;gap:28px;align-items:center;}
+.guide-hero-text{flex:1;}
+.guide-hero-img{width:38%;max-width:280px;border-radius:10px;display:block;box-shadow:0 8px 24px rgba(0,0,0,.25);}
+@media (max-width:680px){.guide-hero{flex-direction:column;}.guide-hero-img{width:70%;max-width:240px;}}
+.guide-hero .gbadge{display:inline-block;background:#f59e0b;color:#fff;font-size:12px;font-weight:800;letter-spacing:.06em;padding:5px 14px;border-radius:99px;margin-bottom:14px;}
+.guide-hero h1{font-size:26px;font-weight:900;line-height:1.5;margin:0 0 14px;color:#fff;}
+.guide-hero p{font-size:15px;line-height:1.85;color:#dbe6f1;margin:0;}
+.guide-check{list-style:none;padding:0;margin:0 0 10px;}
+.guide-check li{position:relative;padding:12px 0 12px 34px;border-bottom:1px solid #eef1f5;font-size:15px;line-height:1.7;color:#1a3a5c;}
+.guide-check li::before{content:"✓";position:absolute;left:2px;top:11px;width:22px;height:22px;background:#f59e0b;color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;}
+.guide-form-box{background:#fff;border:2px solid #f59e0b;border-radius:12px;padding:30px;margin:28px 0;box-shadow:0 6px 22px rgba(15,31,51,.08);}
+.guide-form-box h2{margin-top:0;border:none;padding:0;font-size:21px;}
+.guide-form .grow{margin-bottom:16px;}
+.guide-form label{display:block;font-size:14px;font-weight:700;color:#0f1f33;margin-bottom:6px;}
+.guide-form .req{color:#dc2626;font-size:11px;margin-left:6px;}
+.guide-form input,.guide-form select,.guide-form textarea{width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:6px;font-size:15px;box-sizing:border-box;font-family:inherit;}
+.guide-form .gsubmit{width:100%;background:#f59e0b;color:#fff;border:none;padding:15px;border-radius:6px;font-size:16px;font-weight:800;cursor:pointer;margin-top:6px;}
+.guide-form .gnote{font-size:12px;color:#6b7280;margin-top:12px;text-align:center;}
+.custom-footer{background:#1f2937;color:#fff;padding:44px 24px 24px;margin-top:40px;}
+.footer-inner{max-width:880px;margin:0 auto;text-align:center;}
+.footer-nav{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:24px;justify-content:center;}
+.footer-nav a{font-size:13px;color:#fff;text-decoration:none;}
+.footer-nav a:hover{color:#f59e0b;}
+.footer-copy{font-size:12px;border-top:1px solid rgba(255,255,255,.12);padding-top:16px;color:#aaa;}
+#wpadminbar{display:none!important;}html{margin-top:0!important;}
+@media (max-width:980px){.page-layout{flex-direction:column;}.blog-sidebar{width:100%;}.main-wrap{max-width:100%;}}
+@media (max-width:880px){.blog-nav .nav-links a:not(.nav-cta){display:none!important;}.article-title{font-size:22px;}.related-grid{grid-template-columns:1fr;}.supervisor-box{flex-direction:column;}table{font-size:13px;}table th,table td{padding:10px;}}
+</style>
+<nav class="blog-nav"><div class="nav-inner">
+<a class="nav-logo" href="https://fp-1.info/traingo/">Train<span>go</span></a>
+<div class="nav-links">
+<a href="https://fp-1.info/traingo/">Traingoとは</a>
+<a href="https://fp-1.info/traingo/blog/">Traingoブログ</a>
+<a href="https://fp-1.info/traingo/guide/">Traingo活用ガイド</a>
+<a href="https://fp-1.info/hojokin/#about" target="_blank" rel="noopener">会社紹介</a>
+<a href="https://fp-1.info/traingo/contact/">お問い合わせ</a>
+<a href="https://fp-1.info/hojokin/" target="_blank" rel="noopener">補助金活用型経営</a>
+<a href="https://fp-1.info/traingo/contact/" class="nav-cta">無料相談・資料請求</a>
+</div></div></nav><div class="blog-nav-spacer"></div>
+<nav class="breadcrumb" aria-label="パンくずリスト"><ol>
+<li><a href="https://fp-1.info/traingo/">Traingo</a></li>
+<li><a href="https://fp-1.info/traingo/blog/">ブログ</a></li>
+<li>【導入事例】動画研修で研修運用の工数を削減した企業の取り組み</li>
+</ol></nav>
+<div class="page-layout">
+<main class="main-wrap">
+<header class="article-header">
+<span class="article-cat" style="background:#1e3a8a;">導入事例・活用事例</span>
+<h1 class="article-title">【導入事例】動画研修で研修運用の工数を削減した企業の取り組み</h1>
+<div class="article-meta">
+<span>公開日 <time datetime="2026-06-01">2026-06-01</time></span>
+<span>最終更新 <time datetime="2026-06-01">2026-06-01</time></span>
+</div>
+</header>
+<img class="article-thumb" src="../../assets/uploads/2026/06/jirei-kosu-sakugen_thumb.png" alt="【導入事例】動画研修で研修運用の工数を削減した企業の取り組み">
+<article class="article-body">
+<div class="lead-box">
+<p>「毎月の研修準備に、担当者がまる二日とられている」——こんな状態を、動画研修でどう変えられるのか。この記事では、繰り返しの集合研修に追われていた企業が、研修の動画化によって運用の工数をどう減らしていったのかを、想定事例として整理します。実在の特定企業の数値ではなく、よくある中小企業の課題をモデルにした一般的な事例として読んでみてください。</p>
+</div>
+<figure class="inline-fig"><img alt="図：集合研修の繰り返しで発生する運用工数の構造。日程調整・会場手配・講師確保・案内・出欠集計を毎回繰り返す様子を示した概念図" src="../../assets/uploads/2026/06/jirei-kosu-sakugen-1.png" /><figcaption>図：集合研修の繰り返しで発生する運用工数の構造。日程調整・会場手配・講師確保・案内・出欠集計を毎回繰り返す様子を示した概念図</figcaption></figure>
+<h2>導入前の課題：繰り返しの研修に運用が追われていた</h2>
+<p>まず、想定する企業の状況を整理します。仮に、サービス業で従業員50名規模の会社を思い浮かべてください。この会社では、新しく入った人や異動してきた人に向けて、基本的な業務の進め方やマナー、社内ルールを伝える研修を、月に1〜2回のペースで開いていました。内容は毎回ほぼ同じです。</p>
+<p>ところが、この「毎回ほぼ同じ」が、運用する側にとっては重い負担になっていたんです。研修を開くたびに、参加者の都合を聞いて日程を決め、会議室を押さえ、講師役の社員のスケジュールを確保し、資料を人数分印刷し、当日の進行を担当する。終わったあとには出欠を集計し、誰が受けたかを記録する。この一連の作業に、担当者がのべ二日ほどかかっていた、という想定です。</p>
+<p>しかも、講師役を務める社員にとっても、研修のたびに半日を取られるのは大きな負担でした。その社員は本来、現場の中心として動いている人です。研修のために現場を離れると、その間の業務が滞る。さらに、講師役が複数いると、人によって説明の仕方や強調する点が違い、新人の理解度に差が出る、という声も上がっていました。月ごとに同じことを繰り返しているのに、毎回ゼロから準備し、毎回同じところで新人がつまずく。この繰り返しを、なんとかできないかというのが出発点でした。</p>
+<p>担当者に話を聞くと、こんな声が出てきます。「内容を作るのは一度で済んでいるはずなのに、なぜか毎月くたびれる」。これは多くの会社で共通する感覚なんですよね。研修の中身そのものは安定しているのに、開くたびに発生する段取りの作業が、じわじわと時間を奪っていく。日程を一つ決めるにも、参加者と講師役の予定を突き合わせ、会議室の空きを確認し、それでも誰かの都合が合わずに調整し直す。こうした目に見えにくい作業が積み重なって、「のべ二日」という数字になっていたわけです。そして厄介なのは、この負担が研修の質を上げているわけではない、という点です。段取りにかける時間が増えても、新人がより深く学べるようになるわけではありません。労力の多くが、教育そのものではなく、教育を回すための運用に消えていたのです。</p>
+<h2>なぜ「繰り返しの研修」は工数がかさむのか</h2>
+<p>この会社の課題は、特別なものではありません。繰り返し開催する研修は、その性質上、運用の工数がかさみやすい傾向があります。理由を整理してみましょう。</p>
+<h3>1. 開催のたびに同じ準備が発生する</h3>
+<p>繰り返し研修の一番の負担は、内容が同じなのに準備が毎回ゼロからになることです。日程調整も会場手配も案内も、開催回数の分だけ発生します。内容を作る手間は最初の一回で済んでいるはずなのに、運用の手間だけが回数に比例して積み上がっていくわけです。</p>
+<h3>2. 講師役の時間が固定で奪われる</h3>
+<p>集合研修は、講師がその場にいないと成り立ちません。つまり、開催のたびに講師役の社員の時間が取られることになります。その社員が優秀で現場の要であるほど、研修に時間を取られることの機会損失は大きくなります。教えるために本業が止まる、という構造が、繰り返すほど効いてくるんです。</p>
+<h3>3. 記録と集計が手作業で残る</h3>
+<p>出欠の確認や受講記録は、紙やExcelで手集計している会社が今も少なくありません。研修のたびに名簿を確認し、転記し、ファイルを更新する。一回あたりは小さな作業でも、回数を重ねると無視できない事務量になります。厚生労働省の能力開発基本調査でも、研修の実施そのものは多くの企業で行われている一方、その運用をどう効率化するかは課題として残りやすいことがうかがえます。</p>
+<p>さらに、手集計の記録には、後から困る場面が潜んでいます。たとえば、ある新人がトラブルを起こしたとき、「その人は安全教育を受けていたのか」を確認しようとしても、紙の出欠表をさかのぼって探さなければならない。記録が見つからなければ、受けたかどうかも分からないままです。研修をやっているのに、やった証拠があいまい、という状態は、会社にとってじわじわと効いてくるリスクです。繰り返しの研修ほど回数が多いので、記録の管理もその分だけ煩雑になり、抜けや探しにくさが生まれやすくなるわけです。</p>
+<figure class="inline-fig"><img alt="図：繰り返し研修の工数がかさむ3つの要因。準備の繰り返し・講師時間の固定的拘束・手作業の記録を並べた図解" src="../../assets/uploads/2026/06/jirei-kosu-sakugen-2.png" /><figcaption>図：繰り返し研修の工数がかさむ3つの要因。準備の繰り返し・講師時間の固定的拘束・手作業の記録を並べた図解</figcaption></figure>
+<h2>取り組み：研修を動画化し、受講管理に載せた</h2>
+<p>この会社が取り組んだのは、繰り返しの座学部分を動画にして、受講管理の仕組みに載せる、というものでした。手順を順に見ていきます。</p>
+<h3>開催回数の多い研修から動画化した</h3>
+<p>最初に動画化したのは、最も開催回数が多かった基本業務の研修でした。理由はシンプルで、回数が多いほど、一度作った動画を使い回せる回数も多く、投じた手間が早く回収できるからです。新人向けの基礎研修のように、毎月のように繰り返している内容は、動画化の効果が出やすい対象だったわけです。</p>
+<h3>講師の説明を10分前後の単位に分けて収録した</h3>
+<p>これまで半日かけて講師が話していた内容を、テーマごとに区切り、10分前後の動画として収録しました。長い動画を1本そのまま流すより、短く区切ったほうが、新人がすきま時間に見やすく、見返したい部分にもたどり着きやすい。最初から凝った映像を目指さず、「会場に来なくても、これを見れば同じことが分かるか」を基準に作っていきました。</p>
+<h3>確認テストと修了の条件をつけた</h3>
+<p>動画を見せて終わり、にしないために、各テーマの後に確認テストを用意しました。何問以上の正解で修了とするかを決め、見ただけでなく理解したところまでを記録に残せるようにしました。これにより、講師役が口頭で「分かった?」と確認していた部分を、仕組みが肩代わりするようになったわけです。</p>
+<h3>受講管理をLMSに集約した</h3>
+<p>教材と受講記録は、学習管理システム（LMS）に集約しました。新しく入った人を招待すれば、各自のペースで動画を見て、テストを受けられる。誰がどこまで進んだか、合格したかは自動で記録され、担当者は一覧を見るだけで状況を把握できます。未受講の人へのリマインドも仕組みの中で進められるようになりました。</p>
+<p>この集約には、もう一つの狙いがありました。それまで、研修資料は担当者の個人PCに保存され、出欠表は別の場所、過去の受講記録はまた別のファイル、というように、情報がばらばらに散らばっていたんです。担当者が変わるたびに「あの資料はどこにあるのか」を探すところから始まる、という状態でした。教材と記録を一つの場所にまとめておけば、誰が担当しても同じように運用でき、引き継ぎのたびに混乱することもなくなります。研修を個人の手元の作業から、組織として回せる仕組みへ移す、という意味合いもあったわけです。</p>
+<figure class="inline-fig"><img alt="図：動画研修導入の取り組み4ステップ。動画化対象の選定→短尺収録→確認テスト設計→受講管理集約の流れ図" src="../../assets/uploads/2026/06/jirei-kosu-sakugen-3.png" /><figcaption>図：動画研修導入の取り組み4ステップ。動画化対象の選定→短尺収録→確認テスト設計→受講管理集約の流れ図</figcaption></figure>
+<h2>変化：運用工数と講師負担がどう変わったか</h2>
+<p>この取り組みの結果、どのような変化が見られることがあるのかを整理します。なお、ここで挙げる変化は、こうした取り組みで起こりやすい傾向を一般化したもので、すべての企業で同じ結果が出ると断定するものではありません。</p>
+<p>まず、開催のたびに発生していた準備作業が、大きく減る傾向があります。日程調整も会場手配も案内も、繰り返し研修のたびに発生していたものが、教材を一度準備すれば済むようになる。新しく人が入ったら招待するだけで受講が始まるため、研修のたびに担当者がのべ二日とられていた、という状態から解放されやすくなるわけです。</p>
+<p>次に、講師役の負担が軽くなる傾向があります。座学の繰り返し部分を動画が肩代わりするため、講師役の社員が研修のたびに半日を取られることがなくなります。空いた時間を本業や、新人それぞれの癖に合わせた個別の指導に回せるようになる。教える総量が減るだけでなく、教える中身の質が上がる、という変化が起こることもあります。</p>
+<p>そして、記録の手間と新人の理解のばらつきが減る傾向があります。出欠や修了の記録が自動で残るため、手集計の事務がなくなる。同じ動画を全員が見るので、講師役による説明の差もなくなり、新人の到達レベルが揃いやすくなります。ところで、こうした記録が仕組みの中に残ることは、人材開発支援助成金のように研修の実施を証明する書類が求められる制度を活用する際にも、整理がしやすいという副次的な利点につながることがあります。</p>
+<p>一方で、動画を作る最初の手間はかかります。ここは正直にお伝えしておくべき点です。1本目の教材を作るには、台本を整え、収録し、テストを用意する時間が必要です。ただ、同じ研修を年に何度も繰り返している場合は、一度作れば翌年以降も使えるため、長い目で見ると準備の総量は減ることが多いわけです。だからこそ、開催回数の多い研修から着手するのが、手間を回収しやすい進め方なんですよね。</p>
+<h2>工数が減った先に生まれた、もう一つの変化</h2>
+<p>工数の削減は分かりやすい効果ですが、この取り組みには、数字にしにくいけれど大切な変化も伴うことがあります。それは、教える側の気持ちの変化です。</p>
+<p>これまで講師役の社員は、研修のたびに「また同じ説明をするのか」という思いを抱えがちでした。毎回ゼロから準備し、毎回同じ内容を話す。これは、教えることが得意な人ほど、単調さにくたびれてしまう作業でもあります。座学の繰り返し部分を動画が肩代わりするようになると、講師役は同じ説明から解放され、新人それぞれの理解度に合わせた個別のフォローに時間を使えるようになる。教える行為が、流れ作業から、一人ひとりに向き合う仕事へと変わっていくわけです。これは、教える側の満足にもつながりやすい変化です。</p>
+<p>新人の側にも変化が生まれることがあります。動画なら、分からなかった部分を何度でも巻き戻して見返せます。集合研修では「もう一度説明してください」と言い出しにくかった人も、自分のペースで繰り返し確認できる。聞き返す遠慮がなくなることで、理解が深まりやすくなる、という面があるんですよね。教える側の負担を減らす取り組みが、教わる側の学びやすさにもつながっていく。工数削減という入り口から始めた取り組みが、教育の質そのものを底上げしていくことがある、というのがこの事例の見どころと言えます。</p>
+<p>もちろん、こうした変化がすべての会社で同じように起きるわけではありません。ただ、繰り返しの研修を仕組みに任せることで生まれる余白が、教える側にも教わる側にも、より良い時間の使い方をもたらしうる、という点は、覚えておく価値があると思います。</p>
+<h2>この事例から学べること</h2>
+<p>最後に、この想定事例から、自社で取り組む際のヒントを整理しておきます。</p>
+<p>一つめは、<strong>全部を一度に変えようとしない</strong>こと。この会社も、すべての研修をいきなり動画化したわけではありません。最も開催回数の多い研修を1つ選び、そこで効果を確かめてから、ほかの研修へ広げていきました。小さく始めて広げる順番が、現場の負担を抑えながら定着させるコツになります。</p>
+<p>二つめは、<strong>繰り返し部分と、その場が必要な部分を分ける</strong>こと。動画にすべきは、毎回同じ説明をする座学の部分です。逆に、質疑応答や実技の確認、その場のやり取りが必要な部分は、集合形式で残す判断もあります。すべてを動画に置き換えようとするのではなく、置き換えられる部分から外に出していく発想が現実的です。</p>
+<p>三つめは、<strong>作った教材を組織の資産として管理する</strong>こと。せっかく動画化しても、担当者の個人PCやばらばらのフォルダに散らばれば、また探せなくなって運用が混乱します。教材と受講記録を一つの仕組みに集約し、誰が担当しても同じように運用できる状態を保つことが、長く効かせるための条件になります。繰り返しの研修に追われている会社ほど、まずは開催回数の多い1つから動画化してみる価値があるのではないでしょうか。</p>
+<div class="source-box"><strong>参考にした公式情報</strong><ul><li><a href="https://www.mhlw.go.jp/toukei/list/104-1.html" target="_blank" rel="noopener">厚生労働省「能力開発基本調査」（OJT・OFF-JTの実施状況に関する公式統計）</a></li><li><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/kyufukin/d01-1.html" target="_blank" rel="noopener">厚生労働省「人材開発支援助成金」（職業訓練の経費・賃金を助成する制度）</a></li><li><a href="https://j-net21.smrj.go.jp/" target="_blank" rel="noopener">独立行政法人 中小企業基盤整備機構 J-Net21（中小企業の人材育成支援情報）</a></li></ul></div>
+<h2>よくある質問</h2>
+<div class="faq-section"><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>動画研修にすると、集合研修は完全になくなりますか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>完全になくすというより、役割を分けるケースが多い傾向があります。毎回同じ説明をする座学部分を動画に任せ、質疑応答や実技の確認など、その場のやり取りが必要な部分だけ集合形式で残す、という組み合わせが現実的です。動画は集合研修を置き換えるより、繰り返し部分を肩代わりさせる位置づけと考えると整理しやすくなります。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>動画研修で工数が減るのは、どの作業ですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>繰り返し開催のたびに発生していた作業が中心です。日程調整、会場の手配、講師のスケジュール確保、参加者への案内、当日の運営、出欠の集計といった事務が、動画化と受講管理の仕組みによって一度の準備で済むようになる傾向があります。教材を作る最初の手間はかかりますが、回数を重ねるほど差が出てきます。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>動画を作る手間のほうが大きくなりませんか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>最初の1本を作る手間は確かにかかります。ただ、同じ研修を年に何度も繰り返している場合は、一度作れば翌年以降も使えるため、長い目で見ると準備の総量は減ることが多いです。まずは開催回数の多い研修から動画化すると、投じた手間が回収しやすい傾向があります。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>受講したかどうかは、どう確認するのですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>学習管理システム（LMS）を使うと、誰がどの動画をどこまで見たか、確認テストに合格したかが自動で記録されます。紙の出欠表を集めて手で集計する作業がなくなり、未受講者へのリマインドも仕組みの中で進められるため、確認にかかる手間そのものが軽くなる傾向があります。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>現場が動画を見てくれるか不安です。どうすればよいですか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>1本を短く区切る、スマートフォンでも見られるようにする、確認テストや修了の条件を設けて学習のゴールを明確にする、といった工夫で受講が進みやすくなります。長時間の動画を1本そのまま流すより、10分前後の単位に分けるほうが、すきま時間に見てもらいやすい傾向があります。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>動画研修の導入に助成金は使えますか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>研修の内容や進め方によっては、人材開発支援助成金のように、訓練にかかった経費や賃金の一部を助成する制度を活用できる場合があります。対象となる訓練の要件や助成の条件は変わることがあるため、最新の公募要領や厚生労働省の案内を確認したうえで検討することをおすすめします。</p></div>
+</div><div class="faq-item">
+<div class="faq-q"><span class="faq-icon">Q</span><span>小さな会社でも動画研修の効果はありますか？</span></div>
+<div class="faq-a"><span class="faq-icon">A</span><p>むしろ人手の限られた中小企業ほど、繰り返しの研修を仕組みに任せる効果が出やすい傾向があります。教える人が限られている環境では、その人が研修のたびに時間を取られると本業が進みません。動画化で繰り返し部分を肩代わりさせると、限られた人手を本来の業務や個別の指導に回しやすくなります。</p></div>
+</div></div>
+<div class="supervisor-box" id="supervisor">
+<div class="supervisor-avatar"><img src="https://fp-1.info/hojokin/wp-content/uploads/2026/05/akutsu-portrait.jpg" alt="阿久津 和宏" style="width:100%;height:100%;border-radius:50%;object-fit:cover;"></div>
+<div class="supervisor-info">
+<div class="supervisor-label">監修・執筆</div>
+<div class="supervisor-name">阿久津 和宏</div>
+<div class="supervisor-title">人材育成・補助金活用コンサルタント</div>
+<div class="supervisor-bio">Well Consultant合同会社代表。中小企業の研修内製化・eラーニング導入・人材開発支援助成金の活用を支援。研修プラットフォーム「Traingo」を企画・運営。</div>
+</div></div>
+</article>
+<div class="cta-box">
+<h2>研修を「作って終わり」にしない仕組みを</h2>
+<p>動画研修・eラーニングの内製化、受講管理、人材開発支援助成金の活用まで。<br>Traingoがまとめてご支援します。まずはお気軽にご相談ください。</p>
+<a class="cta-btn" href="https://fp-1.info/traingo/contact/">無料相談・資料請求はこちら</a>
+</div>
+<section class="related-section"><h2>関連記事</h2><div class="related-grid"><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/jirei-elearning-henka/">
+<div class="related-card-img" style="background:#1e3a8a;"><span>【活用事例】eラーニング導入による受講率・運用工数の変化</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">導入事例・活用事例</div>
+<div class="related-card-title">【活用事例】eラーニング導入による受講率・運用工数の変化</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/douga-kenshu-faq/">
+<div class="related-card-img" style="background:#1e3a8a;"><span>動画研修ツール導入のよくある質問｜選定・運用の疑問</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">導入事例・活用事例</div>
+<div class="related-card-title">動画研修ツール導入のよくある質問｜選定・運用の疑問</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/ojt-zokujinka/">
+<div class="related-card-img" style="background:#2563eb;"><span>OJTの属人化とは？暗黙知を形式知に変える仕組みづくり</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">人材育成の基礎知識</div>
+<div class="related-card-title">OJTの属人化とは？暗黙知を形式知に変える仕組みづくり</div>
+</div></a><a class="related-card" href="https://fp-1.info/traingo/2026/06/01/shugo-vs-douga/">
+<div class="related-card-img" style="background:#2563eb;"><span>集合研修と動画研修の違いとは？研修コンテンツを資産化するメリット</span></div>
+<div class="related-card-body">
+<div class="related-card-cat">人材育成の基礎知識</div>
+<div class="related-card-title">集合研修と動画研修の違いとは？研修コンテンツを資産化するメリット</div>
+</div></a></div></section>
+</main>
+<aside class="blog-sidebar">
+<div class="sidebar-guide">
+<img src="../../assets/uploads/2026/06/guide-cover.png" alt="Traingo活用ガイド" class="sidebar-guide-img">
+<div class="sidebar-guide-badge">無料ダウンロード</div>
+<div class="sidebar-guide-title">Traingo活用ガイド</div>
+<div class="sidebar-guide-desc">研修の内製化・eラーニング化の進め方を1冊に。導入前に押さえたい実務のポイントを無料でお渡しします（補助金・助成金の活用にも対応）。</div>
+<a class="sidebar-guide-btn" href="https://fp-1.info/traingo/guide/">ガイドを受け取る →</a>
+</div>
+<div class="sidebar-box"><div class="sidebar-title">記事カテゴリ</div>
+<div class="sidebar-cluster"><a href="https://fp-1.info/traingo/blog/#tsukuru">研修を作る・仕組み化する</a><a href="https://fp-1.info/traingo/blog/#lms-value">ツール（LMS）としての価値</a><a href="https://fp-1.info/traingo/blog/#hikaku">比較・選び方</a><a href="https://fp-1.info/traingo/blog/#keiei">人材育成の経営的効果</a><a href="https://fp-1.info/traingo/blog/#shueki">研修の収益化・事業化</a><a href="https://fp-1.info/traingo/blog/#jirei">事例・信頼</a><a href="https://fp-1.info/traingo/blog/#josei">助成金（活用例）</a></div></div>
+<div class="sidebar-box"><div class="sidebar-title">ヘルプ・使い方</div>
+<div class="sidebar-cluster">
+<a href="https://fp-1.info/traingo/help/">ツール活用ヘルプ（目次）</a>
+<a href="https://fp-1.info/traingo/manual-company/">会社管理者の使い方</a>
+<a href="https://fp-1.info/traingo/manual-learner/">受講者の使い方</a>
+</div></div>
+<div class="sidebar-consult">
+<p>研修の内製化・eラーニング化・人材開発支援助成金の活用をご相談ください。</p>
+<a class="sb-btn" href="https://fp-1.info/traingo/contact/">無料相談・資料請求 →</a>
+</div></aside>
+</div>
+<footer class="custom-footer"><div class="footer-inner">
+<nav class="footer-nav">
+<a href="https://fp-1.info/traingo/">Traingoとは</a>
+<a href="https://fp-1.info/traingo/blog/">Traingoブログ</a>
+<a href="https://fp-1.info/traingo/guide/">Traingo活用ガイド</a>
+<a href="https://fp-1.info/traingo/help/">ヘルプ・使い方</a>
+<a href="https://fp-1.info/hojokin/#about" target="_blank" rel="noopener">会社紹介</a>
+<a href="https://fp-1.info/traingo/contact/">お問い合わせ</a>
+<a href="https://fp-1.info/hojokin/" target="_blank" rel="noopener">補助金活用型経営</a>
+</nav>
+<div class="footer-copy">© Well Consultant合同会社　Traingo（トレインゴ）｜法人向け研修プラットフォーム</div>
+</div></footer>
+<script>(function(){function k(){
+document.documentElement.style.setProperty('margin-top','0','important');
+document.body.style.setProperty('margin-top','0','important');document.body.style.setProperty('padding-top','0','important');
+var wsb=document.querySelector('.wp-site-blocks');if(wsb){wsb.style.setProperty('margin-top','0','important');wsb.style.setProperty('padding-top','0','important');Array.prototype.forEach.call(wsb.children,function(c){c.style.setProperty('margin-top','0','important');});}
+['header.wp-block-template-part','.wp-site-blocks > header','.wp-block-post-title','.wp-block-template-part[data-area=\"footer\"]','.wp-site-blocks > footer'].forEach(function(s){document.querySelectorAll(s).forEach(function(e){e.style.setProperty('display','none','important');});});
+}if(document.readyState!=='loading')k();else document.addEventListener('DOMContentLoaded',k);window.addEventListener('load',k);})();</script>
+<!-- /wp:html -->
